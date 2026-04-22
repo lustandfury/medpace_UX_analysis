@@ -399,33 +399,47 @@ document.getElementById('nav-menu').addEventListener('click', (e) => {
 // Populate navigation menu from /pages directory
 async function loadPagesMenu() {
   const navMenu = document.getElementById('nav-menu');
-  
-  try {
-    // Fetch the pages directory listing
-    const response = await fetch('https://api.github.com/repos/lustandfury/medpace_UX_analysis/contents/pages');
-    const files = await response.json();
-    
-    if (Array.isArray(files)) {
-      files.forEach(file => {
-        if (file.type === 'file') {
-          const navItem = document.createElement('a');
-          navItem.href = `pages/${encodeURIComponent(file.name)}`;
-          navItem.className = 'nav-item';
-          navItem.textContent = file.name.replace(/\.[^/.]+$/, ''); // Remove file extension
-          navMenu.appendChild(navItem);
-        }
-      });
-    }
-  } catch (error) {
-    console.log('Navigation menu could not be auto-populated. Add files to /pages directory.');
-    // Fallback: add a placeholder
-    const placeholder = document.createElement('a');
-    placeholder.className = 'nav-item';
-    placeholder.textContent = 'No pages yet';
-    placeholder.style.color = 'var(--slate)';
-    placeholder.style.pointerEvents = 'none';
-    navMenu.appendChild(placeholder);
+
+  function addNavItem(filename) {
+    const navItem = document.createElement('a');
+    navItem.href = `pages/${encodeURIComponent(filename)}`;
+    navItem.className = 'nav-item';
+    navItem.textContent = filename.replace(/\.[^/.]+$/, '');
+    navMenu.appendChild(navItem);
   }
+
+  // Try directory listing first (works with Python http.server locally)
+  try {
+    const res = await fetch('pages/');
+    if (res.ok) {
+      const html = await res.text();
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      const files = Array.from(doc.querySelectorAll('a[href]'))
+        .map(a => a.getAttribute('href'))
+        .filter(href => href && !href.startsWith('?') && !href.startsWith('/') && href !== '../' && !href.endsWith('/'));
+      if (files.length > 0) {
+        files.forEach(href => addNavItem(decodeURIComponent(href)));
+        return;
+      }
+    }
+  } catch (e) {}
+
+  // Fall back to GitHub API (works on GitHub Pages)
+  try {
+    const res = await fetch('https://api.github.com/repos/lustandfury/medpace_UX_analysis/contents/pages');
+    const files = await res.json();
+    if (Array.isArray(files)) {
+      files.filter(f => f.type === 'file').forEach(f => addNavItem(f.name));
+      return;
+    }
+  } catch (e) {}
+
+  const placeholder = document.createElement('a');
+  placeholder.className = 'nav-item';
+  placeholder.textContent = 'No pages yet';
+  placeholder.style.color = 'var(--slate)';
+  placeholder.style.pointerEvents = 'none';
+  navMenu.appendChild(placeholder);
 }
 
 // Load pages on page load
