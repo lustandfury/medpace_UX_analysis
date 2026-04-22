@@ -5,7 +5,7 @@
   // Inject nav styles (hardcoded so pages don't need matching CSS variables)
   const style = document.createElement('style');
   style.textContent =
-    ".nav-wrapper{background:#0D1B2A;padding:12px 64px;border-bottom:1px solid rgba(2,195,154,.2);display:flex;align-items:center;gap:24px;font-family:'DM Sans',sans-serif;}" +
+    ".nav-wrapper{background:#0D1B2A;padding:12px max(64px,calc((100vw - 1280px) / 2));border-bottom:1px solid rgba(2,195,154,.2);display:flex;align-items:center;gap:24px;font-family:'DM Sans',sans-serif;}" +
     '.nav-home{font-size:13px;font-weight:600;color:#02C39A;text-decoration:none;display:flex;align-items:center;gap:6px;transition:color .2s;}' +
     '.nav-home:hover{color:#fff;}' +
     ".nav-home::before{content:'⌂';font-size:14px;}" +
@@ -20,7 +20,7 @@
     '.nav-item{color:#8FAAB3;text-decoration:none;padding:12px 16px;font-size:13px;transition:all .2s;border-left:3px solid transparent;}' +
     '.nav-item:hover{background:rgba(2,195,154,.1);color:#02C39A;border-left-color:#028090;}' +
     '.nav-item.active{background:rgba(2,195,154,.15);color:#02C39A;border-left-color:#02C39A;}' +
-    '@media(max-width:768px){.nav-wrapper{padding:12px 24px;gap:16px;}}';
+    '@media(max-width:768px){.nav-wrapper{padding:12px 24px!important;gap:16px;}}';
   document.head.appendChild(style);
 
   // Inject nav HTML synchronously (no flash)
