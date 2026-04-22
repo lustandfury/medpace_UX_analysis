@@ -3,63 +3,63 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Figma Make — Starter Kit</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500;1,9..144,700&family=Roboto:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #F5F7F8;
-    --bg-warm: #EEF1F3;
-    --dark: #0D1B2A;
-    --dark2: #132233;
-    --text: #0D1B2A;
-    --text-mid: #4A6572;
-    --text-muted: #8FAAB3;
-    --accent: #02C39A;
-    --accent-light: rgba(2,195,154,.1);
-    --accent-border: rgba(2,195,154,.2);
-    --border: #DDE3E7;
+    --bg: #f7f7f7;
+    --bg-warm: #eeecf2;
+    --dark: #210f36;
+    --dark2: #2e1a47;
+    --text: #210f36;
+    --text-mid: #5d5c6a;
+    --text-muted: #91919f;
+    --accent: #408c84;
+    --accent-light: rgba(64,140,132,.1);
+    --accent-border: rgba(64,140,132,.2);
+    --border: #dedede;
     --border-dark: rgba(255,255,255,.12);
     --mono-bg: #1E1E2E;
     --mono-text: #CDD6F4;
-    --mono-accent: #F2B705;
-    --green: #028090;
-    --green-bg: rgba(2,128,144,.08);
+    --mono-accent: #e8a317;
+    --green: #2f6b66;
+    --green-bg: rgba(47,107,102,.08);
     --radius: 8px;
     --max: 1100px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 15px; line-height: 1.6; font-weight: 400; }
+  body { background: var(--bg); color: var(--text); font-family: 'Roboto', sans-serif; font-size: 15px; line-height: 1.6; font-weight: 400; }
 
   /* HEADER */
-  header { background: var(--dark); color: #F5F7F8; padding: 0 max(40px,calc((100% - var(--max)) / 2)); display: flex; align-items: center; justify-content: space-between; height: 52px; position: sticky; top: 0; z-index: 200; border-bottom: 1px solid var(--border-dark); }
+  header { background: var(--dark); color: #ffffff; padding: 0 max(40px,calc((100% - var(--max)) / 2)); display: flex; align-items: center; justify-content: space-between; height: 52px; position: sticky; top: 0; z-index: 200; border-bottom: 1px solid var(--border-dark); }
   .header-left { display: flex; align-items: center; gap: 14px; font-size: 0.78rem; color: var(--text-muted); }
   .header-left strong { color: #CDD6F4; font-weight: 500; }
   .header-left .sep { color: rgba(255,255,255,.2); }
-  .header-right { font-family: 'DM Mono', monospace; font-size: 0.63rem; color: var(--text-mid); letter-spacing: 0.08em; text-transform: uppercase; }
+  .header-right { font-family: 'Roboto Mono', monospace; font-size: 0.63rem; color: var(--text-mid); letter-spacing: 0.08em; text-transform: uppercase; }
 
   /* PROGRESS */
   .progress-strip { height: 2px; background: var(--border); position: sticky; top: 52px; z-index: 199; }
   .progress-fill { height: 100%; background: var(--accent); width: 0%; transition: width 0.4s ease; }
 
   /* HERO */
-  .hero { background: var(--dark); color: #F5F7F8; padding: 80px max(40px,calc((100% - var(--max)) / 2)) 72px; border-bottom: 1px solid var(--border-dark); }
+  .hero { background: var(--dark); color: #ffffff; padding: 80px max(40px,calc((100% - var(--max)) / 2)) 72px; border-bottom: 1px solid var(--border-dark); }
   .hero-inner { max-width: 100%; }
-  .eyebrow { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 28px; display: flex; align-items: center; gap: 10px; }
+  .eyebrow { font-family: 'Roboto Mono', monospace; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 28px; display: flex; align-items: center; gap: 10px; }
   .eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent); }
-  h1 { font-family: 'Instrument Serif', serif; font-size: 3.6rem; font-weight: 700; line-height: 1.08; margin-bottom: 28px; letter-spacing: -0.01em; }
+  h1 { font-family: 'Fraunces', serif; font-size: 3.6rem; font-weight: 700; line-height: 1.08; margin-bottom: 28px; letter-spacing: -0.01em; }
   h1 em { font-style: italic; color: var(--text-muted); }
   .hero-desc { font-size: 1rem; color: var(--text-muted); line-height: 1.8; max-width: 500px; margin-bottom: 40px; font-weight: 300; }
   .compat-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-  .tag { display: inline-flex; align-items: center; gap: 7px; background: rgba(255,255,255,.03); border: 1px solid var(--border-dark); border-radius: 3px; padding: 5px 12px; font-size: 0.73rem; color: var(--text-muted); font-family: 'DM Mono', monospace; letter-spacing: 0.02em; }
+  .tag { display: inline-flex; align-items: center; gap: 7px; background: rgba(255,255,255,.03); border: 1px solid var(--border-dark); border-radius: 3px; padding: 5px 12px; font-size: 0.73rem; color: var(--text-muted); font-family: 'Roboto Mono', monospace; letter-spacing: 0.02em; }
   .tag .dot-g { width: 5px; height: 5px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
 
   /* SECTIONS */
   .section { border-bottom: 1px solid var(--border); padding: 72px max(40px,calc((100% - var(--max)) / 2)); }
   .section:last-of-type { border-bottom: none; }
   .section-inner { max-width: 100%; }
-  .section-label { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+  .section-label { font-family: 'Roboto Mono', monospace; font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
   .section-label::before { content: ''; display: block; width: 14px; height: 1px; background: var(--text-muted); }
-  .section h2 { font-family: 'Instrument Serif', serif; font-size: 2.1rem; font-weight: 700; line-height: 1.15; margin-bottom: 8px; letter-spacing: -0.01em; }
+  .section h2 { font-family: 'Fraunces', serif; font-size: 2.1rem; font-weight: 700; line-height: 1.15; margin-bottom: 8px; letter-spacing: -0.01em; }
   .section h2 em { font-style: italic; color: var(--text-muted); }
   .section-sub { font-size: 0.87rem; color: var(--text-muted); font-style: italic; margin-bottom: 36px; }
   .section-body { font-size: 0.92rem; color: var(--text-mid); line-height: 1.8; margin-bottom: 36px; }
@@ -68,32 +68,32 @@
   .numbered-items { margin-bottom: 40px; }
   .numbered-item { display: flex; gap: 28px; padding: 24px 0; border-top: 1px solid var(--border); }
   .numbered-item:last-child { border-bottom: 1px solid var(--border); }
-  .item-num { font-family: 'Instrument Serif', serif; font-size: 1.7rem; font-weight: 700; color: var(--border); line-height: 1; width: 28px; flex-shrink: 0; padding-top: 2px; }
+  .item-num { font-family: 'Fraunces', serif; font-size: 1.7rem; font-weight: 700; color: var(--border); line-height: 1; width: 28px; flex-shrink: 0; padding-top: 2px; }
   .item-content h3 { font-size: 0.88rem; font-weight: 500; margin-bottom: 5px; color: var(--text); }
   .item-content p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.65; }
 
   /* PROMPT BLOCK */
   .prompt-wrap { margin-bottom: 32px; }
   .prompt-toggle { display: flex; }
-  .toggle-btn { background: none; border: 1px solid var(--border); padding: 7px 16px; font-family: 'DM Mono', monospace; font-size: 0.63rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); cursor: pointer; transition: all 0.15s; }
+  .toggle-btn { background: none; border: 1px solid var(--border); padding: 7px 16px; font-family: 'Roboto Mono', monospace; font-size: 0.63rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); cursor: pointer; transition: all 0.15s; }
   .toggle-btn:first-child { border-radius: 4px 0 0 0; border-right: none; }
   .toggle-btn:last-child { border-radius: 0 4px 0 0; }
   .toggle-btn.active { background: var(--mono-bg); color: var(--mono-accent); border-color: var(--mono-bg); }
   .prompt-block { background: var(--mono-bg); border-radius: 0 4px 4px 4px; overflow: hidden; }
   .prompt-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 20px; border-bottom: 1px solid rgba(255,255,255,0.04); }
-  .prompt-label-txt { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,.3); display: flex; align-items: center; gap: 8px; }
+  .prompt-label-txt { font-family: 'Roboto Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,.3); display: flex; align-items: center; gap: 8px; }
   .prompt-label-txt::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); display: block; }
-  .copy-btn { display: flex; align-items: center; gap: 6px; background: transparent; border: 1px solid rgba(255,255,255,.15); border-radius: 3px; padding: 5px 12px; font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); cursor: pointer; transition: all 0.15s; }
+  .copy-btn { display: flex; align-items: center; gap: 6px; background: transparent; border: 1px solid rgba(255,255,255,.15); border-radius: 3px; padding: 5px 12px; font-family: 'Roboto Mono', monospace; font-size: 0.6rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); cursor: pointer; transition: all 0.15s; }
   .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
   .copy-btn.copied { border-color: var(--green); color: var(--green); }
-  .prompt-text { padding: 24px; font-family: 'DM Mono', monospace; font-size: 0.77rem; line-height: 1.9; color: var(--mono-text); white-space: pre-wrap; display: none; }
+  .prompt-text { padding: 24px; font-family: 'Roboto Mono', monospace; font-size: 0.77rem; line-height: 1.9; color: var(--mono-text); white-space: pre-wrap; display: none; }
   .prompt-text.active { display: block; }
   .prompt-text .hi { color: var(--mono-accent); }
   .prompt-text .ph { color: rgba(255,255,255,.25); background: rgba(255,255,255,0.04); padding: 0 4px; border-radius: 2px; font-style: italic; }
 
   /* INSIGHT */
   .insight { padding: 20px 24px; background: var(--accent-light); border-left: 2px solid var(--accent); border-radius: 0 4px 4px 0; margin-bottom: 24px; }
-  .insight-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+  .insight-eyebrow { font-family: 'Roboto Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
   .insight p { font-size: 0.84rem; color: var(--text-mid); line-height: 1.68; }
   .insight p strong { color: var(--text); font-weight: 500; }
 
@@ -107,7 +107,7 @@
   .step-nav-strip { display: flex; justify-content: space-between; align-items: center; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
   .step-nav-strip a { font-size: 0.82rem; color: var(--text-muted); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.15s; }
   .step-nav-strip a:hover { color: var(--accent); }
-  .next-link { font-weight: 500; background: var(--dark) !important; color: #F5F7F8 !important; padding: 9px 18px; border-radius: 4px; }
+  .next-link { font-weight: 500; background: var(--dark) !important; color: #ffffff !important; padding: 9px 18px; border-radius: 4px; }
   .next-link:hover { background: var(--accent) !important; }
 
   /* NOTICE BOX */
@@ -122,7 +122,7 @@
   .nav-dot:hover { background: var(--text-muted); }
 
   /* FOOTER */
-  footer { background: var(--dark); padding: 40px max(40px,calc((100% - var(--max)) / 2)); display: flex; justify-content: space-between; align-items: center; font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.06em; color: var(--text-mid); }
+  footer { background: var(--dark); padding: 40px max(40px,calc((100% - var(--max)) / 2)); display: flex; justify-content: space-between; align-items: center; font-family: 'Roboto Mono', monospace; font-size: 0.65rem; letter-spacing: 0.06em; color: var(--text-mid); }
 
   @media (max-width: 680px) {
     h1 { font-size: 2.4rem; }
