@@ -317,7 +317,7 @@
 <div class="section">
   <div class="sec-label">The Skill</div>
   <h2 class="sec-title">Copy this prompt</h2>
-  <p class="sec-sub">Paste this into Claude.ai (or any Claude interface) before your PRD text. The <span style="color:var(--amber);font-weight:600;">[paste your PRD here]</span> placeholder is where your PRD goes — everything above it is the skill.</p>
+  <p class="sec-sub">Paste this into Claude.ai (or any Claude interface) before your PRD text. </p>
 
   <div class="prompt-wrap">
     <div class="prompt-topbar">
@@ -429,6 +429,100 @@ Analyse the PRD below and produce a structured UX Analysis covering six sections
   </div>
 </div>
 
+<!-- BUILD YOUR OWN SKILL -->
+<div class="section" style="background:var(--off);">
+  <div class="sec-label">Creating</div>
+  <h2 class="sec-title">Build your own skill</h2>
+  <p class="sec-sub">In this workshop, a "skill" is a reusable prompt saved to a Claude Project — not the Claude Code developer feature. Here's how to go from idea to team-ready skill in a single conversation.</p>
+
+  <div style="margin-bottom:40px;">
+    <div style="font-size:15px;font-weight:600;color:var(--navy);margin-bottom:4px;">Use this to kick off any new skill — fill in the brackets and paste it into Claude:</div>
+    <div style="font-size:14px;color:var(--slate);margin-bottom:14px;">Claude already knows how to write a well-structured skill prompt. You just need to give it the job description.</div>
+    <div class="prompt-wrap">
+      <div class="prompt-topbar">
+        <div class="pb-dot" style="background:#FF5F57;"></div>
+        <div class="pb-dot" style="background:#FEBC2E;"></div>
+        <div class="pb-dot" style="background:#28C840;"></div>
+        <div class="prompt-label">Skill-writing starter prompt</div>
+        <button class="copy-btn" id="copy-starter-btn" onclick="copyStarterPrompt()">Copy</button>
+      </div>
+      <div class="prompt-body">
+        <pre id="starter-prompt-text"><span class="comment">I want to create a reusable skill — a prompt template for a specific type of analysis.</span>
+
+<span class="amber">Goal:</span>         [what you want the skill to do — one sentence]
+<span class="amber">Input type:</span>   [what you'll paste in — PRD, transcript, prototype HTML, spec doc]
+<span class="amber">Output:</span>       [list the sections or findings you need]
+<span class="amber">Audience:</span>     [who reads the output and what they do next]
+<span class="amber">Constraints:</span>  [length, format, traceability, anything else]
+
+<span class="comment">Write this as a structured skill prompt. Use // for meta-instructions,
+open with a role definition, name each output section explicitly with a
+count range for findings, include an example format for each finding type,
+and close with constraints as // comments. Make it ready to copy and paste.</span></pre>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
+    <div style="background:var(--teal);color:var(--white);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:4px;flex-shrink:0;">Phase 1</div>
+    <div style="font-size:16px;font-weight:700;color:var(--navy);">Draft it in conversation</div>
+    <div style="flex:1;height:1px;background:var(--border);"></div>
+  </div>
+  <div class="steps" style="margin-bottom:36px;">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Describe the job — not the syntax</h4>
+        <p>Open a new Claude.ai conversation. Explain the analysis you want to run: what input you'll paste in, what you need back, who reads the output, and what they do with it. Claude will ask clarifying questions — answer them. The goal of this turn is to get the logic right, not the structure. Don't think about prompt format yet.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Ask Claude to write the first draft</h4>
+        <p>Once you've described the job, paste the starter prompt above into the same conversation. Claude already has your context from step 1 — the starter prompt tells it the structure to apply: role definition, <code>//</code> meta-instructions, named output sections with count ranges, and a format example for each finding type. It will produce a complete, copy-pasteable skill in one turn.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>Test with real input, iterate in the same conversation</h4>
+        <p>Open a new Claude.ai tab. Paste the draft skill + a real input document. Read the output critically against what you expected: Is the format right? Are findings specific or vague? Is a section missing? Is it too long? Go back to your drafting conversation — don't start a new one — and tell Claude exactly what to change. Two or three rounds is typical before a skill produces consistently good output.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;">
+    <div style="background:var(--violet);color:var(--white);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:4px;flex-shrink:0;">Phase 2</div>
+    <div style="font-size:16px;font-weight:700;color:var(--navy);">Save it to Claude Projects</div>
+    <div style="flex:1;height:1px;background:var(--border);"></div>
+  </div>
+  <div class="steps" style="margin-bottom:32px;">
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h4>Paste the skill into Project Instructions</h4>
+        <p>In Claude.ai, open (or create) the Project you want to share the skill in. Open the project settings and paste the finished skill into the Project Instructions field. Every conversation opened in that project will now have the skill active — team members paste their input and run the analysis without ever touching the prompt text.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <h4>Invite your team and leave a header comment</h4>
+        <p>Invite team members to the project. Add a short <code>//</code> comment at the top of your instructions — one or two lines describing what the skill does, what input it expects, and what format it produces. Future maintainers (including you, six months from now) will thank you. When the skill needs updating, edit the project instructions directly — the change is live for everyone immediately.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:var(--navy2);border-radius:12px;padding:24px 28px;display:flex;gap:20px;align-items:flex-start;">
+    <div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:rgba(232,163,23,.15);display:flex;align-items:center;justify-content:center;font-size:15px;margin-top:2px;">💡</div>
+    <div>
+      <div style="font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:8px;">You don't need to start from blank</div>
+      <div style="font-size:15px;color:var(--slatel);line-height:1.7;">The PRD UX Analysis skill on this page is a working example you can adapt. Instead of writing from scratch, tell Claude: <em style="color:rgba(255,255,255,.65);">"Here's an existing skill I want to modify for [different input type / different output / different domain]. Keep the structure, change the analysis sections to cover [X]."</em> Adapting a working skill is faster than building from a blank description every time.</div>
+    </div>
+  </div>
+</div>
+
 <!-- VARIATIONS -->
 <div class="section">
   <div class="sec-label">Variations</div>
@@ -512,6 +606,14 @@ Analyse the PRD below and produce a structured UX Analysis covering six sections
 </div>
 
 <script>
+function copyStarterPrompt() {
+  const el = document.getElementById('starter-prompt-text');
+  navigator.clipboard.writeText(el.innerText).then(() => {
+    const btn = document.getElementById('copy-starter-btn');
+    btn.textContent = 'Copied!';
+    setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+  });
+}
 function copyPrompt() {
   const text = document.getElementById('prompt-text').innerText
     .replace(/^\/\/ PRD UX Analysis Skill[\s\S]*?do not summarise the PRD\. Analyse it\.\n\nPRD:\n/m, match => match)

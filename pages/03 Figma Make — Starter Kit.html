@@ -195,7 +195,7 @@
     <span class="sep">·</span>
     <span>Starter Kit</span>
   </div>
-  <div class="header-right">Setup · 7 Steps · Medpace Examples</div>
+  <div class="header-right">Context-first · 5 Steps · Medpace Examples</div>
 </header>
 
 <div class="progress-strip"><div class="progress-fill" id="prog" style="width: 15.075298%;"></div></div>
@@ -204,14 +204,12 @@
   <button class="nav-dot" onclick="scrollTo(0)" title="Intro"></button>
   <button class="nav-dot" onclick="scrollTo(1)" title="Overview"></button>
   <button class="nav-dot" onclick="scrollTo(2)" title="Before You Prompt"></button>
-  <button class="nav-dot active" onclick="scrollTo(3)" title="Problem Framing"></button>
+  <button class="nav-dot" onclick="scrollTo(3)" title="Problem Framing"></button>
   <button class="nav-dot" onclick="scrollTo(4)" title="User Personas"></button>
   <button class="nav-dot" onclick="scrollTo(5)" title="Brand Brief"></button>
-  <button class="nav-dot" onclick="scrollTo(6)" title="Microcopy"></button>
-  <button class="nav-dot" onclick="scrollTo(7)" title="User Flow"></button>
-  <button class="nav-dot" onclick="scrollTo(8)" title="Build"></button>
-  <button class="nav-dot" onclick="scrollTo(9)" title="Iterate"></button>
-  <button class="nav-dot" onclick="scrollTo(10)" title="What to Avoid"></button>
+  <button class="nav-dot" onclick="scrollTo(6)" title="Build"></button>
+  <button class="nav-dot" onclick="scrollTo(7)" title="Iterate"></button>
+  <button class="nav-dot" onclick="scrollTo(8)" title="What to Avoid"></button>
 </div>
 
 <!-- HERO -->
@@ -219,7 +217,7 @@
   <div class="hero-inner">
     <div class="eyebrow">Figma Make · Starter Kit</div>
     <h1>Brief it like a<br>collaborator,<br><em>not a button.</em></h1>
-    <p class="hero-desc">Most users treat Figma Make like a magic generator. The ones who get exceptional results treat it like a collaborator they need to brief well. This kit walks you through 7 steps — from problem framing to iteration — with copy-ready prompts at every stage.</p>
+    <p class="hero-desc">Most users treat Figma Make like a magic generator. The ones who get exceptional results treat it like a collaborator they need to brief well. This kit walks you through 5 steps — from problem framing to iteration — with copy-ready prompts at every stage.</p>
     <div class="compat-tags">
       <span class="tag"><span class="dot-g"></span>Works in Figma Make</span>
       <span class="tag"><span class="dot-g"></span>Attach artifacts across steps</span>
@@ -242,10 +240,10 @@
     <h2>What this kit <em>produces</em></h2>
     <p class="section-sub">Seven artifacts that chain together — each one feeding the next.</p>
     <div class="numbered-items">
-      <div class="numbered-item"><div class="item-num">1</div><div class="item-content"><h3>Problem Brief</h3><p>A markdown document defining the core problem, design priorities, edge cases, and success criteria. The foundation everything else builds on.</p></div></div>
-      <div class="numbered-item"><div class="item-num">2</div><div class="item-content"><h3>User Personas</h3><p>Structured persona docs with goals, frustrations, behaviours, and one critical design implication each. Attach to Make so it designs for real humans, not assumptions.</p></div></div>
-      <div class="numbered-item"><div class="item-num">3</div><div class="item-content"><h3>Brand Brief</h3><p>A living design token reference — colors, type scale, spacing, tone of voice, and what the brand should never look like. The fastest path to consistently on-brand output.</p></div></div>
-      <div class="numbered-item"><div class="item-num">4</div><div class="item-content"><h3>Microcopy Document</h3><p>All UI text upfront: buttons, errors, empty states, onboarding, tooltips. Attach this so Make uses real copy instead of placeholders — transforms what prototype reviews feel like.</p></div></div>
+      <div class="numbered-item"><div class="item-num">1</div><div class="item-content"><h3>Problem Brief</h3><p>A markdown document defining the core problem, design priorities, edge cases, and success criteria. Add it to the Figma Make guidelines folder — it becomes the foundation every subsequent session builds on.</p></div></div>
+      <div class="numbered-item"><div class="item-num">2</div><div class="item-content"><h3>User Personas</h3><p>Structured persona docs with goals, frustrations, behaviours, and one critical design implication each. In the guidelines folder, Make designs for real humans automatically — without being told to in every prompt.</p></div></div>
+      <div class="numbered-item"><div class="item-num">3</div><div class="item-content"><h3>Brand Brief</h3><p>A living design token reference — colors, type scale, spacing, tone of voice, and what the brand should never look like. In the guidelines folder, it's the fastest path to consistently on-brand output.</p></div></div>
+      <div class="numbered-item"><div class="item-num">4</div><div class="item-content"><h3>Microcopy Document</h3><p>All UI text upfront: buttons, errors, empty states, onboarding, tooltips. In the guidelines folder, Make uses real copy instead of placeholders automatically — transforms what prototype reviews feel like.</p></div></div>
       <div class="numbered-item"><div class="item-num">5</div><div class="item-content"><h3>Interactive User Flow</h3><p>A clickable HTML flow diagram with happy paths, skip paths, and error states. Faster to build and share than a Figma flow, and works in any browser.</p></div></div>
       <div class="numbered-item"><div class="item-num">6</div><div class="item-content"><h3>Component Build</h3><p>The actual Make generation prompt — written to reference all prior artifacts. The output quality difference versus a blank prompt is categorical, not incremental.</p></div></div>
       <div class="numbered-item"><div class="item-num">7</div><div class="item-content"><h3>Iteration Prompts</h3><p>Six high-leverage follow-up prompts for hierarchy, accessibility, responsiveness, data states, and the Persona Check — the most underused review in the kit.</p></div></div>
@@ -265,73 +263,103 @@
 <section class="section" id="sec-prep">
   <div class="section-inner">
     <div class="section-label">Before You Type Anything</div>
-    <h2>Best first <em>actions.</em></h2>
-    <p class="section-sub">How you set up Figma Make before prompting shapes output quality more than any single word in your prompt.</p>
+    <h2>Context before <em>pixels.</em></h2>
+    <p class="section-sub">The biggest unlock in Figma Make isn't a better prompt — it's the context you give Make before the first design prompt.</p>
 
     <div class="setup-grid">
+      <div class="setup-card">
+        <div class="setup-top" style="background:var(--text-muted);"></div>
+        <div class="setup-cbody">
+          <span class="setup-badge" style="background:var(--bg);color:var(--text-muted);">When you first open Make</span>
+          <h3>The intro screen offers single-click sample options</h3>
+          <p>When you open Figma Make, the intro screen shows pre-built sample options — one click to generate an example screen. These demonstrate what Make can produce and are useful for exploring its range. They're capability demos, not a starting point for real product work. The output reflects no knowledge of your users, your problem, or your brand.</p>
+          <div class="setup-note" style="color:var(--text-muted);border-color:var(--border);">Explore the samples to understand what's possible. But for work that needs to reflect actual users and a real design problem — start from step 1 of this kit instead.</div>
+        </div>
+      </div>
       <div class="setup-card">
         <div class="setup-top" style="background:var(--accent);"></div>
         <div class="setup-cbody">
           <span class="setup-badge" style="background:var(--accent-light);color:var(--accent);">Recommended path</span>
-          <h3>If you have a design ready — attach it first</h3>
-          <p>Click the <code style="background:var(--bg);padding:1px 6px;border-radius:3px;font-family:monospace;font-size:14px;">+</code> attachment icon and attach your Figma frame <em>before</em> writing a word. This is the biggest unlock in Figma Make. It gives Make visual grounding — it understands your actual components, spacing, and colour tokens rather than inventing them from scratch. The difference in output quality is significant.</p>
-          <div class="setup-note"><strong>Medpace example:</strong> Attach a frame from your clinical monitoring file. Make will apply your existing badge styles, nav structure, and colour tokens — instead of defaulting to generic SaaS blue.</div>
-        </div>
-      </div>
-      <div class="setup-card">
-        <div class="setup-top" style="background:var(--mono-accent);"></div>
-        <div class="setup-cbody">
-          <span class="setup-badge" style="background:rgba(232,163,23,.12);color:var(--mono-accent);">Starting from scratch</span>
-          <h3>Pick your mode intentionally — before prompting</h3>
-          <p>The four buttons at the bottom of Make constrain how it generates output. Picking the wrong mode before prompting is the most common cause of layouts that fight you — Make optimises structure for that mode from the first generation, and changing modes later forces a full rebuild.</p>
-          <div class="setup-note"><strong>Rule:</strong> Set the mode before you paste your prompt. Changing mode mid-session means starting over — you lose whatever structure was working.</div>
+          <h3>Build your context files before you design</h3>
+          <p>Steps 1–4 of this kit generate markdown documents — your problem brief, user personas, brand tokens, and microcopy. Add these to the <strong>guidelines folder in Figma Make</strong> as you generate them. Make includes everything in the guidelines folder automatically in every session — when you finally prompt for a screen, it already understands the user, the problem, the brand, and the copy. None of that needs to be in the design prompt.</p>
+          <div class="setup-note"><strong>Add to guidelines folder:</strong> problem-brief.md · personas.md · brand-tokens.md · microcopy.md — built across steps 1–4. The quality difference versus a blank prompt is not incremental.</div>
         </div>
       </div>
     </div>
 
-    <div class="section-label" style="margin-bottom:16px;">The Four Modes</div>
-    <div class="modes-grid">
-      <div class="mode-card">
-        <div class="mode-top" style="background:var(--accent);"></div>
-        <div class="mode-cbody">
-          <div class="mode-name">Visualization</div>
-          <div class="mode-desc">Data · charts · dashboards · KPI views</div>
-          <div class="mode-for" style="color:var(--accent);">Medpace — use for</div>
-          <div class="mode-examples">Patient enrollment tables, site performance dashboards, protocol deviation summaries, enrollment velocity charts</div>
+    <div class="section-label" style="margin-bottom:12px;">What specificity looks like</div>
+    <p style="font-size:0.87rem;color:var(--text-muted);font-style:italic;margin-bottom:24px;">Your context files handle the "who" and "why" — your prompt handles the "what and how." These examples show what a specific, context-informed prompt produces versus a blank one.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px;">
+
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+        <div style="background:var(--dark);height:148px;padding:14px;display:flex;flex-direction:column;gap:6px;">
+          <div style="background:rgba(255,255,255,.06);border-radius:3px;height:24px;display:flex;align-items:center;padding:0 10px;gap:8px;">
+            <div style="width:38%;height:6px;background:rgba(255,255,255,.18);border-radius:2px;"></div>
+            <div style="margin-left:auto;display:flex;gap:5px;">
+              <div style="width:52px;height:14px;background:rgba(47,107,102,.35);border-radius:2px;"></div>
+              <div style="width:36px;height:14px;background:rgba(255,255,255,.08);border-radius:2px;"></div>
+            </div>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;gap:5px;padding:4px 0;">
+            <div style="display:grid;grid-template-columns:2fr 1.5fr 1fr 0.8fr;gap:6px;padding:0 2px;"><div style="height:5px;background:rgba(255,255,255,.1);border-radius:1px;"></div><div style="height:5px;background:rgba(255,255,255,.06);border-radius:1px;"></div><div style="height:5px;background:rgba(255,255,255,.06);border-radius:1px;"></div><div style="height:5px;background:rgba(255,255,255,.06);border-radius:1px;"></div></div>
+            <div style="display:grid;grid-template-columns:2fr 1.5fr 1fr 0.8fr;gap:6px;padding:4px 2px;border-top:1px solid rgba(255,255,255,.04);"><div style="height:5px;background:rgba(255,255,255,.12);border-radius:1px;"></div><div style="height:5px;background:rgba(255,255,255,.07);border-radius:1px;"></div><div style="height:5px;background:rgba(255,255,255,.07);border-radius:1px;"></div><div style="width:18px;height:12px;background:#c43b31;border-radius:2px;"></div></div>
+            <div style="display:grid;grid-template-columns:2fr 1.5fr 1fr 0.8fr;gap:6px;padding:4px 2px;border-top:1px solid rgba(255,255,255,.04);"><div style="height:5px;background:rgba(255,255,255,.12);border-radius:1px;"></div><div style="height:5px;background:rgba(255,255,255,.07);border-radius:1px;"></div><div style="height:5px;background:rgba(255,255,255,.07);border-radius:1px;"></div><div style="width:18px;height:12px;background:#e8a317;border-radius:2px;"></div></div>
+            <div style="display:grid;grid-template-columns:2fr 1.5fr 1fr 0.8fr;gap:6px;padding:4px 2px;border-top:1px solid rgba(255,255,255,.04);"><div style="height:5px;background:rgba(255,255,255,.12);border-radius:1px;"></div><div style="height:5px;background:rgba(255,255,255,.07);border-radius:1px;"></div><div style="height:5px;background:rgba(255,255,255,.07);border-radius:1px;"></div><div style="width:18px;height:12px;background:rgba(47,107,102,.4);border-radius:2px;"></div></div>
+          </div>
+        </div>
+        <div style="padding:12px 14px;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:7px;">Data tables &amp; dashboards</div>
+          <div style="font-size:0.75rem;color:var(--text);line-height:1.6;font-family:'Roboto Mono',monospace;background:var(--accent-light);padding:7px 9px;border-radius:3px;">"...8-column patient table, risk flags colour-coded red/amber/green by clinical threshold, sticky header, 'show flagged only' toggle..."</div>
         </div>
       </div>
-      <div class="mode-card">
-        <div class="mode-top" style="background:var(--mono-accent);"></div>
-        <div class="mode-cbody">
-          <div class="mode-name">Website</div>
-          <div class="mode-desc">Marketing pages · portals · landing pages</div>
-          <div class="mode-for" style="color:var(--mono-accent);">Medpace — use for</div>
-          <div class="mode-examples">Sponsor-facing study portals, participant recruitment pages, study information pages</div>
+
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+        <div style="background:#f3f2f7;height:148px;padding:14px;display:flex;flex-direction:column;gap:8px;">
+          <div style="background:white;border:1px solid var(--border);border-radius:4px;padding:10px 12px;display:flex;flex-direction:column;gap:6px;">
+            <div style="width:32%;height:5px;background:rgba(0,0,0,.14);border-radius:1px;"></div>
+            <div style="width:100%;height:20px;background:white;border:1px solid #d8d8d8;border-radius:3px;"></div>
+          </div>
+          <div style="background:white;border:1px solid var(--border);border-radius:4px;padding:10px 12px;display:flex;flex-direction:column;gap:6px;">
+            <div style="width:26%;height:5px;background:rgba(0,0,0,.14);border-radius:1px;"></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;"><div style="height:20px;background:white;border:1px solid #d8d8d8;border-radius:3px;"></div><div style="height:20px;background:white;border:1px solid #d8d8d8;border-radius:3px;"></div></div>
+          </div>
+          <div style="display:flex;justify-content:flex-end;gap:8px;"><div style="width:56px;height:22px;background:rgba(0,0,0,.07);border-radius:3px;"></div><div style="width:72px;height:22px;background:var(--accent);border-radius:3px;"></div></div>
+        </div>
+        <div style="padding:12px 14px;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:7px;">Forms &amp; structured input</div>
+          <div style="font-size:0.75rem;color:var(--text);line-height:1.6;font-family:'Roboto Mono',monospace;background:var(--accent-light);padding:7px 9px;border-radius:3px;">"...flag-review modal, protocol deviation path vs. all other types, required fields, audit-trail confirmation copy from microcopy doc..."</div>
         </div>
       </div>
-      <div class="mode-card">
-        <div class="mode-top" style="background:var(--dark2);"></div>
-        <div class="mode-cbody">
-          <div class="mode-name">Component</div>
-          <div class="mode-desc">Isolated UI elements — best for iteration</div>
-          <div class="mode-for" style="color:var(--text-mid);">Medpace — use for</div>
-          <div class="mode-examples">Status badge variants, patient record panels, filter toolbars, eligibility form sections, risk flag components</div>
+
+      <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+        <div style="background:var(--dark2);height:148px;padding:14px;display:flex;gap:12px;align-items:flex-start;">
+          <div style="width:58px;flex-shrink:0;background:rgba(255,255,255,.04);border-radius:6px;border:1px solid rgba(255,255,255,.08);padding:10px 8px;display:flex;flex-direction:column;gap:6px;height:120px;">
+            <div style="width:100%;height:6px;background:rgba(255,255,255,.18);border-radius:2px;"></div>
+            <div style="width:70%;height:5px;background:rgba(255,255,255,.07);border-radius:2px;"></div>
+            <div style="width:90%;height:5px;background:rgba(255,255,255,.07);border-radius:2px;"></div>
+            <div style="width:60%;height:5px;background:rgba(255,255,255,.07);border-radius:2px;"></div>
+            <div style="margin-top:auto;width:100%;height:18px;background:rgba(47,107,102,.35);border-radius:3px;"></div>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;gap:6px;padding-top:2px;">
+            <div style="width:65%;height:7px;background:rgba(255,255,255,.22);border-radius:2px;"></div>
+            <div style="width:90%;height:5px;background:rgba(255,255,255,.08);border-radius:2px;"></div>
+            <div style="width:75%;height:5px;background:rgba(255,255,255,.08);border-radius:2px;"></div>
+            <div style="width:50%;height:5px;background:rgba(255,255,255,.08);border-radius:2px;"></div>
+            <div style="margin-top:8px;width:100%;height:20px;background:rgba(47,107,102,.4);border-radius:3px;"></div>
+          </div>
+        </div>
+        <div style="padding:12px 14px;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:7px;">Mobile &amp; constrained views</div>
+          <div style="font-size:0.75rem;color:var(--text);line-height:1.6;font-family:'Roboto Mono',monospace;background:var(--accent-light);padding:7px 9px;border-radius:3px;">"...390px viewport, CRA pre-visit summary, tap targets ≥44px, single primary action per screen..."</div>
         </div>
       </div>
-      <div class="mode-card">
-        <div class="mode-top" style="background:var(--text-muted);"></div>
-        <div class="mode-cbody">
-          <div class="mode-name">Mobile App</div>
-          <div class="mode-desc">Constrained to mobile viewport</div>
-          <div class="mode-for" style="color:var(--text-muted);">Medpace — use for</div>
-          <div class="mode-examples">CRA pre-visit summary view, site coordinator quick-update screen, participant check-in flow</div>
-        </div>
-      </div>
+
     </div>
 
-    <div class="insight" style="margin-top:32px;">
-      <div class="insight-eyebrow">Use the LLM to set up</div>
-      <p>You don't have to figure out which mode or prompt structure to use alone. <strong>Describe what you're building to Claude first</strong> — the screen, the user, what they're trying to do — and ask it to help you write the Figma Make prompt. A short conversation catches gaps before Make does.</p>
+    <div class="insight">
+      <div class="insight-eyebrow">Use Claude to build context before you open Make</div>
+      <p>You don't have to write your context documents alone. <strong>Describe what you're building to Claude first</strong> — the screen, the user, what they need to accomplish — and ask it to draft the problem brief or persona doc. A short conversation builds the files that make your first Make session significantly more productive.</p>
     </div>
     <div class="step-nav-strip">
       <a href="#sec-1">← Overview</a>
@@ -346,7 +374,7 @@
     <div class="section-label">Step 01</div>
     <h2>Problem <em>Framing</em></h2>
     <p class="section-sub">Do this before you touch a single frame.</p>
-    <p class="section-body">Ask Make to generate a design brief first. This forces clarity on what you're actually solving and gives you a document to attach to every subsequent session. Once attached, Make always knows the "why" behind every decision without you re-explaining it.</p>
+    <p class="section-body">Ask Make to generate a design brief first. This forces clarity on what you're actually solving and gives you the first document to add to the guidelines folder in Figma Make. Once it's there, Make always knows the "why" behind every decision without you re-explaining it.</p>
     <div class="prompt-wrap">
       <div class="prompt-toggle">
         <button class="toggle-btn active" onclick="switchTab(this,'p1e','p1t')">Example</button>
@@ -371,7 +399,7 @@ For the brief, include:
 - 3 products this should never feel like, and why each one is a cautionary tale for us specifically in the clinical context
 - 4 success metrics that are actually measurable, not vanity metrics
 
-Format with clear markdown headers. This document gets attached to every subsequent Make session.</div>
+Format with clear markdown headers. Save this file to the guidelines folder in Figma Make — it will be included automatically in every subsequent session.</div>
         <div class="prompt-text" id="p1t">Generate a <span class="hi">design brief as a markdown document</span> for an app called <span class="ph">[product name]</span> — <span class="ph">[what it does and who it's for]</span>.
 
 Include:
@@ -382,15 +410,15 @@ Include:
 - 3 things this product should never feel like
 - Success metrics we could track
 
-Format with clear headers. I will attach this to all future Make sessions.</div>
+Format with clear headers. Save this file to the guidelines folder in Figma Make.</div>
       </div>
     </div>
     <div class="insight">
       <div class="insight-eyebrow">Why this works</div>
-      <p>The brief becomes a <strong>reusable artifact</strong>. Attach it to every subsequent Make session using the <strong>+ button</strong> in the prompt bar. Make uses it as silent context — keeping outputs aligned to the same problem without you re-explaining each time.</p>
+      <p>The brief becomes a <strong>reusable artifact</strong>. Add it to the <strong>guidelines folder in Figma Make</strong> — Make includes everything in that folder automatically in every session, so you never need to manually attach it again. Every subsequent prompt starts with the same problem context already loaded.</p>
     </div>
     <div class="tips" style="margin-top:20px;">
-      <div class="tip"><span class="tip-arrow">→</span><span><strong>Save the output</strong> as a .md file alongside your Figma file throughout the project.</span></div>
+      <div class="tip"><span class="tip-arrow">→</span><span><strong>Save the output</strong> as a .md file and add it to the Figma Make guidelines folder immediately — don't wait until all four documents are ready.</span></div>
       <div class="tip"><span class="tip-arrow">→</span><span><strong>Be specific about what it shouldn't feel like</strong> — that constraint is often more useful than describing what it should be.</span></div>
       <div class="tip"><span class="tip-arrow">→</span><span><strong>Not sure what your problem actually is?</strong> Ask Claude: <em>"I want to design [X]. Help me find the real design problem before I write a brief."</em> Use it to think out loud before committing to a direction.</span></div>
     </div>
@@ -407,7 +435,7 @@ Format with clear headers. I will attach this to all future Make sessions.</div>
     <div class="section-label">Step 02</div>
     <h2>User <em>Personas</em></h2>
     <p class="section-sub">Give Make a human to design for.</p>
-    <p class="section-body">Generate structured persona documents as markdown. These aren't just for your team — they become context you attach to Make so every generated component reflects real user needs, not generic patterns. The more specific the persona, the more distinctive the output.</p>
+    <p class="section-body">Generate structured persona documents as markdown. These aren't just for your team — they go into the <strong>guidelines folder in Figma Make</strong> so every generated component reflects real user needs, not generic patterns. The more specific the persona, the more distinctive the output.</p>
     <div class="prompt-wrap">
       <div class="prompt-toggle">
         <button class="toggle-btn active" onclick="switchTab(this,'p2e','p2t')">Example</button>
@@ -435,7 +463,9 @@ For each persona, give me:
 - A verbatim quote — something they'd actually say in a handoff meeting, unfiltered
 - The moment in their week when this platform would give them the most relief
 - Their gut reaction to new internal tools: compliance-cautious / pragmatic / cautiously enthusiastic
-- One specific thing in the UI that would make them immediately distrust the data</div>
+- One specific thing in the UI that would make them immediately distrust the data
+
+Save this file to the guidelines folder in Figma Make.</div>
         <div class="prompt-text" id="p2t">Generate <span class="hi">3 detailed user personas as a markdown document</span> for <span class="ph">[product name]</span>, <span class="ph">[one sentence description]</span>.
 
 For each persona include:
@@ -448,7 +478,7 @@ For each persona include:
 - Relationship with technology: comfortable / reluctant / power-user
 - One thing they'd notice immediately if the design got it wrong
 
-Make them feel like real people, not archetypes.</div>
+Make them feel like real people, not archetypes. Save this file to the guidelines folder in Figma Make.</div>
       </div>
     </div>
     <div class="insight">
@@ -472,7 +502,7 @@ Make them feel like real people, not archetypes.</div>
     <div class="section-label">Step 03</div>
     <h2>Brand <em>Brief</em></h2>
     <p class="section-sub">Stop Make from going off-brand before it starts.</p>
-    <p class="section-body">Generate a design token and style reference document. Attach this to every Make session. It's the single most efficient way to get consistently on-brand output — far more effective than repeating style instructions in every prompt.</p>
+    <p class="section-body">Generate a design token and style reference document and add it to the <strong>guidelines folder in Figma Make</strong>. It's the single most efficient way to get consistently on-brand output — far more effective than repeating style instructions in every prompt.</p>
     <div class="prompt-wrap">
       <div class="prompt-toggle">
         <button class="toggle-btn active" onclick="switchTab(this,'p3e','p3t')">Example</button>
@@ -507,7 +537,7 @@ Please develop:
 - Table-specific tokens: row height (compact / default / spacious), cell padding, header background, border weight. This is a data-dense tool — table tokens matter as much as component tokens.
 - Tone of voice: 4 example UI strings written in the correct clinical register — precise, direct, assumes expertise. Then: 5 words that must never appear anywhere in this product's copy.
 
-Format as markdown with clear section headers. This gets attached to every Make session from this point.</div>
+Format as markdown with clear section headers. Save this file to the guidelines folder in Figma Make — from this point, every session has your brand tokens automatically.</div>
         <div class="prompt-text" id="p3t">Create a <span class="hi">brand and design token reference document</span> for <span class="ph">[product name]</span>. The brand should feel <span class="ph">[3 adjectives]</span>. Not <span class="ph">[what to avoid]</span>.
 
 Include:
@@ -519,7 +549,7 @@ Include:
 - 2 brands as anti-inspiration
 - Component personality notes (buttons, inputs, empty states)
 
-Format as markdown. I will attach this to future Make sessions.</div>
+Format as markdown. Save this file to the guidelines folder in Figma Make.</div>
       </div>
     </div>
     <div class="insight">
@@ -539,7 +569,7 @@ Format as markdown. I will attach this to future Make sessions.</div>
     <div class="section-label">Step 04</div>
     <h2><em>Microcopy</em></h2>
     <p class="section-sub">Words are part of the design. Generate them before you build.</p>
-    <p class="section-body">Generate all UI copy upfront — buttons, errors, empty states, tooltips, onboarding text. When you attach this to your component prompts, Make uses real copy instead of placeholder text. This single change transforms what prototype reviews feel like.</p>
+    <p class="section-body">Generate all UI copy upfront — buttons, errors, empty states, tooltips, onboarding text. Add this to the <strong>guidelines folder in Figma Make</strong> and Make will use real copy instead of placeholder text automatically. This single change transforms what prototype reviews feel like.</p>
     <div class="prompt-wrap">
       <div class="prompt-toggle">
         <button class="toggle-btn active" onclick="switchTab(this,'p4e','p4t')">Example</button>
@@ -576,7 +606,7 @@ Screens to cover:
 
 7. Navigation labels: 4 top-level nav items. "Dashboard" is technically accurate but generic — what label better reflects a CRA's mental model of her primary view?
 
-Output as markdown with each screen as a section header.</div>
+Output as markdown with each screen as a section header. Save this file to the guidelines folder in Figma Make.</div>
         <div class="prompt-text" id="p4t">Generate a <span class="hi">complete UI microcopy document</span> for <span class="ph">[product name]</span>'s <span class="ph">[screen or flow]</span>.
 
 Cover:
@@ -591,12 +621,12 @@ Cover:
 
 Tone: <span class="ph">[describe voice]</span>. Avoid: <span class="ph">[words or patterns to exclude]</span>.
 
-Output as structured markdown by UI section.</div>
+Output as structured markdown by UI section. Save this file to the guidelines folder in Figma Make.</div>
       </div>
     </div>
     <div class="insight">
       <div class="insight-eyebrow">Why this matters</div>
-      <p>Placeholder copy causes stakeholders to <strong>react to the layout instead of the experience</strong>. Real copy shifts the entire conversation in review. Generate it first, attach it when building — the difference in feedback quality is immediate.</p>
+      <p>Placeholder copy causes stakeholders to <strong>react to the layout instead of the experience</strong>. Real copy shifts the entire conversation in review. Generate it first, add it to the guidelines folder — Make will use it automatically without any instruction in your build prompt.</p>
     </div>
     <div class="step-nav-strip">
       <a href="#sec-4">← Brand Brief</a>
@@ -680,7 +710,7 @@ Style: dark background, styled nodes, directional arrows. Shareable with non-tec
     <div class="section-label">Step 06</div>
     <h2>Build the <em>Component</em></h2>
     <p class="section-sub">Now you're ready. And you have context behind you.</p>
-    <p class="section-body">This is the prompt most people start with. Starting here without steps 1–5 means Make guesses at the problem, the user, the brand, and the copy. With those artifacts attached via the <strong>+ button</strong>, this becomes a fundamentally different request. The example below is a Medpace clinical monitoring screen — the principle applies to any screen you're building.</p>
+    <p class="section-body">This is the prompt most people start with. Starting here without steps 1–5 means Make guesses at the problem, the user, the brand, and the copy. With those four documents in the <strong>guidelines folder</strong>, this becomes a fundamentally different request — Make arrives pre-loaded with all that context. The example below is a Medpace clinical monitoring screen — the principle applies to any screen you're building.</p>
     <div class="prompt-wrap">
       <div class="prompt-toggle">
         <button class="toggle-btn active" onclick="switchTab(this,'p6e','p6t')">Example</button>
@@ -688,10 +718,10 @@ Style: dark background, styled nodes, directional arrows. Shareable with non-tec
       </div>
       <div class="prompt-block">
         <div class="prompt-header">
-          <span class="prompt-label-txt">Attach: brief · personas · brand doc · microcopy</span>
+          <span class="prompt-label-txt">Guidelines folder: brief · personas · brand doc · microcopy</span>
           <button class="copy-btn" onclick="copyActive(this)"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><rect x="4" y="4" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.2"></rect><path d="M2 8H1.5A.5.5 0 011 7.5v-6A.5.5 0 011.5 1h6a.5.5 0 01.5.5V2" stroke="currentColor" stroke-width="1.2"></path></svg> Copy prompt</button>
         </div>
-        <div class="prompt-text active" id="p6e">Build Medpace's <span class="hi">patient enrollment management screen</span> for ONCO-2024-003 as a React component. I'm attaching the design brief, CRA persona doc, and brand tokens — use them. Don't guess at brand decisions; if the brand doc specifies something, follow it exactly.
+        <div class="prompt-text active" id="p6e">Build Medpace's <span class="hi">patient enrollment management screen</span> for ONCO-2024-003 as a React component. The design brief, CRA persona doc, brand tokens, and microcopy doc are in the guidelines folder — use them. Don't guess at brand decisions; if the brand doc specifies something, follow it exactly.
 
 Layout I want to see:
 
@@ -725,7 +755,7 @@ Style: Internal enterprise clinical monitoring tool. White table on light grey b
 Tech: React functional component, Tailwind for styling, no other dependencies. Single file.</div>
         <div class="prompt-text" id="p6t">Build <span class="ph">[product name]</span>'s <span class="hi"><span class="ph">[screen or component name]</span></span> as a <span class="ph">[React component / HTML page]</span>.
 
-Using the attached design brief, personas, brand doc, and microcopy as your guide:
+Using the design brief, personas, brand doc, and microcopy from the guidelines folder as your guide:
 
 Layout:
 <span class="ph">[Describe key sections and hierarchy]</span>
@@ -741,10 +771,9 @@ Tech: <span class="ph">[React + Tailwind / HTML + CSS]</span>. Single file.</div
     </div>
     <div class="insight">
       <div class="insight-eyebrow">The compounding effect</div>
-      <p>By attaching 4 documents, you're giving Make the equivalent of a <strong>design system + user research + creative brief + content strategy</strong> in one session. The output difference compared to a blank prompt is categorical, not incremental.</p>
+      <p>With 4 documents in the guidelines folder, you're giving Make the equivalent of a <strong>design system + user research + creative brief + content strategy</strong> automatically loaded into every session. The output difference compared to a blank prompt is categorical, not incremental.</p>
     </div>
     <div class="tips" style="margin-top:20px;">
-      <div class="tip"><span class="tip-arrow">→</span><span>Use <strong>Website mode</strong> for full pages, <strong>Component mode</strong> for isolated UI elements.</span></div>
       <div class="tip"><span class="tip-arrow">→</span><span><strong>One screen at a time.</strong> Scope creep in the prompt produces scope creep in the output.</span></div>
       <div class="tip"><span class="tip-arrow">→</span><span><strong>Use Claude as a prompt co-author.</strong> Describe the screen in plain language and ask: <em>"Turn this into a precise Figma Make prompt."</em> A 3–4 message conversation usually produces a better first prompt than writing one from scratch alone.</span></div>
     </div>

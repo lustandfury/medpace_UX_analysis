@@ -47,6 +47,7 @@
 .tool-attrs{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:20px;}
 .tool-attrs li{font-size:15px;color:var(--slate);display:flex;align-items:flex-start;gap:8px;line-height:1.4;}
 .tool-attrs li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--border);flex-shrink:0;margin-top:5px;}
+.tool-img{width:100%;height:160px;object-fit:cover;object-position:top left;border-radius:6px;border:1px solid var(--border);margin-bottom:16px;display:block;}
 .tool-best{font-size:13px;font-weight:600;color:var(--white);padding:8px 14px;border-radius:7px;line-height:1.4;margin-top:auto;}
 .tc-claude .tool-best{background:var(--violet);}
 .tc-figma .tool-best{background:var(--teal);}
@@ -154,6 +155,7 @@
     <div class="tool-card tc-claude">
       <div class="tool-badge">Conversational-native</div>
       <div class="tool-name">Claude Design</div>
+      <img src="Images/Claude Design.png" alt="Claude Design interface" class="tool-img"/>
       <ul class="tool-attrs">
         <li>Lives in claude.ai/design</li>
         <li>Powered by Opus 4.7</li>
@@ -168,6 +170,7 @@
     <div class="tool-card tc-figma">
       <div class="tool-badge">Design-native</div>
       <div class="tool-name">Figma Make</div>
+      <img src="Images/Figma Make Start Screen.png" alt="Figma Make interface" class="tool-img"/>
       <ul class="tool-attrs">
         <li>Lives in figma.com/make</li>
         <li>300 credits per prompt</li>
@@ -182,6 +185,7 @@
     <div class="tool-card tc-cursor">
       <div class="tool-badge">Code-native</div>
       <div class="tool-name">Cursor + Claude Code</div>
+      <img src="Images/Curosr Claude Code.png" alt="Cursor + Claude Code interface" class="tool-img"/>
       <ul class="tool-attrs">
         <li>Lives in Cursor IDE</li>
         <li>Flat subscription — no credit limits</li>
