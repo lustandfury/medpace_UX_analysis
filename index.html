@@ -89,8 +89,28 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--navy);fo
 .step-content p{font-size:13px;color:var(--slate);line-height:1.55;}
 .step-content code{font-family:'DM Mono',monospace;font-size:12px;background:var(--tealL);color:var(--teal);padding:1px 6px;border-radius:3px;}
 
+/* WHAT IS A SKILL */
+.skill-explainer{display:flex;flex-direction:column;gap:32px;}
+.skill-col{display:flex;align-items:center;gap:12px;}
+.skill-block{flex:1;border-radius:10px;padding:20px 22px;}
+.skill-block--prompt{background:var(--navy);color:var(--white);}
+.skill-block--input{background:var(--tealL);color:var(--navy);}
+.skill-block--output{background:rgba(242,183,5,.1);border:1px solid rgba(242,183,5,.25);color:var(--navy);}
+.skill-block-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;}
+.skill-block--prompt .skill-block-label{color:var(--mint);}
+.skill-block--input .skill-block-label{color:var(--teal);}
+.skill-block--output .skill-block-label{color:var(--amber);}
+.skill-block-body{font-size:13px;line-height:1.6;}
+.skill-block--prompt .skill-block-body{color:var(--slatel);}
+.skill-plus,.skill-arrow{font-size:20px;font-weight:300;color:var(--slatel);flex-shrink:0;}
+.skill-rules{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.skill-rule{display:flex;gap:12px;align-items:flex-start;background:var(--off);border:1px solid var(--border);border-radius:10px;padding:18px;font-size:13px;color:var(--slate);line-height:1.55;}
+.skill-rule-icon{font-size:16px;flex-shrink:0;margin-top:2px;color:var(--teal);}
+.skill-rule strong{color:var(--navy);font-weight:700;}
+
 /* VARIATIONS */
 .var-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.var-stack{display:grid;grid-template-columns:1fr;gap:16px;}
 .var-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:20px;box-shadow:0 2px 6px rgba(0,0,0,.05);display:flex;flex-direction:column;}
 .var-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:4px;margin-bottom:10px;align-self:flex-start;}
 .var-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px;}
@@ -111,8 +131,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--navy);fo
 
 @media (max-width: 900px) {
   .var-grid{grid-template-columns:repeat(2,1fr);}
+  .skill-rules{grid-template-columns:repeat(2,1fr);}
 }
 @media (max-width: 768px) {
+  .skill-col{flex-direction:column;align-items:stretch;}
+  .skill-plus,.skill-arrow{text-align:center;transform:rotate(90deg);}
+  .skill-rules{grid-template-columns:1fr;}
   .nav-wrapper{padding:12px 24px;gap:16px;}
   .page-header{padding:32px 24px 28px;}
   .section{padding:32px 24px;}
@@ -150,8 +174,61 @@ body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--navy);fo
   </div>
 </div>
 
-<!-- WHAT IT PRODUCES -->
+<!-- WHAT IS A SKILL -->
 <div class="section" style="background:var(--white);">
+  <div class="sec-label">Concept</div>
+  <h2 class="sec-title">What is a <em>Skill</em>?</h2>
+  <p class="sec-sub">A skill is a saved prompt template that encodes a specific type of thinking. You write it once, reuse it across projects, and share it across your team.</p>
+
+  <div class="skill-explainer">
+    <div class="skill-col">
+      <div class="skill-block skill-block--prompt">
+        <div class="skill-block-label">The Skill</div>
+        <div class="skill-block-body">A carefully structured prompt that tells Claude how to think about a specific problem — what to look for, how to format the output, and what rules to follow. Written once, by someone who knows the domain well.</div>
+      </div>
+      <div class="skill-plus">+</div>
+      <div class="skill-block skill-block--input">
+        <div class="skill-block-label">Your Input</div>
+        <div class="skill-block-body">The raw material you bring each time — a PRD, a stakeholder interview, a prototype, a user story. The skill wraps around it and tells Claude how to analyse it.</div>
+      </div>
+      <div class="skill-arrow">→</div>
+      <div class="skill-block skill-block--output">
+        <div class="skill-block-label">Structured Output</div>
+        <div class="skill-block-body">A consistent, traceable analysis in the same format every time — so the whole team knows what to expect and how to act on it.</div>
+      </div>
+    </div>
+
+    <div class="skill-rules">
+      <div class="skill-rule">
+        <div class="skill-rule-icon">⟳</div>
+        <div>
+          <strong>Reusable.</strong> Run it on every PRD, not just this one. The more you use it, the more value it extracts — each analysis becomes a reference for the next.
+        </div>
+      </div>
+      <div class="skill-rule">
+        <div class="skill-rule-icon">⇄</div>
+        <div>
+          <strong>Shareable.</strong> Save to a Claude Project and any team member gets the same analysis quality instantly. No prompt-writing required on their end.
+        </div>
+      </div>
+      <div class="skill-rule">
+        <div class="skill-rule-icon">◈</div>
+        <div>
+          <strong>Composable.</strong> Skills can be stacked. Run this UX analysis first, then pass the output into a prototyping prompt. The analysis becomes the brief.
+        </div>
+      </div>
+      <div class="skill-rule">
+        <div class="skill-rule-icon">✎</div>
+        <div>
+          <strong>Evolvable.</strong> Modify the prompt as you learn what works. Add a clinical compliance section, tune the output format, encode more of your team's specific expertise.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT IT PRODUCES -->
+<div class="section" style="background:var(--off);">
   <div class="sec-label">Output</div>
   <h2 class="sec-title">What the skill produces</h2>
   <p class="sec-sub">Six structured sections, each targeting a different failure mode that PRDs commonly miss. Claude references specific requirement IDs throughout so every finding is traceable.</p>
@@ -306,7 +383,7 @@ PRD:
   <h2 class="sec-title">Adapt the skill for different contexts</h2>
   <p class="sec-sub">The base skill works for any PRD. These variations tune it for specific research and design scenarios.</p>
 
-  <div class="var-grid">
+  <div class="var-stack">
     <div class="var-card">
       <div class="var-tag" style="background:var(--tealL);color:var(--teal);">User Research</div>
       <div class="var-title">Interview synthesis → requirements</div>
@@ -334,7 +411,8 @@ PRD:
   </div>
 </div>
 
-<!-- SHARED KNOWLEDGE BASE -->
+<!-- END VARIATIONS -->
+<!-- KNOWLEDGE BASE SECTION -->
 <div class="section" style="background:var(--navy);">
   <div class="sec-label" style="color:var(--mint);">Extending the practice</div>
   <h2 class="sec-title" style="color:var(--white);">Building a shared knowledge base</h2>
@@ -373,10 +451,12 @@ PRD:
   </div>
 </div>
 
-<!-- FOOTER -->
-<div class="page-footer">
-  <div class="footer-note">AI Design Tools Workshop · UX Design Team · April 2026</div>
-  <div class="footer-note">Skill v1.0 · Works in <a href="https://claude.ai">Claude.ai</a> · Claude Projects · Cursor + Claude Code · Claude Design</div>
+<!-- FOOTER SECTION -->
+<div class="section" style="background:var(--navy);padding-top:28px;padding-bottom:28px;">
+  <div class="page-footer" style="padding:0;">
+    <div class="footer-note">AI Design Tools Workshop · UX Design Team · April 2026</div>
+    <div class="footer-note">Skill v1.0 · Works in <a href="https://claude.ai">Claude.ai</a> · Claude Projects · Cursor + Claude Code · Claude Design</div>
+  </div>
 </div>
 
 <script>
