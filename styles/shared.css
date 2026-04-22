@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500;1,9..144,700&family=Roboto:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap');
+
+:root {
+  /* Core palette */
+  --navy:    #210f36;
+  --navy2:   #2e1a47;
+  --teal:    #2f6b66;
+  --mint:        #408c84;
+  --mint-on-dark:#4f9990;
+  --amber:       #e8a317;
+  --slate:   #5d5c6a;
+  --slatel:  #91919f;
+  --off:     #f7f7f7;
+  --border:  #dedede;
+  --white:   #ffffff;
+
+  /* Extended palette */
+  --violet:  #8c47e4;
+  --violetL: #e5e0ff;
+  --blueD:   #2b6880;
+  --ember:   #c43b31;
+
+  /* Tints */
+  --tealL:   rgba(47, 107, 102, .1);
+  --blueL:   rgba(43, 104, 128, .15);
+  --amberL:  rgba(232, 163, 23, .1);
+
+  /* Code / monospace surface */
+  --code:    #1e1e2e;
+  --codeF:   #cdd6f4;
+
+  /* Status */
+  --okG:     #065f46;
+  --okBg:    #d1fae5;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Roboto', sans-serif; background: var(--off); color: var(--navy); font-size: 16px; line-height: 1.6; }

@@ -2,33 +2,31 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Figma Make — Starter Kit</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500;1,9..144,700&family=Roboto:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles/shared.css"/>
 <style>
   :root {
-    --bg: #f7f7f7;
-    --bg-warm: #eeecf2;
-    --dark: #210f36;
-    --dark2: #2e1a47;
-    --text: #210f36;
-    --text-mid: #5d5c6a;
-    --text-muted: #91919f;
-    --accent: #408c84;
-    --accent-light: rgba(64,140,132,.1);
-    --accent-border: rgba(64,140,132,.2);
-    --border: #dedede;
-    --border-dark: rgba(255,255,255,.12);
-    --mono-bg: #1E1E2E;
-    --mono-text: #CDD6F4;
-    --mono-accent: #e8a317;
-    --green: #2f6b66;
-    --green-bg: rgba(47,107,102,.08);
+    /* Page-local aliases — values resolve from shared.css tokens */
+    --bg:           var(--off);
+    --bg-warm:      #eeecf2;
+    --dark:         var(--navy);
+    --dark2:        var(--navy2);
+    --text:         var(--navy);
+    --text-mid:     var(--slate);
+    --text-muted:   var(--slatel);
+    --accent:       var(--mint);
+    --accent-light: var(--tealL);
+    --accent-border:rgba(64, 140, 132, .2);
+    --mono-bg:      var(--code);
+    --mono-text:    var(--codeF);
+    --mono-accent:  var(--amber);
+    --green:        var(--teal);
+    --green-bg:     rgba(47, 107, 102, .08);
+    --border-dark:  rgba(255, 255, 255, .12);
     --radius: 8px;
     --max: 1100px;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body { background: var(--bg); color: var(--text); font-family: 'Roboto', sans-serif; font-size: 15px; line-height: 1.6; font-weight: 400; }
+  body { font-size: 15px; }
 
   /* HEADER */
   header { background: var(--dark); color: #ffffff; padding: 0 max(40px,calc((100% - var(--max)) / 2)); display: flex; align-items: center; justify-content: space-between; height: 52px; position: sticky; top: 0; z-index: 200; border-bottom: 1px solid var(--border-dark); }
@@ -44,8 +42,8 @@
   /* HERO */
   .hero { background: var(--dark); color: #ffffff; padding: 80px max(40px,calc((100% - var(--max)) / 2)) 72px; border-bottom: 1px solid var(--border-dark); }
   .hero-inner { max-width: 100%; }
-  .eyebrow { font-family: 'Roboto Mono', monospace; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 28px; display: flex; align-items: center; gap: 10px; }
-  .eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent); }
+  .eyebrow { font-family: 'Roboto Mono', monospace; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mint-on-dark); margin-bottom: 28px; display: flex; align-items: center; gap: 10px; }
+  .eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--mint-on-dark); }
   h1 { font-family: 'Fraunces', serif; font-size: 3.6rem; font-weight: 700; line-height: 1.08; margin-bottom: 28px; letter-spacing: -0.01em; }
   h1 em { font-style: italic; color: var(--text-muted); }
   .hero-desc { font-size: 1rem; color: var(--text-muted); line-height: 1.8; max-width: 500px; margin-bottom: 40px; font-weight: 300; }
@@ -254,7 +252,7 @@
     </div>
     <div class="notice">
       <span class="notice-dot">●</span>
-      <span>Steps 01–05 use <strong>Luma</strong> (a freelancer project management app) as the running example. Step 06 uses a <strong>Medpace clinical screen</strong>. Each step has an <strong>Example</strong> tab and a <strong>Template</strong> tab.</span>
+      <span>All steps use <strong>Medpace clinical monitoring</strong> as the running example — the Patient Enrollment Management Platform for trial ONCO-2024-003. Each step has an <strong>Example</strong> tab and a <strong>Template</strong> tab.</span>
     </div>
     <div class="step-nav-strip">
       <span></span>
@@ -276,7 +274,7 @@
         <div class="setup-cbody">
           <span class="setup-badge" style="background:var(--accent-light);color:var(--accent);">Recommended path</span>
           <h3>If you have a design ready — attach it first</h3>
-          <p>Click the <code style="background:var(--bg);padding:1px 6px;border-radius:3px;font-family:monospace;font-size:12px;">+</code> attachment icon and attach your Figma frame <em>before</em> writing a word. This is the biggest unlock in Figma Make. It gives Make visual grounding — it understands your actual components, spacing, and colour tokens rather than inventing them from scratch. The difference in output quality is significant.</p>
+          <p>Click the <code style="background:var(--bg);padding:1px 6px;border-radius:3px;font-family:monospace;font-size:14px;">+</code> attachment icon and attach your Figma frame <em>before</em> writing a word. This is the biggest unlock in Figma Make. It gives Make visual grounding — it understands your actual components, spacing, and colour tokens rather than inventing them from scratch. The difference in output quality is significant.</p>
           <div class="setup-note"><strong>Medpace example:</strong> Attach a frame from your clinical monitoring file. Make will apply your existing badge styles, nav structure, and colour tokens — instead of defaulting to generic SaaS blue.</div>
         </div>
       </div>
@@ -359,18 +357,18 @@
           <span class="prompt-label-txt">Figma Make Prompt</span>
           <button class="copy-btn" onclick="copyActive(this)"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><rect x="4" y="4" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.2"></rect><path d="M2 8H1.5A.5.5 0 011 7.5v-6A.5.5 0 011.5 1h6a.5.5 0 01.5.5V2" stroke="currentColor" stroke-width="1.2"></path></svg> Copy prompt</button>
         </div>
-        <div class="prompt-text active" id="p1e">Generate a <span class="hi">design brief as a markdown document</span> for an app called Luma.
+        <div class="prompt-text active" id="p1e">Generate a <span class="hi">design brief as a markdown document</span> for the Medpace Patient Enrollment Management Platform.
 
-Context: Luma is a project management tool for freelancers — specifically people who run a solo practice and juggle 4 to 8 active client projects at once. Not agencies. Not teams. Individual practitioners who are the designer, the account manager, and the invoice chaser all at the same time.
+Context: CRAs (Clinical Research Associates) manage 10 to 40 patients across 3 to 8 active trial sites at once. Current workflow: spreadsheets and email. The platform needs to give a CRA one place to see what needs attention, what's overdue, and whether they're ready for the next monitoring visit. The reference trial is ONCO-2024-003, with 12 patients across Cedars-Sinai Medical Center (LA), Mayo Clinic Rochester MN, and Johns Hopkins Hospital Baltimore MD.
 
-The core tension: these users are incredibly time-poor, but their work is complex enough that a simple to-do list isn't enough. Tools like Notion are too flexible (too much setup). Tools like Asana feel like they were built for teams and make solo use feel lonely and bureaucratic. We're trying to land somewhere between those two failure modes.
+The core tension: CRAs need dense clinical data to do their job accurately, but they also need to triage fast — pre-visit the morning before travel, on-site with limited time and focus. The design must support both modes without switching views.
 
 For the brief, include:
 - The core user problem stated in one honest sentence — not a marketing sentence, a real one
-- 3 genuine design tensions we'll have to make calls on throughout the project (e.g. "showing enough detail vs. keeping the overview scannable")
-- 5 specific edge cases: think about someone mid-project with a client who ghosts them, someone who works across 3 time zones, someone who invoices in a currency that isn't USD
-- What "I'm done for the day" actually looks like for this user — not just task completion, but the emotional state we're designing toward
-- 3 products this should never feel like, and why each one is a cautionary tale for us specifically
+- 3 genuine design tensions we'll have to make calls on (e.g. "displaying complete patient data vs. enabling fast pre-visit triage")
+- 5 specific edge cases: a protocol deviation requiring PI escalation, a site where all patients are on treatment hold, a visit window expiring on a day the site is closed, a withdrawn patient still under an open query, a study amendment that changes required visit counts mid-trial
+- What "done for the day" actually looks like for a CRA — not just task completion, but the professional confidence state we're designing toward (she should be able to close the laptop and trust the work is in order)
+- 3 products this should never feel like, and why each one is a cautionary tale for us specifically in the clinical context
 - 4 success metrics that are actually measurable, not vanity metrics
 
 Format with clear markdown headers. This document gets attached to every subsequent Make session.</div>
@@ -420,24 +418,24 @@ Format with clear headers. I will attach this to all future Make sessions.</div>
           <span class="prompt-label-txt">Figma Make Prompt</span>
           <button class="copy-btn" onclick="copyActive(this)"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><rect x="4" y="4" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.2"></rect><path d="M2 8H1.5A.5.5 0 011 7.5v-6A.5.5 0 011.5 1h6a.5.5 0 01.5.5V2" stroke="currentColor" stroke-width="1.2"></path></svg> Copy prompt</button>
         </div>
-        <div class="prompt-text active" id="p2e">Generate <span class="hi">3 user personas as a markdown document</span> for Luma.
+        <div class="prompt-text active" id="p2e">Generate <span class="hi">3 user personas as a markdown document</span> for the Medpace Patient Enrollment Management Platform.
 
-I want these to feel like people I could call on the phone, not composite sketches. Here's the starting direction for each:
+I want these to feel like people I could debrief with after a site visit, not composite sketches. Here's the starting direction for each:
 
-Persona 1: A UX designer, probably 30–38, based in a mid-size city (not SF or NYC). Left an agency 2 years ago to go solo. Has 5 active clients right now and is drowning in Slack messages from all of them. Uses Notion but has 4 different project templates and none of them are right. Checks their bank account more than they'd like to admit.
+Persona 1: A CRA, approximately 28–36, travels three days a week to trial sites. Currently managing 6 active sites across two protocols. Her primary systems are Medidata Rave for data entry and Excel plus email for visit prep and follow-up. Master's degree in life sciences. Gets anxious the night before site visits when she hasn't had time to prep properly — the anxiety isn't about the site, it's about not knowing what she's walking into.
 
-Persona 2: A copywriter or brand strategist, 40s, has been freelance for a decade and is actually good at it — but hates the admin side with a passion. Uses a spreadsheet to track projects, a separate spreadsheet for invoices, and a notes app for everything else. Not particularly technical. Would describe themselves as "organised in my own chaotic way."
+Persona 2: A Site Coordinator — the person at the academic medical center who receives CRA visits, not the person conducting them. Late 30s. Has been at the same institution for 8 years. Manages 25–40 patients across two active trials simultaneously, using the EHR, an EDC, and her own Excel tracking spreadsheet at the same time. Deeply skeptical of new software — not because she's averse to technology, but because every system change creates compliance risk until the SOPs are updated and the team is retrained. She has been burned before.
 
-Persona 3: A developer who freelances on the side while holding a full-time job. Juggles 2–3 side projects at a time. Very comfortable with tools and has tried everything — Jira, Linear, Basecamp, ClickUp — and hated all of them for being either too heavy or too simple. Has strong opinions. Probably has a custom Notion setup they built themselves.
+Persona 3: A Clinical Ops Manager, 40s, oversight role. Reviews monitoring reports, responsible for escalation decisions, rarely looks at individual patient data — she needs site-level risk at a glance. Describes herself as "a dashboard person." Has previously tried to get useful summary reporting out of Medidata Rave and found it practically unusable for her purposes. Approves the platform budget but isn't the daily user.
 
 For each persona, give me:
-- Their name, age, city, and what they'd put as their job title on a LinkedIn profile
-- The 3 tools they use most for managing work and what specifically annoys them about each
-- The thought they have most often while working at 4pm on a Thursday
-- A verbatim quote — something they'd say in a Zoom call, casual, unguarded
-- The moment in their week when Luma would give them the most relief
-- Their gut reaction when they see a new app: excited, skeptical, or "I'll try it once"
-- One thing in the UI that would make them close the tab immediately</div>
+- Their name, age, location, and job title exactly as it would appear on their business card
+- The 3 systems they use daily and what specifically frustrates them about each one
+- The thought in their head at 7am on the morning of a site visit (or Monday 8am for the Ops Manager)
+- A verbatim quote — something they'd actually say in a handoff meeting, unfiltered
+- The moment in their week when this platform would give them the most relief
+- Their gut reaction to new internal tools: compliance-cautious / pragmatic / cautiously enthusiastic
+- One specific thing in the UI that would make them immediately distrust the data</div>
         <div class="prompt-text" id="p2t">Generate <span class="hi">3 detailed user personas as a markdown document</span> for <span class="ph">[product name]</span>, <span class="ph">[one sentence description]</span>.
 
 For each persona include:
@@ -485,25 +483,29 @@ Make them feel like real people, not archetypes.</div>
           <span class="prompt-label-txt">Figma Make Prompt</span>
           <button class="copy-btn" onclick="copyActive(this)"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><rect x="4" y="4" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.2"></rect><path d="M2 8H1.5A.5.5 0 011 7.5v-6A.5.5 0 011.5 1h6a.5.5 0 01.5.5V2" stroke="currentColor" stroke-width="1.2"></path></svg> Copy prompt</button>
         </div>
-        <div class="prompt-text active" id="p3e">Create a <span class="hi">brand and design system reference document</span> for Luma.
+        <div class="prompt-text active" id="p3e">Create a <span class="hi">brand and design system reference document</span> for the Medpace Patient Enrollment Management Platform.
 
-I have a strong point of view on the brand direction, which I want you to develop into a full system:
+I have a clear point of view on the brand direction, which I want you to develop into a full system:
 
-The feeling: opening Luma should feel like walking into a very well-organised workspace — not a sterile office, not a cosy coffee shop. Think: a freelancer's studio apartment where everything has a place and the light is good. Calm. Focused. A little bit considered. The kind of tool that respects that the person using it is good at their job.
+The feeling: this platform should feel like a reliable professional instrument. Not a dashboard, not a portal — a clinical instrument a CRA trusts because it's never wrong. References for the feeling I'm after: aircraft cockpit indicator clarity (critical information is always visible, hierarchy is non-negotiable), clinical lab report authority (structured, precise, no decoration that doesn't carry meaning), Bloomberg Terminal density (high information per square centimetre without visual chaos).
 
 What it absolutely must not feel like:
-- Asana: too cheerful, too much colour, designed for team cheerleading rather than solo focus
-- Notion: too neutral and beige — feels like a blank sheet of paper, not a tool
-- Harvest: looks like it was designed in 2014 and nobody updated it
+- Salesforce default configuration: too much chrome, navigation hierarchy that prioritises navigation over content, "sky blue" that reads as generic enterprise
+- Apple Health or any consumer health app: wrong register entirely for a regulated clinical environment — the warmth and encouragement that works for fitness tracking is inappropriate when a CRA is reviewing a protocol deviation
+- Legacy EDC systems like Medidata Rave: dated visual design that creates friction, slows clinical judgment, and signals that the tool wasn't designed with the user in mind
 
-Colour direction I'm leaning toward: a near-black or very dark navy for the primary surface (not pure black), with a warm off-white for text, and a single accent colour that reads as "smart" — something like a muted amber or a dusty teal. Not green (too "done"), not blue (too corporate), not purple (too startup-y).
+Colour direction is defined. Work with it:
+- Primary surface: white (#FFFFFF)
+- Action / status: clinical teal (#028090)
+- Navigation / headers: deep navy (#0D1B2A)
+- Risk states must be red and amber, but color-blind safe — deuteranopia and protanopia both occur in the user base. Color-alone communication is not acceptable. Every status must pair color with an icon or label.
 
 Please develop:
-- A full primary / secondary / accent palette. Give me hex values and a clear rule for when each is used. Include semantic colours for success, warning, and error.
-- Typography: I want a serif for display headings (something with character, not Playfair — too overdone), a clean sans for body and UI, and a mono for data and times. Include the full size scale from 11px to 48px with usage notes.
-- Spacing scale based on 4px. Show me tokens from space-1 through space-12.
-- Elevation: 3 shadow levels — subtle (card), medium (dropdown), prominent (modal)
-- Tone of voice: write me 5 example UI strings that demonstrate the voice. Then tell me the 5 words that should never appear in this product's copy.
+- Full primary / secondary / accent / semantic palette. Hex values and explicit usage rules for each. Semantic colors must include: Critical (with background tint and foreground color passing WCAG AA on white), Warning, Success, Info — all four.
+- Typography: a serif for page-level titles that communicates authority, not warmth (rule out anything typically used for lifestyle brands); a clean sans-serif for data labels and UI copy that remains legible at 12–13px in dense tables; a monospace for patient IDs, timestamps, and protocol codes. Full scale from 11px to 32px with usage notes at each size.
+- Spacing scale, 4px base unit. Tokens space-1 through space-10.
+- Table-specific tokens: row height (compact / default / spacious), cell padding, header background, border weight. This is a data-dense tool — table tokens matter as much as component tokens.
+- Tone of voice: 4 example UI strings written in the correct clinical register — precise, direct, assumes expertise. Then: 5 words that must never appear anywhere in this product's copy.
 
 Format as markdown with clear section headers. This gets attached to every Make session from this point.</div>
         <div class="prompt-text" id="p3t">Create a <span class="hi">brand and design token reference document</span> for <span class="ph">[product name]</span>. The brand should feel <span class="ph">[3 adjectives]</span>. Not <span class="ph">[what to avoid]</span>.
@@ -548,32 +550,31 @@ Format as markdown. I will attach this to future Make sessions.</div>
           <span class="prompt-label-txt">Figma Make Prompt</span>
           <button class="copy-btn" onclick="copyActive(this)"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><rect x="4" y="4" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.2"></rect><path d="M2 8H1.5A.5.5 0 011 7.5v-6A.5.5 0 011.5 1h6a.5.5 0 01.5.5V2" stroke="currentColor" stroke-width="1.2"></path></svg> Copy prompt</button>
         </div>
-        <div class="prompt-text active" id="p4e">Generate a <span class="hi">complete UI microcopy document</span> for Luma's project dashboard, new project creation flow, and onboarding sequence.
+        <div class="prompt-text active" id="p4e">Generate a <span class="hi">complete UI microcopy document</span> for the Medpace Patient Enrollment Management Platform.
 
-Tone guidance — this is important:
-Write like a smart friend who also happens to be a good project manager. Direct. A little dry. Never chirpy. No exclamation marks anywhere in the product. No words like "simply", "easily", "just", "quick", or "seamlessly" — these are filler words that make copy feel dishonest. Don't say "Oops!" for errors. Don't say "Woohoo!" for success. The user is a professional; treat them like one.
+Tone guidance — this is critical:
+Write for a regulated clinical environment. The CRA using this tool is a trained professional operating under 21 CFR Part 11 compliance. Write like a senior colleague who respects their expertise. Precise, direct, zero ambiguity. No "simply", "easily", "just", or "quickly" — these words are filler and they're inappropriate in a compliance context. No exclamation marks anywhere. No success celebrations. Error messages must tell the user what to do next, not just that something went wrong. Confirmations must confirm exactly what was recorded — a CRA may cite these in a monitoring report.
 
 Screens to cover:
 
-1. Dashboard — empty state (user has no projects yet)
-   Write a headline (max 6 words), one sentence of context, and a CTA button label. The tone should acknowledge the blankness without being apologetic about it.
+1. Patient list — empty state when filters return zero results
+   This is not a new study — data exists, the user has over-filtered. Do not suggest onboarding actions. Acknowledge the filter state and give a clear exit. Do not show a bare empty table.
 
-2. Project list — partial empty state (user has projects but none match a filter they've applied)
-   Different from above — the user isn't new, they just filtered to nothing. Don't repeat the onboarding energy.
+2. Patient list — newly created study with no enrolled patients yet
+   Genuine zero state. Matter-of-fact. The next action to enroll patients is not in this tool — do not suggest one.
 
-3. Invoices tab — empty state
-   This one can be slightly warmer — an empty invoice list is actually a good reminder, not a failure state.
+3. Flag review confirmation — after logging a protocol deviation
+   This is a compliance action. The confirmation must be specific about what was recorded. Write it as if the CRA needs to be able to describe what they logged in a monitoring report.
 
-4. New project form — all placeholder text
-   Fields: Project name, Client name, Deadline (optional), Notes, Hourly rate. Each placeholder should feel like a helpful hint, not filler.
+4. Contact attempt logging — field labels and placeholder text
+   Fields: Patient ID (read-only), Contact Date, Contact Method (dropdown), Outcome (dropdown — options: Reached / No Answer / Left Message / Incorrect Contact), Notes (optional). Clinical-precise, not casual.
 
-5. Error states: network timeout, duplicate project name, invoice amount over $99,999 (validation)
+5. Error states: session timeout during a flag submission (preserve all entered data, prompt re-authentication, return to review step), EDC sync failure (flag queued locally, inform CRA it will submit when connection restores), read-only access attempt (CRA attempting to submit on a site they don't have write access to — be specific about why)
 
-6. Success messages: project created, invoice sent, timer stopped
+6. Visit window status badge labels
+   Exact label text for each state: Upcoming, Due Soon, Overdue, Missed, Completed. One to two words maximum. Must be unambiguous in a table cell at small size.
 
-7. Navigation labels: 5 top-level nav items that feel considered, not generic ("Dashboard" is lazy — is there something better?)
-
-8. Onboarding tooltip sequence: 3 coach marks for first-time users. Keep each under 20 words. No "Welcome to Luma!" energy.
+7. Navigation labels: 4 top-level nav items. "Dashboard" is technically accurate but generic — what label better reflects a CRA's mental model of her primary view?
 
 Output as markdown with each screen as a section header.</div>
         <div class="prompt-text" id="p4t">Generate a <span class="hi">complete UI microcopy document</span> for <span class="ph">[product name]</span>'s <span class="ph">[screen or flow]</span>.
@@ -621,39 +622,34 @@ Output as structured markdown by UI section.</div>
           <span class="prompt-label-txt">Figma Make Prompt</span>
           <button class="copy-btn" onclick="copyActive(this)"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><rect x="4" y="4" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.2"></rect><path d="M2 8H1.5A.5.5 0 011 7.5v-6A.5.5 0 011.5 1h6a.5.5 0 01.5.5V2" stroke="currentColor" stroke-width="1.2"></path></svg> Copy prompt</button>
         </div>
-        <div class="prompt-text active" id="p5e">Build an <span class="hi">interactive HTML user flow diagram</span> for the Luma new project creation flow.
+        <div class="prompt-text active" id="p5e">Build an <span class="hi">interactive HTML user flow diagram</span> for the Medpace Patient Enrollment Platform's "Flag Patient for Review" flow.
 
 Here's exactly what happens:
 
-Entry point: User clicks the "New project" button from the dashboard (top-right, primary CTA). They might also land here from the empty state CTA on first use — same flow, different entry.
+Entry point: CRA is reviewing the patient list, notices an amber "At Risk" badge on a row. She hovers the row — a three-dot action menu appears on the right. She clicks "Flag for Review."
 
-Step 1 — Project name
-Single text input, autofocused. Inline validation: if a project with this name already exists for this user, show an inline error before they move on ("You already have a project called this — want to rename it?"). Do not wait for form submission.
+Step 1 — Flag type selection (required)
+Modal opens. Single required selection before proceeding: Protocol Deviation / Missed Visit Window / Unanswered Contact Attempt / Lab Result Pending Review / Other. Selecting "Other" reveals a required note field. Cannot proceed without selecting a flag type.
 
-Step 2 — Client
-Dropdown with search. Three paths:
-  A. Select an existing client → move to Step 3
-  B. Type a name that doesn't match → offer "Create '[typed name]' as a new client" as the last option in the dropdown
-  C. Skip entirely → "No client" option at the top of the dropdown
+Step 2 — Details (two paths based on Step 1 selection)
+Path A — Protocol Deviation selected: required fields are Deviation Date (date picker), Protocol Section Reference (free text), Brief Description (required, max 500 characters). Optional: attach supporting document.
+Path B — All other flag types: required field is Brief Description (required, max 500 characters). Optional: attach supporting document.
 
-Step 3 — Billing type
-Three options displayed as a radio card group: Hourly, Fixed price, Retainer.
-  - Selecting Hourly reveals a rate input ($/hr)
-  - Selecting Fixed reveals a total amount input
-  - Selecting Retainer reveals a monthly amount + billing date input
-  - Any of these can be left blank and set later — show a "Set later" affordance
+Step 3 — Assignment
+Dropdown: Assign to Self / Assign to Site Coordinator / Escalate to PI / Escalate to Sponsor.
+If "Escalate to PI" or "Escalate to Sponsor" is selected, a required "Reason for escalation" text field appears. Cannot proceed without completing it.
 
-Step 4 — Deadline (optional)
-Date picker. Optional — visible "Skip for now" link. If the project has a client with other projects, suggest pulling the pattern from those (show last used deadline range as a ghost suggestion).
+Step 4 — Review &amp; Submit
+Summary of all entered information. Non-editable except via Back button. Primary CTA: "Submit flag." Visible warning annotation: "This action will be logged in the audit trail and cannot be deleted."
 
-Step 5 — Review &amp; create
-Show a summary card of everything selected. Editable inline. Primary CTA: "Create project". This step only exists if at least 3 fields are filled in — if the user filled in only name and client, skip straight to creation.
+Success state
+Flag submitted confirmation displaying: generated flag ID (format FLAG-YYYYMMDD-XXX), patient ID, flag type, and assigned to. Two CTAs: "Return to patient list" or "View flag in patient record."
 
 Error states to show:
-- Duplicate name (Step 1, inline)
-- Network failure on save (Step 5, toast)
+- Session expired during flag submission: preserve all entered data, prompt re-authentication, return to Review &amp; Submit step with data intact
+- EDC sync failure: flag queued locally, banner informs CRA it will submit automatically when connection restores
 
-Show the happy path in one colour, skip paths in a muted variant, error paths in a third. Label every arrow. Style it as a shareable dark-background diagram. Nodes should be rounded rectangles with the step name and a one-line description inside.</div>
+Style: dark background diagram. Three distinct path colors — happy path, escalation branch, error recovery. Label every arrow with its trigger action. Rounded rectangle nodes. Include the audit trail warning as a visible annotation on the Submit node. Every node must show the step name and a one-line description inside.</div>
         <div class="prompt-text" id="p5t">Build an <span class="hi">interactive HTML user flow diagram</span> for <span class="ph">[product name]</span>'s <span class="ph">[flow name]</span>.
 
 Flow starts: <span class="ph">[trigger action]</span>
@@ -776,23 +772,23 @@ Tech: <span class="ph">[React + Tailwind / HTML + CSS]</span>. Single file.</div
           <span class="prompt-label-txt">High-Leverage Follow-Up Prompts</span>
           <button class="copy-btn" onclick="copyActive(this)"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><rect x="4" y="4" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.2"></rect><path d="M2 8H1.5A.5.5 0 011 7.5v-6A.5.5 0 011.5 1h6a.5.5 0 01.5.5V2" stroke="currentColor" stroke-width="1.2"></path></svg> Copy prompt</button>
         </div>
-        <div class="prompt-text active" id="p7e"><span class="hi">// Hierarchy problem — the KPI cards are competing with the project list</span>
-"Right now my eye goes to the three KPI cards first, but they're read-only information — the project list is where I actually need to take action. Reduce the visual weight of the KPI cards by about 40%: smaller type, less contrast, lighter borders. The project list rows should feel like the primary content. Don't move anything — just adjust hierarchy."
+        <div class="prompt-text active" id="p7e"><span class="hi">// Hierarchy — risk flags aren't landing first</span>
+"The risk flag column exists but my eye doesn't land there first — it lands on the Patient ID column, which is the least actionable thing in the row. A CRA opening this Monday morning needs to see critical flags immediately. Increase the visual weight of the Risk Flag column: the red Protocol Deviation badge should be the most visually prominent element in the row. Reduce the weight of Patient ID — smaller type, lighter color — it's reference data, not decision data. Don't move columns. Adjust visual hierarchy only."
 
-<span class="hi">// Accessibility — focus states are invisible</span>
-"Tab through the entire component and fix everything you find: any interactive element without a visible focus ring, any colour combination that fails WCAG AA contrast (check the status pills especially — the Overdue pill is probably failing), and the project rows should be focusable as a unit with keyboard Enter triggering the quick action."
+<span class="hi">// Accessibility — status badges are color-only</span>
+"This table communicates patient status (red Protocol Deviation, amber At Risk) using color alone. This fails WCAG 2.1 AA for color-blind users — deuteranopia affects approximately 8% of males. For every status badge, add a symbol prefix: ▲ for Protocol Deviation, ● for At Risk, leave clean otherwise. Also: tab through the entire table — every row must be keyboard-navigable with Enter triggering the primary action, and the three-dot menu must be reachable without a mouse. Fix the visit window status pills too — check them for contrast."
 
-<span class="hi">// Responsive — sidebar breaks below 900px</span>
-"At viewport widths below 900px: collapse the sidebar to 64px (icons only, no labels), with a toggle button to expand it to full width as an overlay. At below 600px: move navigation to a bottom tab bar with 5 icons (hide labels). The KPI cards should stack to a single column below 600px. The project list stays full width throughout."
+<span class="hi">// Responsive — tablet use case for on-site CRA review</span>
+"A CRA occasionally checks the patient list on a tablet while physically at a site. At 768px: hide Last Visit Date and Days Since Visit columns — replace with a single 'Last Contact' column showing the most recent of either. Collapse the three-dot action menu to a single 'Review' button visible on row tap. The filter bar should stack to two rows. The header stat cards should scroll horizontally rather than wrap. The table itself must not require horizontal scroll at 768px."
 
-<span class="hi">// The greeting header feels generic — fix the personalisation</span>
-"The 'Good morning, Maya' header is working but the status line underneath ('3 projects due this week') is too vague to be useful. Replace it with something context-aware: if there's a project overdue, surface that specifically. If the nearest deadline is today, say that. If everything is on track, say something that actually reflects that. Write 4 different versions of this line for different states and implement the logic to show the right one."
+<span class="hi">// Dashboard header — make it visit-aware, not just a label</span>
+"The current header shows the study name and enrollment count, but a CRA uses this as her first view before a monitoring visit — she needs it to tell her something actionable. Replace the static header with a context-aware status line: if a monitoring visit is scheduled in the next 5 days, show 'Monitoring visit: [Site Name] in [N] days — [X] outstanding items to resolve.' If there are critical flags, surface the count. If everything is clear, show 'All sites ready — no critical items.' Write 4 different versions of this line for different states and implement the logic to show the right one."
 
-<span class="hi">// Data states — the component only handles the happy path</span>
-"Add three missing states to the project list: (1) Loading — skeleton rows using the same dimensions as the real rows, animated shimmer effect, show 5 of them. (2) Empty — use the copy from the attached microcopy doc exactly as written. (3) Error — a network request failed. Show an inline error message with a retry button. All three should match the existing brand exactly."
+<span class="hi">// Data states — table only handles the loaded state</span>
+"The patient table has no loading state, no error state, and no empty state. Add all three: (1) Loading — skeleton rows with the same column dimensions as the real rows, animated shimmer, show 8 of them (matching a typical CRA patient load). (2) Error — EDC sync failed; show an inline banner at the top of the table with the timestamp of the last successful sync and a 'Retry sync' button. Do not show a bare empty table. (3) Empty (filtered) — use exactly this copy: 'No patients match your current filters.' with a 'Clear filters' link. No illustrations, no friendly empty-state icons — this is a clinical tool."
 
-<span class="hi">// Persona check — run it against the overwhelmed persona</span>
-"Read the second persona in the attached personas doc — the one who uses spreadsheets and describes themselves as 'organised in my own chaotic way'. She's opened Luma for the first time and is looking at this dashboard. Based on what you know about her, tell me: what are the 3 things most likely to confuse or frustrate her in the first 30 seconds? Then fix those 3 things without breaking what's already working for the other personas."</div>
+<span class="hi">// Persona check — run it against the site coordinator</span>
+"Read the site coordinator persona in the attached personas doc — the one who has been at the same hospital for 8 years, manages 25–40 patients, and is deeply skeptical of new software because every system change creates compliance risk until SOPs are updated. She's been asked to use this dashboard for the first time. Based on what you know about her, tell me: what are the 3 things most likely to make her distrust the data or feel like this tool creates more compliance risk than it eliminates? Then fix those 3 things without breaking the CRA-optimized view."</div>
         <div class="prompt-text" id="p7t"><span class="hi">// Hierarchy Fix</span>
 "The most important action is <span class="ph">[action]</span>. Redesign visual hierarchy so it draws the eye first."
 
