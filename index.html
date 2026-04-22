@@ -53,6 +53,9 @@
 /* HOW TO WORK */
 .workflow-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .workflow-col{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.05);}
+.workflow-col.anim-ready{opacity:0;transform:translateY(28px);transition:opacity .45s ease-out,transform .45s ease-out;}
+.workflow-col.anim-ready.anim-visible{opacity:1;transform:translateY(0);}
+@media(prefers-reduced-motion:reduce){.workflow-col.anim-ready{opacity:1;transform:none;transition:none;}}
 .workflow-head{padding:18px 22px;border-bottom:1px solid var(--border);}
 .wh-claude{border-top:4px solid var(--violet);}
 .wh-figma{border-top:4px solid var(--mint);}
@@ -419,5 +422,24 @@
   <div class="footer-note">AI Design Tools Workshop · Medpace</div>
 </div>
 
+<script>
+(function() {
+  var cols = document.querySelectorAll('.workflow-col');
+  cols.forEach(function(col) { col.classList.add('anim-ready'); });
+  var grid = document.querySelector('.workflow-grid');
+  if (!grid || !window.IntersectionObserver) return;
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        cols.forEach(function(col, i) {
+          setTimeout(function() { col.classList.add('anim-visible'); }, i * 180);
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -180px 0px' });
+  observer.observe(grid);
+})();
+</script>
 </body>
 </html>
