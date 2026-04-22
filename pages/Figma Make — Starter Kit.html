@@ -331,6 +331,10 @@
       </div>
     </div>
 
+    <div class="insight" style="margin-top:32px;">
+      <div class="insight-eyebrow">Use the LLM to set up</div>
+      <p>You don't have to figure out which mode or prompt structure to use alone. <strong>Describe what you're building to Claude first</strong> — the screen, the user, what they're trying to do — and ask it to help you write the Figma Make prompt. A short conversation catches gaps before Make does.</p>
+    </div>
     <div class="step-nav-strip">
       <a href="#sec-1">← Overview</a>
       <a class="next-link" href="#sec-2">Step 01: Problem Framing →</a>
@@ -390,6 +394,7 @@ Format with clear headers. I will attach this to all future Make sessions.</div>
     <div class="tips" style="margin-top:20px;">
       <div class="tip"><span class="tip-arrow">→</span><span><strong>Save the output</strong> as a .md file alongside your Figma file throughout the project.</span></div>
       <div class="tip"><span class="tip-arrow">→</span><span><strong>Be specific about what it shouldn't feel like</strong> — that constraint is often more useful than describing what it should be.</span></div>
+      <div class="tip"><span class="tip-arrow">→</span><span><strong>Not sure what your problem actually is?</strong> Ask Claude: <em>"I want to design [X]. Help me find the real design problem before I write a brief."</em> Use it to think out loud before committing to a direction.</span></div>
     </div>
     <div class="step-nav-strip">
       <a href="#sec-prep">← Before You Prompt</a>
@@ -745,6 +750,7 @@ Tech: <span class="ph">[React + Tailwind / HTML + CSS]</span>. Single file.</div
     <div class="tips" style="margin-top:20px;">
       <div class="tip"><span class="tip-arrow">→</span><span>Use <strong>Website mode</strong> for full pages, <strong>Component mode</strong> for isolated UI elements.</span></div>
       <div class="tip"><span class="tip-arrow">→</span><span><strong>One screen at a time.</strong> Scope creep in the prompt produces scope creep in the output.</span></div>
+      <div class="tip"><span class="tip-arrow">→</span><span><strong>Use Claude as a prompt co-author.</strong> Describe the screen in plain language and ask: <em>"Turn this into a precise Figma Make prompt."</em> A 3–4 message conversation usually produces a better first prompt than writing one from scratch alone.</span></div>
     </div>
     <div class="step-nav-strip">
       <a href="#sec-6">← User Flow</a>
@@ -814,6 +820,7 @@ Tech: <span class="ph">[React + Tailwind / HTML + CSS]</span>. Single file.</div
       <div class="tip"><span class="tip-arrow">→</span><span><strong>One change at a time.</strong> Stacking instructions leads to unpredictable changes across the component.</span></div>
       <div class="tip"><span class="tip-arrow">→</span><span>If a change goes wrong, <strong>describe what you wanted</strong> rather than what you got.</span></div>
       <div class="tip"><span class="tip-arrow">→</span><span><strong>Save versions you like</strong> before making significant changes — Make doesn't have granular undo.</span></div>
+      <div class="tip"><span class="tip-arrow">→</span><span><strong>Stuck on what to try next?</strong> Explain the problem to Claude: <em>"Here's what Make generated, here's what I actually need — write me a better follow-up prompt."</em> Let it draft the iteration.</span></div>
     </div>
     <div class="step-nav-strip">
       <a href="#sec-7">← Build the Component</a>
@@ -888,6 +895,11 @@ Tech: <span class="ph">[React + Tailwind / HTML + CSS]</span>. Single file.</div
         </div>
       </div>
 
+    </div>
+
+    <div class="insight" style="margin-top:32px;">
+      <div class="insight-eyebrow">Before you paste into Make</div>
+      <p>Run your prompt by Claude first: <strong>"I'm about to use this Figma Make prompt — what's missing or too vague?"</strong> It catches the same gaps Make will struggle with. This is especially useful for your first prompt on a new screen type, and for writing Skills you plan to reuse — you don't have to draft either from scratch.</p>
     </div>
 
     <div class="pro-tip">
