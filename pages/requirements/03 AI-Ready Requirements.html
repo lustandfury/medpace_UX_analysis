@@ -1,0 +1,497 @@
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-Ready Requirements</title>
+<link rel="stylesheet" href="../../styles/shared.css"/>
+</head>
+<body>
+<script src="../../footer.js"></script>
+<script src="../../nav.js"></script>
+
+<header>
+  <div class="header-left">
+    <strong>Requirements</strong>
+    <span class="sep">·</span>
+    <span>AI-Ready Requirements</span>
+  </div>
+  <div class="header-right">Phase 01 of 04 · 3 Principles · 7 Fields · Prompt Library</div>
+</header>
+
+<div class="progress-strip"><div class="progress-fill" id="prog"></div></div>
+
+<!-- HERO -->
+<section class="hero" id="sec-0">
+  <div class="hero-inner">
+    <div class="eyebrow">Requirements · Phase 01 of 04</div>
+    <h1>AI-Ready<br>Requirements</h1>
+    <p class="hero-desc">Three principles, seven fields, and a prompt library that makes your requirements consumable by every AI tool in the pipeline — without rewriting them for each one.</p>
+  </div>
+</section>
+
+<!-- SECTION 2: WHAT AI-READY MEANS -->
+<section class="section" id="sec-1">
+  <div class="section-inner">
+    <div class="section-label">The Foundation</div>
+    <h2>What "AI-Ready" <em>Actually Means</em></h2>
+    <p class="section-sub">Three principles that separate requirements AI can act on from requirements AI will misinterpret.</p>
+
+    <div class="principle-grid">
+      <div class="principle-card">
+        <h3>Explicit over Implicit</h3>
+        <p>If a requirement relies on a human to "just know" context that isn't written down, it's not AI-ready. AI tools can't read minds or absorb organizational history through osmosis. If the context isn't in the document, it isn't available to the tool — or the developer reading it six months from now.</p>
+      </div>
+      <div class="principle-card">
+        <h3>Behavioral over Aspirational</h3>
+        <p>If it describes a quality — "user-friendly," "intuitive," "performant" — without defining observable behavior, it's not AI-ready. Describe what happens: what the system displays, calculates, validates, or prevents. "Fast" means nothing to a code generator. "Responds within 500ms" means everything.</p>
+      </div>
+      <div class="principle-card">
+        <h3>Decomposed over Monolithic</h3>
+        <p>If it bundles five workflows into one paragraph, it's not AI-ready. AI code generation tools work best with single-responsibility requirements. A requirement that covers enrollment tracking, audit logging, and export formatting in one story will produce code that conflates all three — difficult to test and impossible to iterate.</p>
+      </div>
+    </div>
+
+    <p style="font-size:0.87rem;color:var(--text-muted);margin-bottom:20px;">The difference these principles create isn't subtle. Here's the same requirement written both ways:</p>
+
+    <div class="comparison">
+      <div class="comparison-side bad">
+        <div class="comparison-label">Not AI-Ready</div>
+        <div class="comparison-quote">The system should handle patient data securely.</div>
+        <p style="font-size:0.78rem;color:var(--text-muted);margin-top:12px;line-height:1.6;">This is aspirational and implicit. "Securely" requires the reader to know what security means in a 21 CFR Part 11 regulated clinical environment — and AI tools do not. An AI code generator handed this requirement will produce something that feels secure and is not.</p>
+      </div>
+      <div class="comparison-side good">
+        <div class="comparison-label">AI-Ready</div>
+        <div class="comparison-quote">The system must encrypt all PHI fields (name, DOB, MRN, SSN) using AES-256 at rest and TLS 1.2+ in transit, and must not write PHI to application logs.</div>
+        <p style="font-size:0.78rem;color:var(--text-muted);margin-top:12px;line-height:1.6;">This is behavioral, explicit, and decomposed. Every clause is directly actionable by Copilot and Claude. The audit logger, the encryption layer, and the log sanitizer are three separately testable requirements — all in one sentence.</p>
+      </div>
+    </div>
+
+    <div class="step-nav-strip">
+      <span></span>
+      <a class="next-link" href="#sec-2">The Story Template →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: STORY TEMPLATE (dark) -->
+<section class="section dark" id="sec-2">
+  <div class="section-inner">
+    <div class="section-label">The Framework</div>
+    <h2>The AI-Ready <em>Story Template</em></h2>
+    <p class="section-sub">Seven fields. Each one feeds a different part of the AI toolchain.</p>
+
+    <div class="field-grid">
+      <div class="field-card">
+        <div class="field-num">Field 01</div>
+        <h3>User Story</h3>
+        <p>As a [specific role + context], I need to [action] so that [measurable outcome]. The role must be specific enough that it defines constraints — "CRA monitoring a multi-site oncology trial" generates very different requirements than "user."</p>
+      </div>
+      <div class="field-card">
+        <div class="field-num">Field 02</div>
+        <h3>Acceptance Criteria</h3>
+        <p>Given / When / Then — covering the happy path, boundary conditions, and error states. Testable means a developer can answer "pass" or "fail" without interpretation. If it requires judgment to evaluate, it needs to be rewritten.</p>
+      </div>
+      <div class="field-card">
+        <div class="field-num">Field 03</div>
+        <h3>Data Context</h3>
+        <p>Inputs and outputs: field names, data types, validation rules, sources, and calculated fields with their formulas. Copilot generates data models and validation logic from this field — without it, it guesses, and gets it wrong in ways that are expensive to fix in code review.</p>
+      </div>
+      <div class="field-card">
+        <div class="field-num">Field 04</div>
+        <h3>UI/UX Behavioral Description</h3>
+        <p>Layout, interactions, and every named state: loading, empty, success, error. "A sortable table" is not a behavioral description. "A table that re-sorts within 500ms on column header click without a full page reload" is. Figma Make and Claude Design produce usable starting points from the second kind.</p>
+      </div>
+      <div class="field-card">
+        <div class="field-num">Field 05</div>
+        <h3>Edge Cases &amp; Error States</h3>
+        <p>Boundary conditions, timeout scenarios, concurrent users, and the data states that most stakeholders don't think about until QA finds them. Document these explicitly — AI test generation tools produce tests for exactly what you write here and nothing more.</p>
+      </div>
+      <div class="field-card">
+        <div class="field-num">Field 06</div>
+        <h3>Compliance &amp; Regulatory</h3>
+        <p>HIPAA and PHI handling rules, audit trail requirements, data retention policies, and accessibility standards (WCAG 2.1 AA minimum for 21 CFR Part 11 environments). AI tools will not infer regulatory requirements. If it isn't in the requirement, it won't be in the code.</p>
+      </div>
+      <div class="field-card" style="grid-column: 1 / -1;">
+        <div class="field-num">Field 07</div>
+        <h3>Dependencies &amp; Integrations</h3>
+        <p>Upstream systems providing data, downstream consumers reading the output, APIs, shared data contracts, and feature flags. Claude used for architecture analysis treats this field as the map of the system — missing entries mean generated components that conflict with real integrations at the worst possible time.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>Most of this you already know</strong> — it's just not written down. And once it is, AI tools can do remarkable things with it. The template is not about adding overhead. It's about making implicit knowledge explicit in a form that travels further than your memory.
+    </div>
+
+    <div class="step-nav-strip" style="border-top-color:rgba(255,255,255,.1);">
+      <a href="#sec-1" style="color:var(--text-muted-on-dark);">← What AI-Ready Means</a>
+      <a class="next-link" href="#sec-3">Why Each Field Matters →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: AI TOOLCHAIN TABLE -->
+<section class="section" id="sec-3">
+  <div class="section-inner">
+    <div class="section-label">The Toolchain Connection</div>
+    <h2>Why Each Field Matters <em>to the AI Toolchain</em></h2>
+    <p class="section-sub">Each template field has a direct, traceable connection to a specific AI tool failure mode.</p>
+
+    <table class="toolchain-table" aria-label="AI toolchain field mapping">
+      <thead>
+        <tr>
+          <th scope="col">Template Field</th>
+          <th scope="col">AI Tool It Feeds</th>
+          <th scope="col">What Happens Without It</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>User Story + Acceptance Criteria</td>
+          <td>Copilot, Claude (code gen + test gen)</td>
+          <td>AI generates code that doesn't match intended behavior. Tests become impossible to auto-generate because there's no behavioral specification to derive them from.</td>
+        </tr>
+        <tr>
+          <td>Data Context</td>
+          <td>Copilot (data models, validation)</td>
+          <td>Copilot guesses at data types and gets them wrong. Developers manually translate field names and validation rules into code — the exact repetitive work AI should be handling.</td>
+        </tr>
+        <tr>
+          <td>UI/UX Behavioral Description</td>
+          <td>Figma Make, Claude Design</td>
+          <td>"A form" produces a generic form. Detailed behavioral descriptions — states, interactions, column behavior, sort order — produce usable starting points for design that require iteration, not reconstruction.</td>
+        </tr>
+        <tr>
+          <td>Edge Cases &amp; Error States</td>
+          <td>Claude (test generation)</td>
+          <td>AI test generation tools derive test scenarios from what you've written. No edge cases means no edge case tests. QA finds them instead, in staging, at the end of the sprint.</td>
+        </tr>
+        <tr>
+          <td>Compliance &amp; Regulatory Notes</td>
+          <td>Copilot, Claude (code gen)</td>
+          <td>AI tools will not infer HIPAA requirements, audit trail obligations, or PHI handling rules. If AES-256 encryption and export audit logging are not specified, they will not appear in generated code.</td>
+        </tr>
+        <tr>
+          <td>Dependencies &amp; Integrations</td>
+          <td>Claude (architecture analysis)</td>
+          <td>AI generates components in isolation that conflict with existing API contracts, miss integration points, or duplicate data that already lives upstream — technical debt introduced before the first commit.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="insight">
+      <div class="insight-eyebrow">The pattern you'll notice</div>
+      <p>In every case, a missing field doesn't cause the AI tool to fail visibly — it causes it to <strong>succeed silently at the wrong thing</strong>. The output looks plausible. It compiles. It's wrong. The cost of that wrongness accumulates fastest when the requirement gets to Copilot, because code that looks correct is harder to audit than a design that looks off.</p>
+    </div>
+
+    <div class="step-nav-strip">
+      <a href="#sec-2">← The Story Template</a>
+      <a class="next-link" href="#sec-4">Writing for AI →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: WRITING FOR AI -->
+<section class="section" id="sec-4">
+  <div class="section-inner">
+    <div class="section-label">Language Patterns</div>
+    <h2>Writing for AI — <em>Language That Works</em></h2>
+    <p class="section-sub">The vocabulary you use determines whether AI tools can act on your requirements or have to interpret them.</p>
+
+    <div class="pattern-grid">
+      <div class="pattern-col use">
+        <h3>Use These Patterns</h3>
+        <ul class="pattern-list">
+          <li><strong>Concrete verbs:</strong> display, calculate, validate, submit, navigate, filter, sort, disable, prevent, redirect. These map directly to code paths.</li>
+          <li><strong>Specific quantities:</strong> "within 3 seconds," "maximum 50 characters," "at least one required," "paginate at 50 rows." Every number is a test case.</li>
+          <li><strong>Named states:</strong> active, inactive, pending, expired, locked, draft, loading, empty, error. Named states become component state variables.</li>
+          <li><strong>Defined roles:</strong> "CRA monitoring ONCO-2024-003 across 6 sites," "Site Coordinator with read-only access" — not "user." The role constrains the requirement meaningfully.</li>
+          <li><strong>Explicit conditionals:</strong> "If [condition], then [behavior]." Every conditional is a branch in the code and a test case in the acceptance criteria.</li>
+        </ul>
+      </div>
+      <div class="pattern-col avoid">
+        <h3>Avoid These Patterns</h3>
+        <ul class="pattern-list">
+          <li><strong>Subjective adjectives:</strong> intuitive, user-friendly, fast, modern, clean, simple. These describe a feeling, not a behavior. They're unverifiable and untestable.</li>
+          <li><strong>Implied knowledge:</strong> "the usual workflow," "standard compliance," "as per the existing process." If it isn't documented here, it doesn't exist to an AI tool.</li>
+          <li><strong>Compound requirements:</strong> "the system should do X and also Y and also Z" — these are three requirements. Split them so each can be tested, prioritized, and built independently.</li>
+          <li><strong>Ambiguous pronouns:</strong> "it should update," "they should see" — what is "it"? Which "they"? Every ambiguous pronoun is a place where AI tools guess, and developers debate in code review.</li>
+          <li><strong>Passive voice obligations:</strong> "data should be stored" — by what? When? For how long? Passive voice hides the actor and the trigger. Make both explicit.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="insight">
+      <div class="insight-eyebrow">Use Claude to audit your language before you finalize</div>
+      <p>Before locking a requirement, paste it into Claude with this prompt: <strong>"Review this requirement and flag any subjective adjectives, ambiguous pronouns, implied knowledge, or compound statements that should be split into separate requirements."</strong> It takes 30 seconds and catches the issues that become expensive when they reach the development sprint.</p>
+    </div>
+
+    <div class="step-nav-strip">
+      <a href="#sec-3">← Why Each Field Matters</a>
+      <a class="next-link" href="#sec-5">Full Structured Example →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: FULL EXAMPLE -->
+<section class="section" id="sec-5">
+  <div class="section-inner">
+    <div class="section-label">Running Example</div>
+    <h2>ONCO-2024-003 — <em>Fully Structured</em></h2>
+    <p class="section-sub">What a complete, AI-ready requirement looks like in practice — not abbreviated, not idealized.</p>
+
+    <p style="font-size:0.87rem;color:var(--text-muted);margin-bottom:24px;line-height:1.7;">This is the Patient Enrollment Table requirement for trial ONCO-2024-003, written with all seven fields populated. This is the version you hand to Copilot for data model generation, Claude for test case derivation, and Figma Make for initial layout. No rewriting required per tool — the same document feeds all three.</p>
+
+    <div class="story-block">
+      <div class="story-header">
+        <span class="story-label">Patient Enrollment Table · Trial ONCO-2024-003 · All 7 Fields</span>
+        <button class="copy-btn" id="copyStory" onclick="copyStory()">
+          <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><rect x="4" y="4" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.2"></rect><path d="M2 8H1.5A.5.5 0 011 7.5v-6A.5.5 0 011.5 1h6a.5.5 0 01.5.5V2" stroke="currentColor" stroke-width="1.2"></path></svg>
+          Copy full requirement
+        </button>
+      </div>
+      <div class="story-pre" id="storyContent"><span class="field-key">Feature:</span> Patient Enrollment Table — Trial ONCO-2024-003
+
+<span class="field-key">User Story:</span>
+  As a CRA monitoring trial ONCO-2024-003 across 6 sites, I need to view
+  enrollment status for all sites ranked by risk level so that I can identify
+  which sites need intervention before the weekly sponsor call, without
+  building a manual spreadsheet.
+
+<span class="field-key">Acceptance Criteria:</span>
+  Given I navigate to the enrollment dashboard,
+  When the page loads,
+  Then all active sites appear in a sortable table, defaulting to sort by
+  enrollment risk (furthest from target first).
+
+  Given a site has 0 enrolled patients,
+  When it appears in the table,
+  Then the Status column shows "No Data" with an info icon, distinguishing
+  it from sites that are actively behind target.
+
+  Given I click a column header,
+  When the sort is applied,
+  Then the table re-sorts within 500ms without a full page reload.
+
+  Given I click Print,
+  When the print dialog opens,
+  Then a print-optimized layout renders with: Site ID, Site Name, Target,
+  Actual, % to Target, Risk Status, Last Updated — one site per row, no
+  pagination artifacts.
+
+<span class="field-key">Data Context:</span>
+  Inputs: Site ID (string), Site Name (string), Target Enrollment (int),
+  Actual Enrollment (int), Enrollment Date (ISO 8601), Last Updated (timestamp)
+
+  Outputs: % to Target (calculated: Actual/Target × 100, round to 1 decimal),
+  Risk Status (calculated: Behind if &lt;70% at &gt;50% of trial duration,
+  At Risk if 70–89%, On Track if ≥90%)
+
+  Source: Trial Management System API — endpoint TBD
+  Refresh: On page load + manual refresh button; no real-time polling required
+
+<span class="field-key">UI/UX Behavioral Description:</span>
+  Layout: Full-width table, sticky header row, 7 columns. Status column uses
+  icon + text label (never color alone — color-blind safe per WCAG 2.1 AA).
+  Icons: Warning triangle (Behind), Caution circle (At Risk), Check (On Track).
+
+  Interactions: Column sort (asc/desc toggle), global filter by Status
+  (multi-select chip), export to CSV button (top-right).
+
+  States:
+    Loading — skeleton animation, 3 animated rows, matching column widths
+    Empty — "No sites found for this trial" + refresh CTA
+    Error — "Unable to load enrollment data" + retry button + timestamp of
+            last successful load
+
+<span class="field-key">Edge Cases &amp; Error States:</span>
+  - Site with Target Enrollment = 0: show "TBD" in target column, exclude from
+    risk calculation, show "Pending" status.
+  - API timeout &gt;10s: show error state with retry; preserve last known data
+    if available and display "Last updated [timestamp]" banner.
+  - Trial with &gt;50 sites: paginate at 50 rows, show total count above table.
+  - User has read-only role: hide export button entirely (no data exfiltration
+    for read-only users per compliance policy — do not disable, remove).
+
+<span class="field-key">Compliance &amp; Regulatory:</span>
+  - No PHI in this view. Site codes are de-identified. No audit trail required
+    for read operations on this screen.
+  - Export to CSV requires audit log entry: user ID, timestamp, trial ID,
+    number of rows exported, applied filters at time of export.
+  - Accessibility: WCAG 2.1 AA. All table headers must have scope attributes.
+    Sort state must be announced to screen readers via aria-sort.
+  - Color is never the sole indicator of status (deuteranopia/protanopia
+    accommodation). Each status row uses icon + text label in addition to color.
+
+<span class="field-key">Dependencies &amp; Integrations:</span>
+  - Trial Management System API (read — enrollment data, site metadata)
+  - User role/permission service (read — to determine export button visibility)
+  - Audit log service (write — export events only)
+  - No upstream write dependencies — this is a read-only view
+  - Downstream: no systems consume data from this screen directly</div>
+    </div>
+
+    <div class="insight">
+      <div class="insight-eyebrow">What this document enables downstream</div>
+      <p>Hand the Data Context to Copilot and ask it to generate a TypeScript interface and validation function — done in under two minutes. Paste the UI/UX section into Figma Make and ask for a layout starting point. Paste Acceptance Criteria plus Edge Cases into Claude and ask for a complete test suite. <strong>Same document, three tools, no rewriting.</strong> That's what AI-ready means.</p>
+    </div>
+
+    <div class="step-nav-strip">
+      <a href="#sec-4">← Writing for AI</a>
+      <a class="next-link" href="#sec-6">Claude Prompt Library →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7: PROMPT LIBRARY -->
+<section class="section" id="sec-6">
+  <div class="section-inner">
+    <div class="section-label">Prompt Library</div>
+    <h2>Claude Prompts <em>for Product Leads</em></h2>
+    <p class="section-sub">Six ready-to-use prompts that cover the full requirements lifecycle — from intake through ADO formatting.</p>
+
+    <div class="prompt-grid">
+
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-badge">Intake Structuring</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><rect x="4" y="4" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.2"></rect><path d="M2 8H1.5A.5.5 0 011 7.5v-6A.5.5 0 011.5 1h6a.5.5 0 01.5.5V2" stroke="currentColor" stroke-width="1.2"></path></svg>
+            Copy
+          </button>
+        </div>
+        <pre>Here are my notes from a stakeholder meeting
+about [topic]. Extract all requirements as user
+stories with acceptance criteria using this
+template: [paste template]. Flag any ambiguities
+and list follow-up questions that need to be
+answered before development can begin.</pre>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-badge">Requirement Review</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><rect x="4" y="4" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.2"></rect><path d="M2 8H1.5A.5.5 0 011 7.5v-6A.5.5 0 011.5 1h6a.5.5 0 01.5.5V2" stroke="currentColor" stroke-width="1.2"></path></svg>
+            Copy
+          </button>
+        </div>
+        <pre>Review this requirement for AI-readiness.
+Identify ambiguities, missing edge cases,
+implicit assumptions, and any areas where an
+AI code generation tool would need to guess
+at the intended behavior. Suggest specific
+improvements for each issue you find.</pre>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-badge">Decomposition</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><rect x="4" y="4" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.2"></rect><path d="M2 8H1.5A.5.5 0 011 7.5v-6A.5.5 0 011.5 1h6a.5.5 0 01.5.5V2" stroke="currentColor" stroke-width="1.2"></path></svg>
+            Copy
+          </button>
+        </div>
+        <pre>This requirement is too broad for a single
+sprint story. Break it into smaller,
+independently deliverable user stories that
+each describe a single user action. Each story
+should be completable in one sprint and
+testable in isolation from the others.</pre>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-badge">Test Generation</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><rect x="4" y="4" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.2"></rect><path d="M2 8H1.5A.5.5 0 011 7.5v-6A.5.5 0 011.5 1h6a.5.5 0 01.5.5V2" stroke="currentColor" stroke-width="1.2"></path></svg>
+            Copy
+          </button>
+        </div>
+        <pre>Given this requirement and acceptance criteria,
+generate a comprehensive set of test scenarios
+including: happy path, boundary cases, error
+states, and edge cases. For each scenario,
+include the Given/When/Then structure and the
+expected pass/fail condition.</pre>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-badge">ADO / Helix Formatting</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><rect x="4" y="4" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.2"></rect><path d="M2 8H1.5A.5.5 0 011 7.5v-6A.5.5 0 011.5 1h6a.5.5 0 01.5.5V2" stroke="currentColor" stroke-width="1.2"></path></svg>
+            Copy
+          </button>
+        </div>
+        <pre>Format these requirements as Azure DevOps
+work items with title, description, acceptance
+criteria, and relevant tags. Also produce a
+parallel version formatted for Helix ALM
+import. Flag any fields that require manual
+input before import (assigned to, sprint, etc.)</pre>
+      </div>
+
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-badge">Meeting Transcript</span>
+          <button class="copy-btn" onclick="copyPrompt(this)">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><rect x="4" y="4" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.2"></rect><path d="M2 8H1.5A.5.5 0 011 7.5v-6A.5.5 0 011.5 1h6a.5.5 0 01.5.5V2" stroke="currentColor" stroke-width="1.2"></path></svg>
+            Copy
+          </button>
+        </div>
+        <pre>I've attached a Teams meeting transcript (.vtt)
+and our requirements template. Populate the
+template from the transcript. Focus on
+functional requirements, acceptance criteria,
+and action items. For anything unclear in the
+transcript, list it as an open question rather
+than guessing at the intent.</pre>
+      </div>
+
+    </div>
+
+    <div class="step-nav-strip">
+      <a href="#sec-5">← Full Structured Example</a>
+      <a class="next-link" href="#sec-0">↩ Back to Top</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="https://nimblegravity.com/" class="brand-link" target="_blank" rel="noopener noreferrer" aria-label="Nimble Gravity">
+    <svg class="footer-logo ng-wordmark" aria-hidden="true" viewBox="0 0 114 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path class="ng-wordmark-top" d="M13.8656 28.174H21.0655V26.986C19.4172 26.8787 18.8448 26.6603 18.8448 25.4033V14.6082C18.8448 10.6879 17.0897 8.74497 13.7206 8.74497C10.6758 8.74497 8.63451 10.4733 7.09305 12.2705L7.23803 8.74497H6.41388L0 10.7224V11.4045L2.14814 12.6653V25.4033V28.174H9.27552V26.986C7.62722 26.8787 7.08923 26.6603 7.08923 25.4033V13.2401C8.23388 12.4468 9.59602 11.7647 11.1032 11.7647C13.072 11.7647 13.8618 12.8071 13.8618 14.8956V25.4033V28.174H13.8656ZM29.6618 3.74401C29.6618 2.19582 28.479 0.900556 26.7239 0.900556C24.9687 0.900556 23.8203 2.19582 23.8203 3.74401C23.8203 5.2922 25.0031 6.58747 26.7239 6.58747C28.4447 6.58747 29.6618 5.25771 29.6618 3.74401ZM24.3239 28.174H31.5238V26.986C29.8412 26.8787 29.265 26.6603 29.265 25.4033V8.74497H28.479L22.172 10.7224V11.4045L24.3201 12.6653V19.2911V28.174H24.3239ZM57.5342 28.174H64.7341V26.986C63.0858 26.8787 62.5134 26.6603 62.5134 25.4033V14.5354C62.5134 10.7224 60.9033 8.74114 57.6067 8.74114C54.6344 8.74114 52.5549 10.4694 51.0516 12.374C50.5861 9.85629 49.0103 8.74114 46.3929 8.74114C43.3824 8.74114 41.4861 10.3621 39.979 12.305L40.124 8.74114H39.2998L32.8859 10.7185V11.4007L35.0341 12.6614V28.1701H42.1271V26.9822C40.4788 26.8749 39.979 26.6564 39.979 25.3995V13.2363C41.1236 12.443 42.2721 11.7609 43.7029 11.7609C45.5649 11.7609 46.2822 12.8032 46.2822 14.8573V25.3995V28.1663H51.2615V13.2707C52.3718 12.443 53.5203 11.7609 54.9511 11.7609C56.813 11.7609 57.5304 12.8032 57.5304 14.8573V28.1701L57.5342 28.174ZM80.4273 19.2527C80.4273 23.6789 78.5996 27.2044 75.5549 27.2044C73.3686 27.2044 72.2964 25.8019 72.2964 23.0657V13.0255C73.1206 12.2705 74.2652 11.7647 75.448 11.7647C78.8171 11.7647 80.4273 14.8228 80.4273 19.2489M85.4447 17.4861C85.4447 11.9448 82.6861 8.74114 78.3173 8.74114C75.4518 8.74114 73.483 10.3238 72.3002 12.1249V0H71.5104L65.169 1.7283V2.48323L67.3172 3.59839V26.0126C69.3585 27.7026 72.4414 28.5304 75.593 28.5304C81.1103 28.5304 85.4447 24.5373 85.4447 17.4861ZM89.0656 28.174H96.2655V26.986C94.6172 26.8787 94.0449 26.6603 94.0449 25.4033V0H93.255L86.9137 1.7283V2.48323L89.0618 3.59839V28.174H89.0656ZM102.214 15.7616C102.5 12.4507 103.79 10.0747 106.155 10.0747C108.521 10.0747 109.379 12.3779 109.379 15.7616H102.214ZM102.141 17.0914H113.821V16.2637C113.821 11.9448 111.314 8.74497 106.514 8.74497C101.714 8.74497 97.6658 12.991 97.6658 19.1454C97.6658 24.6867 101.142 28.538 106.335 28.538C110.455 28.538 113.069 26.0931 114 22.5292L113.428 22.2073C112.138 24.0774 110.524 25.1198 108.09 25.1198C104.579 25.1198 102 22.1345 102.141 17.0952" />
+      <path class="ng-wordmark-bottom" d="M73.1549 57.0147C73.1549 58.5629 74.3377 59.8582 76.0547 59.8582C77.7717 59.8582 78.9926 58.5629 78.9926 57.0147C78.9926 55.4665 77.8098 54.1713 76.0547 54.1713C74.2996 54.1713 73.1549 55.501 73.1549 57.0147ZM12.5721 52.5886C14.3273 52.5886 15.4032 53.1634 15.4032 54.7461C15.4032 57.4439 12.2516 58.6319 8.74135 58.6319C5.23107 58.6319 3.26227 57.122 3.26227 54.7116C3.26227 53.8494 3.47594 53.1289 3.94143 52.5886H12.5759H12.5721ZM5.94457 38.5936C5.94457 35.7884 6.76873 33.8072 8.77569 33.8072C10.7826 33.8072 11.8205 36.2904 11.8205 39.1684C11.8205 42.0463 11.0345 44.0276 9.06185 44.0276C6.94806 44.0276 5.94457 41.5443 5.94457 38.5936ZM4.01011 46.7982C4.01011 46.0433 4.5481 45.2883 5.22726 44.6407C6.33757 45.0354 7.59288 45.2155 8.84437 45.2155C13.3238 45.2155 16.5097 42.8779 16.5097 39.0649C16.5097 37.2638 15.5063 35.7539 14.251 34.9262L16.7577 35.0335H18.2267V32.945L12.1715 33.0906C11.2749 32.8377 10.3095 32.5848 8.98173 32.5848C4.50231 32.5848 1.17136 35.0335 1.17136 39.1684C1.17136 41.7244 2.56784 43.3799 4.46797 44.315C2.81967 45.3573 1.13702 46.7254 1.13702 48.8484C1.13702 50.3238 1.96118 51.5846 3.35765 52.1211C1.6483 52.6614 0 53.6693 0 55.501C0 58.4135 3.25845 60 8.48952 60C14.4379 60 18.9517 57.4822 18.9517 52.9488C18.9517 49.7834 16.8035 48.0207 12.6484 48.0207H5.26541C4.4756 48.0207 4.01011 47.5531 4.01011 46.7982ZM32.6341 37.0837H33.3133V33.1979C33.0271 32.8377 32.4891 32.5848 31.7375 32.5848C29.6237 32.5848 28.5477 33.9873 26.8307 37.9114L26.9757 32.5848H26.1516L19.7377 34.5621V35.2443L21.8858 36.505V52.0138H29.8755V50.8258C27.6549 50.6457 26.8307 50.4311 26.8307 48.9557V39.0266C28.6583 37.191 30.4135 37.0837 32.6341 37.0837ZM44.7407 48.3464C43.7373 49.1013 43.0199 49.496 41.9821 49.496C40.082 49.496 39.2235 48.1663 39.2235 46.2924C39.2235 44.2766 40.1545 43.4489 41.6578 42.8741L44.7407 41.6133V48.3426V48.3464ZM52.2993 49.6761C51.9063 49.8563 51.4026 50.0364 50.8647 50.0364C49.9337 50.0364 49.6818 49.2431 49.6818 48.0207V38.4863C49.6818 34.2747 47.175 32.5848 42.5888 32.5848C38.613 32.5848 35.5301 34.1329 35.5301 37.1182C35.5301 38.3062 36.1406 39.0611 37.1059 39.383L40.0782 38.9883C39.8989 38.195 39.792 37.4784 39.792 36.758C39.792 35.0297 40.4712 33.7344 42.192 33.7344C44.054 33.7344 44.7369 35.2098 44.7369 37.26V40.318L39.3265 42.2954C36.6404 43.3033 34.4198 44.5641 34.4198 47.6566C34.4198 50.5345 36.3542 52.2973 39.2579 52.2973C41.8371 52.2973 43.6991 50.7147 44.8476 49.2048C45.2062 51.1822 46.4959 52.3702 48.4304 52.3702C50.113 52.3702 51.4751 51.688 52.513 50.4617L52.2993 49.6685V49.6761ZM69.2669 35.2864L70.2589 32.945H64.8027V34.1329C66.6647 34.3859 67.237 34.5277 67.237 35.3554C67.237 35.6428 67.1645 35.8574 66.9852 36.3249L62.9713 46.3268L62.4409 45.0967L57.1984 32.9411H51.1127V34.1291C52.4023 34.4893 52.5816 34.7423 52.9403 35.4972L60.7507 52.2629H62.0746L69.1677 35.4972C69.202 35.4205 69.2325 35.3516 69.2631 35.2864M73.6509 52.0138H80.8508V50.8258C79.1682 50.7185 78.5958 50.5039 78.5958 49.2431V32.5848H77.806L71.499 34.5621V35.2443L73.6471 36.505V52.0138H73.6509ZM94.682 49.2776L94.2509 48.63C93.3542 49.3121 92.5682 49.6378 91.5648 49.6378C89.8821 49.6378 89.058 48.7028 89.058 46.507V34.5966H93.7167V32.9411H89.058V28.2621H87.982C86.4405 30.638 84.3267 32.6537 81.8581 33.7689V34.5966H84.0787V46.7944C84.0787 50.8258 86.2269 52.3702 89.1648 52.3702C91.7441 52.3702 93.5336 51.0749 94.682 49.2776ZM111.081 35.3516C111.081 35.639 111.009 35.9264 110.829 36.3594L106.815 47.009L102.515 36.3594C102.508 36.3364 102.504 36.3173 102.496 36.2981L101.142 32.9411H94.9949V34.1291C96.2846 34.4893 96.4982 34.7423 96.8225 35.4972L104.526 52.6959L103.916 54.2441C103.164 56.2215 101.981 56.7618 100.047 56.7618C99.0088 56.7618 98.364 56.6162 97.6085 56.4361V58.2717C97.9672 59.314 99.15 59.9272 100.367 59.9272C102.695 59.9272 103.916 58.3445 105.095 55.4282L112.977 35.4934C112.977 35.4934 112.985 35.478 112.989 35.4704L113.989 32.9411H108.643V34.1291C110.505 34.3437 111.081 34.5238 111.081 35.3516Z" />
+    </svg>
+  </a>
+  <div>AI-Powered SDLC Playbook · Medpace</div>
+</footer>
+
+<script>
+  function copyStory() {
+    const el = document.getElementById('storyContent');
+    navigator.clipboard.writeText(el.innerText).then(() => {
+      const btn = document.getElementById('copyStory');
+      const orig = btn.innerHTML;
+      btn.classList.add('copied');
+      btn.innerHTML = '<svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Copied';
+      setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = orig; }, 2200);
+    });
+  }
+
+  function copyPrompt(btn) {
+    const pre = btn.closest('.prompt-card').querySelector('pre');
+    navigator.clipboard.writeText(pre ? pre.innerText : '').then(() => {
+      const orig = btn.innerHTML;
+      btn.classList.add('copied');
+      btn.innerHTML = '<svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Copied';
+      setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = orig; }, 2200);
+    });
+  }
+
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const total = document.body.scrollHeight - window.innerHeight;
+    document.getElementById('prog').style.width = (scrolled / total * 100) + '%';
+  });
+</script>
+</body></html>

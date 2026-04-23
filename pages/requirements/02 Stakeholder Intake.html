@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Stakeholder Intake · Requirements · Medpace SDLC Playbook</title>
+<link rel="stylesheet" href="../../styles/shared.css"/>
+</head>
+<body>
+<script src="../../footer.js"></script>
+<script src="../../nav.js"></script>
+
+<!-- HEADER -->
+<div class="page-header" id="intro">
+  <div class="eyebrow">Requirements · Phase 01 of 04</div>
+  <h1 class="page-title">Stakeholder Intake</h1>
+  <p class="page-subtitle">A 10-minute workflow that replaces 45 minutes of manual authoring. Your stakeholders have limited time — this approach captures everything you need without changing how they work.</p>
+</div>
+
+<!-- SECTION 2: AI AS YOUR INTAKE ASSISTANT -->
+<div class="section section--white" id="intake-assistant">
+  <div class="sec-label">The Method</div>
+  <h2 class="sec-title">AI as Your Intake Assistant</h2>
+  <p class="sec-sub">Three steps replace the conventional pattern of re-reading notes, reconstructing context, and manually authoring a requirements document from scratch.</p>
+
+  <div class="step-list">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <div class="step-body">
+        <h4>Record &amp; transcribe.</h4>
+        <p>Hold requirements meetings in Teams with transcription enabled. Even dictating your own notes immediately after a stakeholder call works — the input doesn't have to be verbatim dialogue. The goal is capturing what was said before memory degrades, not producing a perfect transcript.</p>
+      </div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <div class="step-body">
+        <h4>Feed the transcript to Claude.</h4>
+        <p>Upload the meeting transcript (.vtt file) along with your requirements template. Let AI extract and structure the requirements. Claude reads the entire transcript — including the tangential comments that often contain the most important edge cases — and maps it against your template fields.</p>
+      </div>
+    </div>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <div class="step-body">
+        <h4>Review &amp; refine.</h4>
+        <p>Claude produces a structured draft in under 30 seconds. Your job shifts from authoring to reviewing and refining. You're applying judgment to output, not spending cognitive energy reconstructing what was said three days ago.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="code-wrap">
+    <div class="code-topbar">
+      <span class="cb-dot" style="background:#ff5f57;"></span>
+      <span class="cb-dot" style="background:#febc2e;"></span>
+      <span class="cb-dot" style="background:#28c840;"></span>
+      <span class="code-label">Transcript intake prompt</span>
+      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+    </div>
+    <div class="code-body">
+      <pre id="code-transcript-intake">"I have attached a meeting transcription (meeting.vtt) and a project requirements
+template (requirements_template.docx). Please read the transcription and populate
+the template with the information gathered, specifically focusing on functional
+requirements, acceptance criteria, data context, UI descriptions, edge cases,
+and compliance notes. Flag any ambiguities and list follow-up questions."</pre>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p><strong>The same works for emails and voicemails.</strong> Forward the email, paste it into Claude, and ask it to extract requirements. No new meetings, no behavior change from stakeholders — just a smarter handoff. The stakeholder's one-sentence Slack message is a valid input. It doesn't have to be a formal brief.</p>
+  </div>
+</div>
+
+<!-- SECTION 3: 5-QUESTION FRAMEWORK -->
+<div class="section section--off" id="five-questions">
+  <div class="sec-label">Mental Model</div>
+  <h2 class="sec-title">The 5-Question Stakeholder Framework</h2>
+  <p class="sec-sub">A mental model for capturing the right information in constrained time. You don't need to formally ask these as interview questions — just make sure your notes touch all five areas.</p>
+
+  <div class="framework-list">
+    <div class="fq-card">
+      <div class="fq-accent"></div>
+      <div class="fq-inner">
+        <div class="fq-num">Question 01</div>
+        <div class="fq-question">WHO is the user, and what is their role and context?</div>
+        <div class="fq-body">Not just a job title — a specific, situated person. What are they doing right now? What are the pressures on them? Generic personas lead to generic requirements. The more specific the user context, the more actionable the requirement.</div>
+        <div class="fq-example">"a CRA monitoring 6 oncology sites with an overdue visit backlog ahead of a Thursday sponsor call"</div>
+      </div>
+    </div>
+
+    <div class="fq-card">
+      <div class="fq-accent"></div>
+      <div class="fq-inner">
+        <div class="fq-num">Question 02</div>
+        <div class="fq-question">WHAT do they need to accomplish?</div>
+        <div class="fq-body">The action, not the feature. Frame it in terms of what they're trying to do — not what they want the system to have. "I need to identify which sites are at enrollment risk" is different from "I need a dashboard." The task-first framing surfaces the right acceptance criteria naturally.</div>
+        <div class="fq-example">"identify which sites need immediate intervention before the 9 AM sponsor call"</div>
+      </div>
+    </div>
+
+    <div class="fq-card">
+      <div class="fq-accent"></div>
+      <div class="fq-inner">
+        <div class="fq-num">Question 03</div>
+        <div class="fq-question">WHY does this matter clinically or operationally?</div>
+        <div class="fq-body">The outcome — what happens if they can or can't do this? This is where clinical software diverges from consumer software. The stakes are audit findings, protocol deviations, and delayed trials. The answer to "why" is what gets requirements prioritized when the roadmap is contested.</div>
+        <div class="fq-example">"if a site falls behind and we miss it, the protocol deviation triggers a Helix deviation record and a potential FDA query"</div>
+      </div>
+    </div>
+
+    <div class="fq-card">
+      <div class="fq-accent"></div>
+      <div class="fq-inner">
+        <div class="fq-num">Question 04</div>
+        <div class="fq-question">WHAT DOES SUCCESS LOOK LIKE?</div>
+        <div class="fq-body">Observable behavior — something you could verify in a 5-minute demo. Avoid "intuitive" and "easy to use." Good success criteria are specific enough that a developer could write a test for them without asking a follow-up question.</div>
+        <div class="fq-example">"I can see all 6 sites' enrollment status ranked by risk on one screen within 3 seconds of login"</div>
+      </div>
+    </div>
+
+    <div class="fq-card">
+      <div class="fq-accent"></div>
+      <div class="fq-inner">
+        <div class="fq-num">Question 05</div>
+        <div class="fq-question">WHAT CAN GO WRONG?</div>
+        <div class="fq-body">Edge cases, error states, compliance constraints. This is the question most requirements skip — and the one that generates the most rework. For clinical software, always probe: data absence (a site that hasn't started), data corruption (a site with impossible values), and audit trail obligations (any manual override).</div>
+        <div class="fq-example">"what if a site has no enrollment data yet — does it show 0% or something different?"</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p>You don't need to formally ask these — just make sure your notes touch all five. If you missed one, that's your follow-up email. <strong>Then let Claude structure the rest.</strong> A five-sentence email summary plus this framework gets you 80% of a well-structured requirement without a second meeting.</p>
+  </div>
+</div>
+
+<!-- SECTION 4: STRUCTURE EARLY VS LATE -->
+<div class="section section--dark" id="structure-timing">
+  <div class="sec-label sec-label--dark">Workflow Change</div>
+  <h2 class="sec-title sec-title--white">Structuring Early vs. Late</h2>
+  <p class="sec-sub sec-sub--dark">Where requirements get structured in the SDLC determines whether AI tools can help throughout the process — or only after the fact.</p>
+
+  <div class="compare-grid">
+    <div class="compare-card compare-card--late">
+      <span class="compare-badge compare-badge--late">Current: Structure Late</span>
+      <div class="compare-title">Requirements structured at migration</div>
+      <ul class="compare-list">
+        <li>Requirements don't get formally structured until migration into Helix ALM near the end of development.</li>
+        <li>By that point, code is written, design is done, and the requirement is largely retroactive documentation.</li>
+        <li>Ambiguities that should have been caught in week one surface as bugs or scope disputes in week eight.</li>
+        <li>AI tools never receive structured input — they can't help with generation, validation, or traceability because there's nothing to reason about yet.</li>
+        <li>Migration becomes a rewriting exercise: translating developer assumptions and Slack threads back into formal requirements language.</li>
+      </ul>
+    </div>
+
+    <div class="compare-card compare-card--early">
+      <span class="compare-badge compare-badge--early">Future: Structure Early</span>
+      <div class="compare-title">Requirements structured at capture</div>
+      <ul class="compare-list">
+        <li>Structure requirements right after the stakeholder interaction using AI as your authoring assistant.</li>
+        <li>Two things happen immediately: AI tools can consume requirements throughout the entire SDLC, and ambiguities surface before anyone writes a line of code.</li>
+        <li>Design uses requirements to validate prototypes. Development uses requirements to generate component scaffolding. QA uses requirements to write acceptance tests.</li>
+        <li>Helix migration becomes a formatting exercise — paste already-structured requirements into the correct fields rather than reconstructing intent from memory.</li>
+        <li>The discipline is front-loaded into a 10-minute AI-assisted authoring step, not distributed as rework across the entire team.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout--dark">
+    <p><strong>Helix ALM doesn't go away.</strong> Structuring early doesn't bypass your existing toolchain — it means requirements enter Helix earlier, cleaner, and more completely, because AI helped you structure them at the point of capture. Migration becomes a formatting exercise, not a rewriting exercise. The audit trail in Helix is exactly where it needs to be for 21 CFR Part 11 compliance — this workflow just ensures it contains real requirements, not post-hoc documentation.</p>
+  </div>
+</div>
+
+<!-- SECTION 5: APPLIED TO ONCO-2024-003 -->
+<div class="section section--white" id="applied">
+  <div class="sec-label">Running Example</div>
+  <h2 class="sec-title">Applied to ONCO-2024-003</h2>
+  <p class="sec-sub">What this looks like in practice — from a raw 20-minute stakeholder call to a fully structured requirement ready for Helix.</p>
+
+  <div class="scenario-wrap">
+
+    <div class="scenario-box">
+      <div class="scenario-label">Scenario</div>
+      <p>The product lead holds a 20-minute call with the lead CRA (Dr. Sarah Chen) and the Medpace project coordinator for trial ONCO-2024-003. The feature in scope: the Patient Enrollment Table. Teams transcription is on. The call is informal — no agenda, just a screen share of Dr. Chen's current Excel workaround.</p>
+    </div>
+
+    <div>
+      <div class="scenario-label">Raw transcript excerpt (Dr. Chen, CRA)</div>
+      <div class="transcript-block">
+        <div class="transcript-speaker">Dr. Sarah Chen · Lead CRA · ONCO-2024-003</div>
+        <p>"We really need to be able to see at a glance which sites are behind on enrollment — not just numbers but whether they're actually at risk. Right now I'm building this in Excel every week before the sponsor call and it takes me 90 minutes. Oh, and we need to be able to sort by how far behind they are. And it needs to be printable for the sponsor — they don't want PDFs, they want something they can mark up."</p>
+      </div>
+    </div>
+
+    <div class="scenario-box">
+      <div class="scenario-label">What Claude extracts</div>
+
+      <table class="req-table">
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Extracted requirement</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>User story</td>
+            <td>As a CRA monitoring ONCO-2024-003, I need to view enrollment status across all sites ranked by risk level so that I can identify which sites need intervention before the weekly sponsor call without manual spreadsheet work.</td>
+          </tr>
+          <tr>
+            <td>Acceptance criteria</td>
+            <td>
+              Given I open the enrollment table, when the page loads, then all sites appear sorted by enrollment risk (furthest from target first).<br><br>
+              Given I click Print, when the dialog opens, then a print-optimized layout renders with site name, target, actual, % to target, and last updated columns visible and correctly formatted for letter-size paper.
+            </td>
+          </tr>
+          <tr>
+            <td>Data context</td>
+            <td>Site ID, Site Name, Target Enrollment, Actual Enrollment, % to Target, Last Updated, Risk Status (calculated field: Behind / At Risk / On Track), Days Since Last Update</td>
+          </tr>
+          <tr>
+            <td>UI description</td>
+            <td>Sortable table with inline sort controls. Risk status column must use icon + text label — never color alone (WCAG 2.1 AA, color-blind-safe). Browser print functionality using <code style="font-family:'Roboto Mono',monospace;font-size:13px;background:var(--off);padding:1px 5px;border-radius:3px;">@media print</code> CSS. No pagination for ≤50 sites — full table on load.</td>
+          </tr>
+          <tr>
+            <td>Edge cases</td>
+            <td>
+              Site with 0 enrolled patients: display "No enrollment data" rather than 0% to distinguish a site that hasn't started from one that is genuinely behind on a non-zero target.<br><br>
+              Network timeout &gt;10 seconds: show a retry prompt with the last-cached data timestamp rather than an empty state.
+            </td>
+          </tr>
+          <tr>
+            <td>Compliance notes</td>
+            <td>Audit trail required for any manual status override. This view contains no PHI — de-identified site codes only. Any status override must be logged in Helix ALM with user ID, timestamp, and reason per 21 CFR Part 11 §11.10(e).</td>
+          </tr>
+          <tr>
+            <td>Follow-up questions</td>
+            <td>
+              (1) What constitutes "At Risk" vs "Behind" — is there a defined threshold, e.g., &lt;80% of target vs &lt;60%?<br>
+              (2) Should the sponsor print view include the risk status column, or is that internal-only?<br>
+              (3) Is there a maximum number of sites per trial this table needs to support beyond 50?
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- SECTION 6: TRY THIS MONDAY -->
+<div class="section section--off" id="try-this">
+  <div class="sec-label">Ready to Use</div>
+  <h2 class="sec-title">Try This Monday</h2>
+  <p class="sec-sub">Two prompts you can use immediately. Adapt the bracketed placeholders to your feature. No template file required — these work in any Claude conversation.</p>
+
+  <div class="prompt-pair">
+    <div class="prompt-panel">
+      <div class="prompt-panel-header">
+        <div class="pp-icon" aria-hidden="true" style="font-family:'Roboto Mono',monospace;font-size:14px;font-weight:700;color:var(--violetL);">01</div>
+        <div>
+          <div class="pp-title">Prompt 1 — Transcript intake</div>
+          <div class="pp-sub">Use after a meeting, call, or email thread</div>
+        </div>
+      </div>
+      <div class="code-wrap">
+        <div class="code-topbar">
+          <span class="cb-dot" style="background:#ff5f57;"></span>
+          <span class="cb-dot" style="background:#febc2e;"></span>
+          <span class="cb-dot" style="background:#28c840;"></span>
+          <span class="code-label">Paste into Claude</span>
+          <button class="copy-btn" onclick="copyCode(this, 'code-prompt1')">Copy</button>
+        </div>
+        <div class="code-body">
+          <pre id="code-prompt1">Here are my notes from a stakeholder meeting about [feature name]:
+
+[Paste your notes or transcript here]
+
+Extract all requirements as user stories. For each requirement, provide:
+- Story (As a / I need to / So that format with specific role and context)
+- Acceptance criteria (Given/When/Then, covering happy path + 2-3 edge cases)
+- Data context (inputs, outputs, types, validation rules)
+- UI/UX description (layout, key interactions, states)
+- Compliance notes (any 21 CFR Part 11 or HIPAA implications)
+
+Flag anything ambiguous and list the follow-up questions I should ask.</pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="prompt-panel">
+      <div class="prompt-panel-header">
+        <div class="pp-icon" aria-hidden="true" style="font-family:'Roboto Mono',monospace;font-size:14px;font-weight:700;color:var(--violetL);">02</div>
+        <div>
+          <div class="pp-title">Prompt 2 — Follow-up question generator</div>
+          <div class="pp-sub">Use when a requirement feels incomplete</div>
+        </div>
+      </div>
+      <div class="code-wrap">
+        <div class="code-topbar">
+          <span class="cb-dot" style="background:#ff5f57;"></span>
+          <span class="cb-dot" style="background:#febc2e;"></span>
+          <span class="cb-dot" style="background:#28c840;"></span>
+          <span class="code-label">Paste into Claude</span>
+          <button class="copy-btn" onclick="copyCode(this, 'code-prompt2')">Copy</button>
+        </div>
+        <div class="code-body">
+          <pre id="code-prompt2">I have this partial requirement for [feature]:
+
+[Paste your requirement]
+
+Identify what's missing or ambiguous that would cause an AI code generation
+tool to guess wrong. List specific follow-up questions I should ask the
+stakeholder, ordered by impact on implementation.</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <p><strong>The second prompt is often more valuable than the first.</strong> It's the difference between producing a requirement and stress-testing it. Before you hand a requirement to a developer or use it as a Cursor prompt, run it through the follow-up generator. The questions it surfaces are exactly the ones that cause rework if left unanswered.</p>
+  </div>
+</div>
+
+<!-- PAGE FOOTER -->
+<div class="page-footer">
+  <a href="https://nimblegravity.com/" class="brand-link" target="_blank" rel="noopener noreferrer" aria-label="Nimble Gravity">
+    <svg class="footer-logo ng-wordmark" aria-hidden="true" viewBox="0 0 114 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path class="ng-wordmark-top" d="M13.8656 28.174H21.0655V26.986C19.4172 26.8787 18.8448 26.6603 18.8448 25.4033V14.6082C18.8448 10.6879 17.0897 8.74497 13.7206 8.74497C10.6758 8.74497 8.63451 10.4733 7.09305 12.2705L7.23803 8.74497H6.41388L0 10.7224V11.4045L2.14814 12.6653V25.4033V28.174H9.27552V26.986C7.62722 26.8787 7.08923 26.6603 7.08923 25.4033V13.2401C8.23388 12.4468 9.59602 11.7647 11.1032 11.7647C13.072 11.7647 13.8618 12.8071 13.8618 14.8956V25.4033V28.174H13.8656ZM29.6618 3.74401C29.6618 2.19582 28.479 0.900556 26.7239 0.900556C24.9687 0.900556 23.8203 2.19582 23.8203 3.74401C23.8203 5.2922 25.0031 6.58747 26.7239 6.58747C28.4447 6.58747 29.6618 5.25771 29.6618 3.74401ZM24.3239 28.174H31.5238V26.986C29.8412 26.8787 29.265 26.6603 29.265 25.4033V8.74497H28.479L22.172 10.7224V11.4045L24.3201 12.6653V19.2911V28.174H24.3239ZM57.5342 28.174H64.7341V26.986C63.0858 26.8787 62.5134 26.6603 62.5134 25.4033V14.5354C62.5134 10.7224 60.9033 8.74114 57.6067 8.74114C54.6344 8.74114 52.5549 10.4694 51.0516 12.374C50.5861 9.85629 49.0103 8.74114 46.3929 8.74114C43.3824 8.74114 41.4861 10.3621 39.979 12.305L40.124 8.74114H39.2998L32.8859 10.7185V11.4007L35.0341 12.6614V28.1701H42.1271V26.9822C40.4788 26.8749 39.979 26.6564 39.979 25.3995V13.2363C41.1236 12.443 42.2721 11.7609 43.7029 11.7609C45.5649 11.7609 46.2822 12.8032 46.2822 14.8573V25.3995V28.1663H51.2615V13.2707C52.3718 12.443 53.5203 11.7609 54.9511 11.7609C56.813 11.7609 57.5304 12.8032 57.5304 14.8573V28.1701L57.5342 28.174ZM80.4273 19.2527C80.4273 23.6789 78.5996 27.2044 75.5549 27.2044C73.3686 27.2044 72.2964 25.8019 72.2964 23.0657V13.0255C73.1206 12.2705 74.2652 11.7647 75.448 11.7647C78.8171 11.7647 80.4273 14.8228 80.4273 19.2489M85.4447 17.4861C85.4447 11.9448 82.6861 8.74114 78.3173 8.74114C75.4518 8.74114 73.483 10.3238 72.3002 12.1249V0H71.5104L65.169 1.7283V2.48323L67.3172 3.59839V26.0126C69.3585 27.7026 72.4414 28.5304 75.593 28.5304C81.1103 28.5304 85.4447 24.5373 85.4447 17.4861ZM89.0656 28.174H96.2655V26.986C94.6172 26.8787 94.0449 26.6603 94.0449 25.4033V0H93.255L86.9137 1.7283V2.48323L89.0618 3.59839V28.174H89.0656ZM102.214 15.7616C102.5 12.4507 103.79 10.0747 106.155 10.0747C108.521 10.0747 109.379 12.3779 109.379 15.7616H102.214ZM102.141 17.0914H113.821V16.2637C113.821 11.9448 111.314 8.74497 106.514 8.74497C101.714 8.74497 97.6658 12.991 97.6658 19.1454C97.6658 24.6867 101.142 28.538 106.335 28.538C110.455 28.538 113.069 26.0931 114 22.5292L113.428 22.2073C112.138 24.0774 110.524 25.1198 108.09 25.1198C104.579 25.1198 102 22.1345 102.141 17.0952" />
+      <path class="ng-wordmark-bottom" d="M73.1549 57.0147C73.1549 58.5629 74.3377 59.8582 76.0547 59.8582C77.7717 59.8582 78.9926 58.5629 78.9926 57.0147C78.9926 55.4665 77.8098 54.1713 76.0547 54.1713C74.2996 54.1713 73.1549 55.501 73.1549 57.0147ZM12.5721 52.5886C14.3273 52.5886 15.4032 53.1634 15.4032 54.7461C15.4032 57.4439 12.2516 58.6319 8.74135 58.6319C5.23107 58.6319 3.26227 57.122 3.26227 54.7116C3.26227 53.8494 3.47594 53.1289 3.94143 52.5886H12.5759H12.5721ZM5.94457 38.5936C5.94457 35.7884 6.76873 33.8072 8.77569 33.8072C10.7826 33.8072 11.8205 36.2904 11.8205 39.1684C11.8205 42.0463 11.0345 44.0276 9.06185 44.0276C6.94806 44.0276 5.94457 41.5443 5.94457 38.5936ZM4.01011 46.7982C4.01011 46.0433 4.5481 45.2883 5.22726 44.6407C6.33757 45.0354 7.59288 45.2155 8.84437 45.2155C13.3238 45.2155 16.5097 42.8779 16.5097 39.0649C16.5097 37.2638 15.5063 35.7539 14.251 34.9262L16.7577 35.0335H18.2267V32.945L12.1715 33.0906C11.2749 32.8377 10.3095 32.5848 8.98173 32.5848C4.50231 32.5848 1.17136 35.0335 1.17136 39.1684C1.17136 41.7244 2.56784 43.3799 4.46797 44.315C2.81967 45.3573 1.13702 46.7254 1.13702 48.8484C1.13702 50.3238 1.96118 51.5846 3.35765 52.1211C1.6483 52.6614 0 53.6693 0 55.501C0 58.4135 3.25845 60 8.48952 60C14.4379 60 18.9517 57.4822 18.9517 52.9488C18.9517 49.7834 16.8035 48.0207 12.6484 48.0207H5.26541C4.4756 48.0207 4.01011 47.5531 4.01011 46.7982ZM32.6341 37.0837H33.3133V33.1979C33.0271 32.8377 32.4891 32.5848 31.7375 32.5848C29.6237 32.5848 28.5477 33.9873 26.8307 37.9114L26.9757 32.5848H26.1516L19.7377 34.5621V35.2443L21.8858 36.505V52.0138H29.8755V50.8258C27.6549 50.6457 26.8307 50.4311 26.8307 48.9557V39.0266C28.6583 37.191 30.4135 37.0837 32.6341 37.0837ZM44.7407 48.3464C43.7373 49.1013 43.0199 49.496 41.9821 49.496C40.082 49.496 39.2235 48.1663 39.2235 46.2924C39.2235 44.2766 40.1545 43.4489 41.6578 42.8741L44.7407 41.6133V48.3426V48.3464ZM52.2993 49.6761C51.9063 49.8563 51.4026 50.0364 50.8647 50.0364C49.9337 50.0364 49.6818 49.2431 49.6818 48.0207V38.4863C49.6818 34.2747 47.175 32.5848 42.5888 32.5848C38.613 32.5848 35.5301 34.1329 35.5301 37.1182C35.5301 38.3062 36.1406 39.0611 37.1059 39.383L40.0782 38.9883C39.8989 38.195 39.792 37.4784 39.792 36.758C39.792 35.0297 40.4712 33.7344 42.192 33.7344C44.054 33.7344 44.7369 35.2098 44.7369 37.26V40.318L39.3265 42.2954C36.6404 43.3033 34.4198 44.5641 34.4198 47.6566C34.4198 50.5345 36.3542 52.2973 39.2579 52.2973C41.8371 52.2973 43.6991 50.7147 44.8476 49.2048C45.2062 51.1822 46.4959 52.3702 48.4304 52.3702C50.113 52.3702 51.4751 51.688 52.513 50.4617L52.2993 49.6685V49.6761ZM69.2669 35.2864L70.2589 32.945H64.8027V34.1329C66.6647 34.3859 67.237 34.5277 67.237 35.3554C67.237 35.6428 67.1645 35.8574 66.9852 36.3249L62.9713 46.3268L62.4409 45.0967L57.1984 32.9411H51.1127V34.1291C52.4023 34.4893 52.5816 34.7423 52.9403 35.4972L60.7507 52.2629H62.0746L69.1677 35.4972C69.202 35.4205 69.2325 35.3516 69.2631 35.2864M73.6509 52.0138H80.8508V50.8258C79.1682 50.7185 78.5958 50.5039 78.5958 49.2431V32.5848H77.806L71.499 34.5621V35.2443L73.6471 36.505V52.0138H73.6509ZM94.682 49.2776L94.2509 48.63C93.3542 49.3121 92.5682 49.6378 91.5648 49.6378C89.8821 49.6378 89.058 48.7028 89.058 46.507V34.5966H93.7167V32.9411H89.058V28.2621H87.982C86.4405 30.638 84.3267 32.6537 81.8581 33.7689V34.5966H84.0787V46.7944C84.0787 50.8258 86.2269 52.3702 89.1648 52.3702C91.7441 52.3702 93.5336 51.0749 94.682 49.2776ZM111.081 35.3516C111.081 35.639 111.009 35.9264 110.829 36.3594L106.815 47.009L102.515 36.3594C102.508 36.3364 102.504 36.3173 102.496 36.2981L101.142 32.9411H94.9949V34.1291C96.2846 34.4893 96.4982 34.7423 96.8225 35.4972L104.526 52.6959L103.916 54.2441C103.164 56.2215 101.981 56.7618 100.047 56.7618C99.0088 56.7618 98.364 56.6162 97.6085 56.4361V58.2717C97.9672 59.314 99.15 59.9272 100.367 59.9272C102.695 59.9272 103.916 58.3445 105.095 55.4282L112.977 35.4934C112.977 35.4934 112.985 35.478 112.989 35.4704L113.989 32.9411H108.643V34.1291C110.505 34.3437 111.081 34.5238 111.081 35.3516Z" />
+    </svg>
+  </a>
+  <div class="footer-note">AI-Powered SDLC Playbook · Medpace</div>
+</div>
+
+<script>
+// ── Copy button ──────────────────────────────────────────────
+function copyCode(btn, targetId) {
+  var pre;
+  if (targetId) {
+    pre = document.getElementById(targetId);
+  } else {
+    pre = btn.closest('.code-wrap').querySelector('pre');
+  }
+  if (!pre) return;
+  var text = pre.textContent;
+  navigator.clipboard.writeText(text).then(function () {
+    var orig = btn.textContent;
+    btn.textContent = 'Copied!';
+    btn.style.background = 'var(--teal)';
+    setTimeout(function () {
+      btn.textContent = orig;
+      btn.style.background = '';
+    }, 2000);
+  });
+}
+
+</script>
+</body>
+</html>

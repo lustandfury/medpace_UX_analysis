@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The AI Multiplier Effect — Requirements · Phase 01</title>
+<link rel="stylesheet" href="../../styles/shared.css"/>
+</head>
+<body>
+<script src="../../footer.js"></script>
+<script src="../../nav.js"></script>
+
+<!-- HEADER -->
+<div class="page-header" id="intro">
+  <div class="eyebrow">Requirements · Phase 01 of 04</div>
+  <h1 class="title">The AI <em>Multiplier</em> Effect</h1>
+  <p class="subtitle">Your tools are powerful. But they're only as good as what you feed them. One well-structured requirement cascades through your entire AI toolchain.</p>
+  <div class="header-phase">
+    <div class="header-phase-dot"></div>
+    Requirements Craft · AI-Powered SDLC Playbook
+  </div>
+</div>
+
+<!-- SECTION 2: Context is Everything -->
+<div class="section" id="context" style="background:var(--off);">
+  <div class="sec-eyebrow violet">01 — Context is everything</div>
+  <h2 class="sec-title">The gap isn't capability. It's input quality.</h2>
+  <p class="sec-sub">The tools your team now has access to — Claude, Copilot, Figma Make, Azure DevOps integrations — are genuinely capable. The question is whether you're using them at 20% of their potential or 80%.</p>
+
+  <div class="insight-grid">
+    <div class="insight-card">
+      <div class="insight-card-num">01</div>
+      <h3>You have the tools.</h3>
+      <p>Claude, Copilot, Azure DevOps, Figma Make — the technology is there. The gap isn't capability, it's the quality of input these tools receive. An AI coding assistant given a precise, data-rich requirement with clear acceptance criteria produces scaffolded, testable code. Given a sentence fragment, it produces a guess.</p>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-num">02</div>
+      <h3>The napkin sketch problem.</h3>
+      <p>If you hand a brilliant contractor a napkin sketch and say "build me a house," you'll get a house — but probably not the one you wanted. AI tools work the same way. The intelligence is real, but it is not a substitute for specification. Ambiguous input produces confident-sounding output that may be entirely wrong for your context.</p>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-num">03</div>
+      <h3>In clinical software, ambiguity is expensive.</h3>
+      <p>A vague requirement interpreted loosely by an AI coding assistant could mean a workflow that doesn't match clinical reality, a compliance gap, or a patient safety issue. Medpace's products run in regulated environments. The cost of misinterpretation isn't a UX bug — it can cascade into a 21 CFR Part 11 deviation or a patient data integrity issue that surfaces during audit.</p>
+    </div>
+    <div class="insight-card">
+      <div class="insight-card-num">04</div>
+      <h3>The telephone game is real.</h3>
+      <p>Requirements gathering is your biggest bottleneck, creating downstream impacts across design, development, and validation — with rework cycles 3+ months into projects. Every handoff — from clinical ops to PM, PM to designer, designer to developer, developer to QA — is an opportunity for the original intent to mutate. Structured requirements survive the telephone game. Narrative prose doesn't.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3: Where Medpace Is Today -->
+<div class="section" id="today" style="background:var(--white);">
+  <div class="sec-eyebrow violet">02 — Where Medpace is today</div>
+  <h2 class="sec-title">An honest look at current practice</h2>
+  <p class="sec-sub">This is not a critique — it's a baseline. Understanding where the friction actually lives is the only way to know where AI can genuinely help versus where it would just add noise.</p>
+
+  <div class="assessment-list">
+    <div class="assessment-item">
+      <div class="assessment-num">1</div>
+      <div class="assessment-content">
+        <h3>Stakeholder constraints are real.</h3>
+        <p>Requirements start as conversations, emails, or voicemails from stakeholders who may have only 30 minutes per week — busy clinicians, study coordinators, and medical monitors who are domain experts but not specification writers. You cannot expect a clinical operations lead to produce a well-formed user story. That translation work is yours, and AI can help you do it faster.</p>
+      </div>
+    </div>
+    <div class="assessment-item">
+      <div class="assessment-num">2</div>
+      <div class="assessment-content">
+        <h3>Word documents are the norm.</h3>
+        <p>There is no standard tooling for capturing requirements before they enter Helix ALM. Documents vary in structure, level of detail, and authoring style depending on the team lead. Some requirements are comprehensive. Others are a list of bullets from a Zoom call. An AI extraction step applied consistently to these raw inputs can produce a baseline level of structure before anything is formalized.</p>
+      </div>
+    </div>
+    <div class="assessment-item">
+      <div class="assessment-num">3</div>
+      <div class="assessment-content">
+        <h3>Late migration to Helix.</h3>
+        <p>Requirements don't enter Helix ALM until near the end of development — by that point, the code is written and the requirement is just documentation of what was built. This inverts the value of a requirements tool. If AI-generated documentation and prototypes can create a feedback loop earlier, requirements can serve their actual purpose: aligning interpretation before work begins, not recording history after it ends.</p>
+      </div>
+    </div>
+    <div class="assessment-item">
+      <div class="assessment-num">4</div>
+      <div class="assessment-content">
+        <h3>AI tools aren't being fed.</h3>
+        <p>Teams aren't yet using the advantages of AI-generated documentation or GenAI prototypes to rapidly validate design directions sooner. The tools exist and the team has access to them. The missing piece is the input quality that lets them perform. A Copilot or Figma Make session that starts with structured, context-rich requirements produces meaningfully different output than one that starts with the same Word document that's been circulating for three weeks.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout-box">
+    <div class="callout-box-row">
+      <div class="callout-col">
+        <div class="callout-col-label no">What we're NOT doing</div>
+        <p>Adding bureaucracy. Not asking developers to write formal specifications before a single line of code. Not mandating new tools for their own sake. Not creating a process that requires a two-day workshop before a feature can begin.</p>
+      </div>
+      <div class="callout-col">
+        <div class="callout-col-label yes">What we ARE doing</div>
+        <p>Showing you how to use AI itself to bridge the gap between unstructured stakeholder input and structured, AI-ready requirements — in minutes, not days. The goal is to reduce the overhead of good practice, not increase it.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4: The Multiplier Math -->
+<div class="section dark" id="math">
+  <div class="sec-eyebrow on-dark">03 — The multiplier math</div>
+  <h2 class="sec-title on-dark">One requirement. Five downstream artifacts.</h2>
+  <p class="sec-sub on-dark">When AI tools are in your pipeline, the requirement isn't just documentation — it's the seed input for every artifact that follows. Structure it once, and the entire chain benefits.</p>
+
+  <div class="pipeline">
+    <div class="pipeline-step">
+      <div class="pipeline-step-icon">📋</div>
+      <div>
+        <div class="pipeline-step-label">Requirement</div>
+        <div class="pipeline-step-sub">Structured user story with data model + acceptance criteria</div>
+      </div>
+    </div>
+    <div class="pipeline-arrow">›</div>
+    <div class="pipeline-step">
+      <div class="pipeline-step-icon" style="background:rgba(79,153,144,.25);border-color:rgba(79,153,144,.4);">✦</div>
+      <div>
+        <div class="pipeline-step-label">Figma Make</div>
+        <div class="pipeline-step-sub">UI mockup seeded with real data fields and states</div>
+      </div>
+    </div>
+    <div class="pipeline-arrow">›</div>
+    <div class="pipeline-step">
+      <div class="pipeline-step-icon" style="background:rgba(232,163,23,.2);border-color:rgba(232,163,23,.4);">⌘</div>
+      <div>
+        <div class="pipeline-step-label">Copilot / Claude</div>
+        <div class="pipeline-step-sub">Scaffolded Angular component with correct data types</div>
+      </div>
+    </div>
+    <div class="pipeline-arrow">›</div>
+    <div class="pipeline-step">
+      <div class="pipeline-step-icon" style="background:rgba(43,104,128,.25);border-color:rgba(43,104,128,.4);">⚙</div>
+      <div>
+        <div class="pipeline-step-label">AI Testing</div>
+        <div class="pipeline-step-sub">Generated test cases tied to acceptance criteria</div>
+      </div>
+    </div>
+    <div class="pipeline-arrow">›</div>
+    <div class="pipeline-step">
+      <div class="pipeline-step-icon" style="background:rgba(140,71,228,.25);border-color:rgba(140,71,228,.4);">⬡</div>
+      <div>
+        <div class="pipeline-step-label">ADO / Helix</div>
+        <div class="pipeline-step-sub">Backlog items and work items populated from requirement fields</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="compare-grid">
+    <div class="compare-card bad">
+      <div class="compare-label">Vague Requirement</div>
+      <h3>"Allow users to manage patient enrollment."</h3>
+      <p>The developer interprets it one way, the designer another, QA writes tests against a third interpretation, and you spend your sprint in clarification meetings. Figma Make produces a generic form. Copilot guesses at data types and invents field names. Test cases don't map to real clinical scenarios. Rework begins the moment you demo to a stakeholder.</p>
+    </div>
+    <div class="compare-card good">
+      <div class="compare-label">Well-Structured Requirement</div>
+      <h3>"CRA views enrollment status for all 6 sites at a glance, sortable by % to target."</h3>
+      <p>One requirement, structured once — AI-generated UI mockups with the right columns, scaffolded Angular table component with correct data types, generated test cases covering the happy path and the "site at risk" edge case, and populated backlog items. The Figma Make output is reviewable by a clinician the same day it's written. Minimal rework because there's nothing to reinterpret.</p>
+    </div>
+  </div>
+
+  <div class="roi-callout">
+    <div class="roi-callout-icon">⏱</div>
+    <p><strong>The ROI is simple:</strong> An extra 15 minutes structuring a requirement up front saves hours of rework when AI tools are in the pipeline. At Medpace's cadence, with validation cycles and 21 CFR Part 11 change control overhead, a single misinterpreted requirement that reaches the validation phase can cost days — not hours.</p>
+  </div>
+</div>
+
+<!-- SECTION 5: Applied to ONCO-2024-003 -->
+<div class="section" id="example" style="background:var(--off);">
+  <div class="sec-eyebrow violet">04 — Applied to ONCO-2024-003</div>
+  <h2 class="sec-title">The same feature. Two very different requirements.</h2>
+  <p class="sec-sub">The Patient Enrollment Table for trial ONCO-2024-003 is the running example throughout this playbook. Here's what the gap between a vague requirement and an AI-ready one looks like in practice — using a real feature, real roles, and real data.</p>
+
+  <div class="before-after">
+    <div class="ba-card before">
+      <div class="ba-header">Before — Vague</div>
+      <div class="ba-body">
+        <div class="ba-quote">"The system should allow users to manage patient enrollment for clinical trials."</div>
+        <ul class="ba-issues">
+          <li>No specific role context — "users" could mean CRA, Site Coordinator, Sponsor Monitor, or Data Manager. Each needs different data and different permissions.</li>
+          <li>No data specifics — Figma Make produces a generic table. Copilot invents field names that don't match the clinical data model.</li>
+          <li>No validation rules — what constitutes "on track" vs. "at risk"? What triggers a status change? These decisions get made silently in code.</li>
+          <li>No UI guidance — sortable? Filterable? Exportable? Inline editing or read-only? Each decision is deferred to the developer at implementation time.</li>
+          <li>No compliance angle — does enrollment status require an audit trail? Can it be edited after lock? 21 CFR Part 11 implications go unaddressed.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ba-card after">
+      <div class="ba-header">After — AI-Ready</div>
+      <div class="ba-body">
+        <div class="ba-field">
+          <div class="ba-field-label">Story</div>
+          <div class="ba-field-value">As a CRA monitoring trial ONCO-2024-003, I need to view the enrollment status of all 6 sites at a glance so I can identify sites at risk of falling behind target before the weekly sponsor call.</div>
+        </div>
+        <div class="ba-field">
+          <div class="ba-field-label">Data Fields</div>
+          <div class="ba-field-value"><code>Site ID</code> · <code>Site Name</code> · <code>Target Enrollment</code> · <code>Actual Enrollment</code> · <code>% to Target</code> · <code>Last Updated</code> · <code>Status</code></div>
+        </div>
+        <div class="ba-field">
+          <div class="ba-field-label">Status Values</div>
+          <div class="ba-field-value">On Track / At Risk / Behind — threshold: At Risk when actual &lt; 85% of target with &lt; 30 days to milestone; Behind when actual &lt; 70%.</div>
+        </div>
+        <div class="ba-field">
+          <div class="ba-field-label">UI / Interaction</div>
+          <div class="ba-field-value">Sortable table, all columns. Inline filter by status. Export to CSV. Color-blind-safe status indicators: icon + label, never color alone (WCAG 2.1 AA).</div>
+        </div>
+        <ul class="ba-issues" style="margin-top:12px;">
+          <li>Figma Make produces a table with the exact six site rows and correct column headers on first pass.</li>
+          <li>Copilot scaffolds an Angular Material table component with correct TypeScript types and no invented fields.</li>
+          <li>Generated test cases map to defined thresholds — "At Risk" logic is testable because the threshold is explicit.</li>
+          <li>21 CFR Part 11 audit trail requirement is flagged at writing time, not discovered during validation.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:var(--white);border:1px solid var(--border);border-radius:10px;padding:24px 28px;">
+    <div style="font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--violet);margin-bottom:10px;">What this means in practice</div>
+    <p style="font-size:15px;color:var(--slate);line-height:1.65;">The after version isn't longer because a process told someone to write more. It's more specific because it encodes decisions that would have been made anyway — just silently, by whoever touched the feature next. The structured requirement makes those decisions explicit, reviewable, and correctable before anyone writes a line of code or spends two hours in Figma. That's the multiplier: the same decisions, made earlier, with the right people in the room.</p>
+  </div>
+</div>
+
+<!-- SECTION 6: Prompt to Try -->
+<div class="section" id="prompt" style="background:var(--white);">
+  <div class="sec-eyebrow violet">05 — Prompt to try</div>
+  <h2 class="sec-title">Extract structured requirements from meeting notes</h2>
+  <p class="sec-sub">Feed this to Claude immediately after your next stakeholder meeting. Paste your raw notes — whether that's a transcript, a bulleted email, or a stream-of-consciousness summary — and get back structured, AI-ready requirements in under two minutes.</p>
+
+  <div class="prompt-wrap">
+    <div class="prompt-topbar">
+      <div class="pb-dot" style="background:#FF5F57;"></div>
+      <div class="pb-dot" style="background:#FEBC2E;"></div>
+      <div class="pb-dot" style="background:#28C840;"></div>
+      <div class="prompt-label">Requirements Extraction Prompt</div>
+      <button class="copy-btn" id="copy-req-btn" onclick="copyRequirementsPrompt()">Copy prompt</button>
+    </div>
+    <div class="prompt-body">
+      <pre id="req-prompt-text"><span class="comment">I have notes from a stakeholder meeting about [feature]. Extract the requirements
+as user stories using this template:</span>
+
+<span class="amber">Story:</span>       As a [specific role + context], I need to [action] so that [measurable outcome].
+<span class="amber">Acceptance:</span>  Given / When / Then — testable, covering happy path and edge cases.
+<span class="amber">Data:</span>        Inputs, outputs, data types, validation rules, data sources.
+<span class="amber">UI/UX:</span>       Layout, key interactions, states (loading, empty, success, error).
+<span class="amber">Compliance:</span>  HIPAA / 21 CFR Part 11 considerations, audit trail needs.
+<span class="amber">Edge Cases:</span>  Boundary conditions, error states, network failures.
+
+<span class="violet">Flag any ambiguities and list follow-up questions.</span>
+
+<span class="dim">[Paste your meeting notes here]</span></pre>
+    </div>
+  </div>
+
+  <div style="margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+    <div style="background:var(--off);border:1px solid var(--border);border-radius:10px;padding:20px;">
+      <div style="font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--violet);margin-bottom:8px;">What to paste in</div>
+      <p style="font-size:14px;color:var(--slate);line-height:1.6;">Raw meeting notes, a bullet-point email from a stakeholder, a Zoom transcript, a voice memo transcription — anything. The prompt handles the mess. You do not need to clean up the input first.</p>
+    </div>
+    <div style="background:var(--off);border:1px solid var(--border);border-radius:10px;padding:20px;">
+      <div style="font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--violet);margin-bottom:8px;">What you get back</div>
+      <p style="font-size:14px;color:var(--slate);line-height:1.6;">One or more structured user stories with all six fields populated, plus a list of flagged ambiguities and specific follow-up questions you can take back to the stakeholder — or resolve yourself if the answer is clear from context.</p>
+    </div>
+    <div style="background:var(--off);border:1px solid var(--border);border-radius:10px;padding:20px;">
+      <div style="font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--violet);margin-bottom:8px;">Next step</div>
+      <p style="font-size:14px;color:var(--slate);line-height:1.6;">Take the structured output directly into Figma Make, Copilot, or your next stakeholder review. Each subsequent tool in the chain starts from a defined baseline instead of having to infer intent from scratch.</p>
+    </div>
+  </div>
+
+  <div style="margin-top:24px;background:rgba(140,71,228,.06);border:1px solid rgba(140,71,228,.2);border-radius:10px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start;">
+    <div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:rgba(140,71,228,.15);border:1px solid rgba(140,71,228,.3);display:flex;align-items:center;justify-content:center;font-size:14px;margin-top:2px;">→</div>
+    <div>
+      <div style="font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--violet);margin-bottom:6px;">Coming up in Phase 02</div>
+      <p style="font-size:15px;color:var(--slate);line-height:1.65;">Phase 02 covers stakeholder intake — how to structure the conversation before the meeting so you come out with enough to write a good requirement, not just a to-do list. Phase 03 walks through the full AI-ready requirement template and how to tune it for Medpace's specific toolchain and compliance environment.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="page-footer">
+  <a href="https://nimblegravity.com/" class="brand-link" target="_blank" rel="noopener noreferrer" aria-label="Nimble Gravity">
+    <svg class="footer-logo ng-wordmark" aria-hidden="true" viewBox="0 0 114 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path class="ng-wordmark-top" d="M13.8656 28.174H21.0655V26.986C19.4172 26.8787 18.8448 26.6603 18.8448 25.4033V14.6082C18.8448 10.6879 17.0897 8.74497 13.7206 8.74497C10.6758 8.74497 8.63451 10.4733 7.09305 12.2705L7.23803 8.74497H6.41388L0 10.7224V11.4045L2.14814 12.6653V25.4033V28.174H9.27552V26.986C7.62722 26.8787 7.08923 26.6603 7.08923 25.4033V13.2401C8.23388 12.4468 9.59602 11.7647 11.1032 11.7647C13.072 11.7647 13.8618 12.8071 13.8618 14.8956V25.4033V28.174H13.8656ZM29.6618 3.74401C29.6618 2.19582 28.479 0.900556 26.7239 0.900556C24.9687 0.900556 23.8203 2.19582 23.8203 3.74401C23.8203 5.2922 25.0031 6.58747 26.7239 6.58747C28.4447 6.58747 29.6618 5.25771 29.6618 3.74401ZM24.3239 28.174H31.5238V26.986C29.8412 26.8787 29.265 26.6603 29.265 25.4033V8.74497H28.479L22.172 10.7224V11.4045L24.3201 12.6653V19.2911V28.174H24.3239ZM57.5342 28.174H64.7341V26.986C63.0858 26.8787 62.5134 26.6603 62.5134 25.4033V14.5354C62.5134 10.7224 60.9033 8.74114 57.6067 8.74114C54.6344 8.74114 52.5549 10.4694 51.0516 12.374C50.5861 9.85629 49.0103 8.74114 46.3929 8.74114C43.3824 8.74114 41.4861 10.3621 39.979 12.305L40.124 8.74114H39.2998L32.8859 10.7185V11.4007L35.0341 12.6614V28.1701H42.1271V26.9822C40.4788 26.8749 39.979 26.6564 39.979 25.3995V13.2363C41.1236 12.443 42.2721 11.7609 43.7029 11.7609C45.5649 11.7609 46.2822 12.8032 46.2822 14.8573V25.3995V28.1663H51.2615V13.2707C52.3718 12.443 53.5203 11.7609 54.9511 11.7609C56.813 11.7609 57.5304 12.8032 57.5304 14.8573V28.1701L57.5342 28.174ZM80.4273 19.2527C80.4273 23.6789 78.5996 27.2044 75.5549 27.2044C73.3686 27.2044 72.2964 25.8019 72.2964 23.0657V13.0255C73.1206 12.2705 74.2652 11.7647 75.448 11.7647C78.8171 11.7647 80.4273 14.8228 80.4273 19.2489M85.4447 17.4861C85.4447 11.9448 82.6861 8.74114 78.3173 8.74114C75.4518 8.74114 73.483 10.3238 72.3002 12.1249V0H71.5104L65.169 1.7283V2.48323L67.3172 3.59839V26.0126C69.3585 27.7026 72.4414 28.5304 75.593 28.5304C81.1103 28.5304 85.4447 24.5373 85.4447 17.4861ZM89.0656 28.174H96.2655V26.986C94.6172 26.8787 94.0449 26.6603 94.0449 25.4033V0H93.255L86.9137 1.7283V2.48323L89.0618 3.59839V28.174H89.0656ZM102.214 15.7616C102.5 12.4507 103.79 10.0747 106.155 10.0747C108.521 10.0747 109.379 12.3779 109.379 15.7616H102.214ZM102.141 17.0914H113.821V16.2637C113.821 11.9448 111.314 8.74497 106.514 8.74497C101.714 8.74497 97.6658 12.991 97.6658 19.1454C97.6658 24.6867 101.142 28.538 106.335 28.538C110.455 28.538 113.069 26.0931 114 22.5292L113.428 22.2073C112.138 24.0774 110.524 25.1198 108.09 25.1198C104.579 25.1198 102 22.1345 102.141 17.0952" />
+      <path class="ng-wordmark-bottom" d="M73.1549 57.0147C73.1549 58.5629 74.3377 59.8582 76.0547 59.8582C77.7717 59.8582 78.9926 58.5629 78.9926 57.0147C78.9926 55.4665 77.8098 54.1713 76.0547 54.1713C74.2996 54.1713 73.1549 55.501 73.1549 57.0147ZM12.5721 52.5886C14.3273 52.5886 15.4032 53.1634 15.4032 54.7461C15.4032 57.4439 12.2516 58.6319 8.74135 58.6319C5.23107 58.6319 3.26227 57.122 3.26227 54.7116C3.26227 53.8494 3.47594 53.1289 3.94143 52.5886H12.5759H12.5721ZM5.94457 38.5936C5.94457 35.7884 6.76873 33.8072 8.77569 33.8072C10.7826 33.8072 11.8205 36.2904 11.8205 39.1684C11.8205 42.0463 11.0345 44.0276 9.06185 44.0276C6.94806 44.0276 5.94457 41.5443 5.94457 38.5936ZM4.01011 46.7982C4.01011 46.0433 4.5481 45.2883 5.22726 44.6407C6.33757 45.0354 7.59288 45.2155 8.84437 45.2155C13.3238 45.2155 16.5097 42.8779 16.5097 39.0649C16.5097 37.2638 15.5063 35.7539 14.251 34.9262L16.7577 35.0335H18.2267V32.945L12.1715 33.0906C11.2749 32.8377 10.3095 32.5848 8.98173 32.5848C4.50231 32.5848 1.17136 35.0335 1.17136 39.1684C1.17136 41.7244 2.56784 43.3799 4.46797 44.315C2.81967 45.3573 1.13702 46.7254 1.13702 48.8484C1.13702 50.3238 1.96118 51.5846 3.35765 52.1211C1.6483 52.6614 0 53.6693 0 55.501C0 58.4135 3.25845 60 8.48952 60C14.4379 60 18.9517 57.4822 18.9517 52.9488C18.9517 49.7834 16.8035 48.0207 12.6484 48.0207H5.26541C4.4756 48.0207 4.01011 47.5531 4.01011 46.7982ZM32.6341 37.0837H33.3133V33.1979C33.0271 32.8377 32.4891 32.5848 31.7375 32.5848C29.6237 32.5848 28.5477 33.9873 26.8307 37.9114L26.9757 32.5848H26.1516L19.7377 34.5621V35.2443L21.8858 36.505V52.0138H29.8755V50.8258C27.6549 50.6457 26.8307 50.4311 26.8307 48.9557V39.0266C28.6583 37.191 30.4135 37.0837 32.6341 37.0837ZM44.7407 48.3464C43.7373 49.1013 43.0199 49.496 41.9821 49.496C40.082 49.496 39.2235 48.1663 39.2235 46.2924C39.2235 44.2766 40.1545 43.4489 41.6578 42.8741L44.7407 41.6133V48.3426V48.3464ZM52.2993 49.6761C51.9063 49.8563 51.4026 50.0364 50.8647 50.0364C49.9337 50.0364 49.6818 49.2431 49.6818 48.0207V38.4863C49.6818 34.2747 47.175 32.5848 42.5888 32.5848C38.613 32.5848 35.5301 34.1329 35.5301 37.1182C35.5301 38.3062 36.1406 39.0611 37.1059 39.383L40.0782 38.9883C39.8989 38.195 39.792 37.4784 39.792 36.758C39.792 35.0297 40.4712 33.7344 42.192 33.7344C44.054 33.7344 44.7369 35.2098 44.7369 37.26V40.318L39.3265 42.2954C36.6404 43.3033 34.4198 44.5641 34.4198 47.6566C34.4198 50.5345 36.3542 52.2973 39.2579 52.2973C41.8371 52.2973 43.6991 50.7147 44.8476 49.2048C45.2062 51.1822 46.4959 52.3702 48.4304 52.3702C50.113 52.3702 51.4751 51.688 52.513 50.4617L52.2993 49.6685V49.6761ZM69.2669 35.2864L70.2589 32.945H64.8027V34.1329C66.6647 34.3859 67.237 34.5277 67.237 35.3554C67.237 35.6428 67.1645 35.8574 66.9852 36.3249L62.9713 46.3268L62.4409 45.0967L57.1984 32.9411H51.1127V34.1291C52.4023 34.4893 52.5816 34.7423 52.9403 35.4972L60.7507 52.2629H62.0746L69.1677 35.4972C69.202 35.4205 69.2325 35.3516 69.2631 35.2864M73.6509 52.0138H80.8508V50.8258C79.1682 50.7185 78.5958 50.5039 78.5958 49.2431V32.5848H77.806L71.499 34.5621V35.2443L73.6471 36.505V52.0138H73.6509ZM94.682 49.2776L94.2509 48.63C93.3542 49.3121 92.5682 49.6378 91.5648 49.6378C89.8821 49.6378 89.058 48.7028 89.058 46.507V34.5966H93.7167V32.9411H89.058V28.2621H87.982C86.4405 30.638 84.3267 32.6537 81.8581 33.7689V34.5966H84.0787V46.7944C84.0787 50.8258 86.2269 52.3702 89.1648 52.3702C91.7441 52.3702 93.5336 51.0749 94.682 49.2776ZM111.081 35.3516C111.081 35.639 111.009 35.9264 110.829 36.3594L106.815 47.009L102.515 36.3594C102.508 36.3364 102.504 36.3173 102.496 36.2981L101.142 32.9411H94.9949V34.1291C96.2846 34.4893 96.4982 34.7423 96.8225 35.4972L104.526 52.6959L103.916 54.2441C103.164 56.2215 101.981 56.7618 100.047 56.7618C99.0088 56.7618 98.364 56.6162 97.6085 56.4361V58.2717C97.9672 59.314 99.15 59.9272 100.367 59.9272C102.695 59.9272 103.916 58.3445 105.095 55.4282L112.977 35.4934C112.977 35.4934 112.985 35.478 112.989 35.4704L113.989 32.9411H108.643V34.1291C110.505 34.3437 111.081 34.5238 111.081 35.3516Z" />
+    </svg>
+  </a>
+  <div class="footer-note">AI-Powered SDLC Playbook · Medpace</div>
+</div>
+
+<script>
+// ── COPY PROMPT ────────────────────────────────────────────────────────────
+function copyRequirementsPrompt() {
+  var el = document.getElementById('req-prompt-text');
+  navigator.clipboard.writeText(el.innerText).then(function() {
+    var btn = document.getElementById('copy-req-btn');
+    btn.textContent = 'Copied!';
+    btn.style.background = 'var(--teal)';
+    setTimeout(function() {
+      btn.textContent = 'Copy prompt';
+      btn.style.background = '';
+    }, 2000);
+  });
+}
+
+</script>
+</body>
+</html>

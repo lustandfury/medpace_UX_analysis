@@ -4,128 +4,11 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Example PRD Interview — Site Coordinator Hub</title>
-<link rel="stylesheet" href="../styles/shared.css"/>
-<style>
-
-/* PAGE HEADER */
-.page-header{background:var(--navy);padding:48px max(64px,calc((100% - 1100px)/2)) 40px;position:relative;overflow:hidden;}
-.page-header::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(64,140,132,.12),transparent 70%);}
-.eyebrow{font-size:13px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--mint-on-dark);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
-.eyebrow::before{content:'';display:block;width:20px;height:1px;background:var(--mint-on-dark);}
-.page-title{font-family:'Fraunces',serif;font-size:40px;line-height:1.1;color:var(--white);margin-bottom:12px;}
-.page-title em{color:var(--amber);font-style:italic;}
-.page-sub{font-size:17px;color:var(--slatel);max-width:580px;line-height:1.65;margin-bottom:28px;}
-.header-chips{display:flex;gap:12px;flex-wrap:wrap;}
-.chip{font-size:13px;color:var(--slatel);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);padding:5px 12px;border-radius:99px;display:flex;align-items:center;gap:6px;}
-.chip-dot{width:6px;height:6px;border-radius:50%;}
-
-/* STEP STRIP */
-.step-strip{background:var(--navy2);border-bottom:1px solid rgba(255,255,255,.07);padding:14px max(64px,calc((100% - 1100px)/2));display:flex;gap:0;align-items:center;flex-wrap:wrap;}
-.step-item{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--slatel);padding:4px 0;}
-.step-num{width:22px;height:22px;border-radius:50%;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.step-item.done .step-num{background:rgba(64,140,132,.3);color:var(--white);}
-.step-item.active .step-num{background:var(--teal);color:var(--white);}
-.step-item.upcoming .step-num{background:rgba(255,255,255,.1);color:var(--slatel);}
-.step-item.done{color:var(--slatel);}
-.step-item.active{color:var(--white);}
-.step-arrow{padding:0 16px;color:rgba(255,255,255,.2);font-size:14px;}
-.step-item a{color:var(--mint-on-dark);text-decoration:none;}
-
-/* CONTENT */
-.content{padding:48px max(64px,calc((100% - 1100px)/2)) 80px;}
-
-/* HOW-TO CARDS */
-.how-to{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:56px;}
-.how-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:22px 24px;position:relative;overflow:hidden;}
-.how-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
-.how-card:nth-child(1)::before{background:linear-gradient(90deg,var(--mint),var(--teal));}
-.how-card:nth-child(2)::before{background:linear-gradient(90deg,var(--amber),#F97316);}
-.how-card:nth-child(3)::before{background:linear-gradient(90deg,var(--blueD),#38BDF8);}
-.how-num{font-family:'Roboto Mono',monospace;font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--slate);margin-bottom:10px;}
-.how-title{font-size:16px;font-weight:600;color:var(--navy);margin-bottom:6px;line-height:1.3;}
-.how-body{font-size:15px;color:var(--slate);line-height:1.6;}
-.how-body a{color:var(--teal);text-decoration:none;}
-.how-body a:hover{text-decoration:underline;}
-.how-modifier{margin-top:12px;background:var(--off);border-left:3px solid var(--mint);padding:9px 12px;border-radius:0 4px 4px 0;font-family:'Roboto Mono',monospace;font-size:13px;color:var(--teal);line-height:1.6;}
-
-/* SECTION LABELS */
-.sec-label{font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:10px;}
-.sec-title{font-family:'Fraunces',serif;font-size:28px;color:var(--navy);margin-bottom:8px;line-height:1.2;}
-.sec-sub{font-size:16px;color:var(--slate);max-width:700px;margin-bottom:32px;line-height:1.6;}
-
-/* TRANSCRIPT WRAPPER */
-.transcript-wrap{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.04);}
-.transcript-topbar{background:var(--navy);padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
-.transcript-topbar-left{font-family:'Roboto Mono',monospace;font-size:13px;color:var(--slatel);display:flex;gap:16px;align-items:center;flex-wrap:wrap;}
-.copy-transcript-btn{background:var(--teal);color:var(--white);border:none;padding:7px 20px;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Roboto',sans-serif;transition:background 0.15s;letter-spacing:0.3px;white-space:nowrap;flex-shrink:0;}
-.copy-transcript-btn:hover{background:var(--teal);}
-.copy-transcript-btn.copied{background:var(--teal);}
-
-/* INTERVIEW METADATA */
-.interview-meta{padding:20px 32px;border-bottom:1px solid var(--border);background:var(--off);display:flex;gap:32px;flex-wrap:wrap;}
-.meta-field{font-size:14px;color:var(--slate);}
-.meta-field strong{display:block;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--slate);margin-bottom:3px;}
-
-/* SPEAKER LEGEND */
-.speaker-legend{padding:14px 32px;border-bottom:1px solid var(--border);display:flex;gap:24px;flex-wrap:wrap;background:var(--white);}
-.legend-item{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--slate);}
-.legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
-
-/* TRANSCRIPT BODY */
-.transcript-body{padding:0 32px 32px;}
-.part-break{padding:28px 0 6px;display:flex;align-items:center;gap:14px;}
-.part-break:first-child{padding-top:24px;}
-.part-label{font-family:'Roboto Mono',monospace;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--slate);white-space:nowrap;}
-.part-rule{flex:1;height:1px;background:var(--border);}
-
-/* TURNS */
-.turn{display:grid;grid-template-columns:108px 1fr;gap:20px;padding:16px 0;border-top:1px solid var(--border);}
-.speaker-block{padding-top:3px;}
-.speaker-name{font-size:14px;font-weight:600;line-height:1.2;margin-bottom:2px;}
-.speaker-role{font-family:'Roboto Mono',monospace;font-size:12px;letter-spacing:0.5px;text-transform:uppercase;}
-.speaker-name.q,.speaker-role.q{color:var(--teal);}
-.speaker-name.pm,.speaker-role.pm{color:var(--blueD);}
-.speaker-name.a,.speaker-role.a{color:var(--amber);}
-.speech{font-size:13.5px;color:var(--slate);line-height:1.75;}
-
-/* CALLOUT BLOCKS */
-.callout{margin-top:40px;border-radius:12px;padding:28px 32px;}
-.callout.dark{background:var(--navy2);}
-.callout.light{background:var(--white);border:1px solid var(--border);}
-.callout-label{font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;}
-.callout.dark .callout-label{color:var(--mint-on-dark);}
-.callout.light .callout-label{color:var(--teal);}
-.callout-body{font-size:13.5px;line-height:1.75;}
-.callout.dark .callout-body{color:var(--slatel);}
-.callout.light .callout-body{color:var(--slate);}
-.callout.dark .callout-body strong{color:var(--white);}
-.callout.light .callout-body strong{color:var(--navy);}
-.gap-list{margin-top:16px;display:flex;flex-direction:column;gap:8px;}
-.gap-item{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:var(--slatel);}
-.gap-item.dark{color:rgba(255,255,255,.6);}
-.gap-tag{font-family:'Roboto Mono',monospace;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;background:rgba(64,140,132,.15);color:var(--mint-on-dark);padding:2px 8px;border-radius:3px;white-space:nowrap;flex-shrink:0;margin-top:1px;}
-
-/* FOOTER */
-.page-footer{background:var(--navy);padding:28px max(64px,calc((100% - 1100px)/2));display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
-.footer-note{font-size:14px;color:var(--slatel);}
-.footer-note a{color:var(--mint-on-dark);text-decoration:none;}
-
-@media (max-width:900px){
-  .how-to{grid-template-columns:1fr 1fr;}
-  .interview-meta{gap:20px;}
-}
-@media (max-width:768px){
-  .page-header,.content,.page-footer{padding-left:24px;padding-right:24px;}
-  .step-strip{padding-left:24px;padding-right:24px;}
-  .how-to{grid-template-columns:1fr;}
-  .turn{grid-template-columns:80px 1fr;gap:14px;}
-  .transcript-body,.interview-meta,.speaker-legend{padding-left:20px;padding-right:20px;}
-  .transcript-topbar{padding:12px 16px;}
-}
-</style>
+<link rel="stylesheet" href="../../styles/shared.css"/>
 </head>
 <body>
-<script src="../nav.js"></script>
+<script src="../../footer.js"></script>
+<script src="../../nav.js"></script>
 
 <!-- PAGE HEADER -->
 <div class="page-header">
@@ -207,7 +90,7 @@
 
     <div class="speaker-legend">
       <div class="legend-item"><div class="legend-dot" style="background:var(--teal);"></div><strong style="color:var(--teal);font-size:14px;">Sarah</strong> — UX Designer (interviewer)</div>
-      <div class="legend-item"><div class="legend-dot" style="background:var(--amber);"></div><strong style="color:var(--amber);font-size:14px;">Brittany</strong> — Lead Site Coordinator (end user)</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--amber-accessible);"></div><strong style="color:var(--amber-accessible);font-size:14px;">Brittany</strong> — Lead Site Coordinator (end user)</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--blueD);"></div><strong style="color:var(--blueD);font-size:14px;">Marcus</strong> — Product Manager</div>
     </div>
 

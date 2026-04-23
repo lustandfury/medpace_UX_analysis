@@ -3,443 +3,250 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>00 Design with AI</title>
+<title>00 SDLC Playbook — Medpace</title>
 <link rel="stylesheet" href="styles/shared.css"/>
-<style>
-/* PAGE HEADER */
-.page-header{background:var(--navy);padding:56px max(64px,calc((100% - 1280px) / 2)) 48px;position:relative;overflow:hidden;}
-.page-header::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(64,140,132,.15),transparent 70%);}
-.page-header::after{content:'';position:absolute;bottom:-60px;left:30%;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(140,71,228,.08),transparent 70%);}
-.eyebrow{font-size:13px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--mint-on-dark);margin-bottom:14px;}
-.hero-title{font-family:'Fraunces',serif;font-size:52px;line-height:1.05;color:var(--white);margin-bottom:16px;}
-.hero-title em{color:var(--amber);font-style:italic;}
-.hero-sub{font-size:16px;color:var(--slatel);max-width:620px;line-height:1.7;}
-.hero-chips{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap;}
-.chip{font-size:13px;color:var(--slatel);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);padding:5px 14px;border-radius:99px;}
-
-/* SECTIONS */
-.section{padding:56px max(64px,calc((100% - 1280px) / 2));}
-.section+.section{border-top:1px solid var(--border);}
-.sec-eyebrow{font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:10px;}
-.sec-title{font-family:'Fraunces',serif;font-size:32px;color:var(--navy);margin-bottom:8px;line-height:1.2;}
-.sec-sub{font-size:16px;color:var(--slate);max-width:680px;margin-bottom:36px;line-height:1.65;}
-
-/* SHARED STRIP */
-.shared-strip{background:var(--navy);border-radius:10px;padding:16px 28px;display:flex;align-items:center;gap:12px;margin-bottom:32px;flex-wrap:wrap;}
-.shared-label{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mint-on-dark);white-space:nowrap;}
-.shared-divider{width:1px;height:16px;background:rgba(255,255,255,.2);}
-.shared-items{display:flex;gap:0;flex-wrap:wrap;flex:1;}
-.shared-item{font-size:15px;color:rgba(255,255,255,.75);display:flex;align-items:center;gap:8px;}
-.shared-item+.shared-item::before{content:'·';margin:0 10px;color:rgba(255,255,255,.3);}
-
-/* TOOL COMPARISON GRID */
-.tools-grid{display:flex;flex-direction:column;gap:20px;}
-.tool-card{border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.05);display:flex;min-height:360px;}
-.tool-img{width:75%;flex-shrink:0;object-fit:cover;object-position:top left;display:block;}
-.tool-body{flex:1;display:flex;flex-direction:column;padding:28px 24px;background:var(--navy);}
-.tool-badge{display:inline-block;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:99px;margin-top:auto;margin-bottom:12px;align-self:flex-start;}
-.tc-claude .tool-badge{background:rgba(167,139,250,.2);color:#c4b5fd;}
-.tc-figma .tool-badge{background:rgba(64,140,132,.25);color:#6ee7df;}
-.tc-cursor .tool-badge{background:rgba(43,104,128,.25);color:#7dd3e8;}
-.tool-name{font-family:'Fraunces',serif;font-size:24px;color:var(--white);margin-bottom:12px;line-height:1.2;}
-.tool-attrs{list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:18px;}
-.tool-attrs li{font-size:14px;color:rgba(255,255,255,.75);display:flex;align-items:flex-start;gap:8px;line-height:1.4;}
-.tool-attrs li::before{content:'';width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.4);flex-shrink:0;margin-top:5px;}
-.tool-best{font-size:13px;font-weight:600;color:var(--white);padding:8px 14px;border-radius:7px;line-height:1.4;align-self:flex-start;}
-.tc-claude .tool-best{background:var(--violet);}
-.tc-figma .tool-best{background:var(--teal);}
-.tc-cursor .tool-best{background:var(--blueD);}
-
-/* HOW TO WORK */
-.workflow-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-.workflow-col{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.05);}
-.workflow-col.anim-ready{opacity:0;transform:translateY(28px);transition:opacity .45s ease-out,transform .45s ease-out;}
-.workflow-col.anim-ready.anim-visible{opacity:1;transform:translateY(0);}
-@media(prefers-reduced-motion:reduce){.workflow-col.anim-ready{opacity:1;transform:none;transition:none;}}
-.workflow-head{padding:18px 22px;border-bottom:1px solid var(--border);}
-.wh-claude{border-top:4px solid var(--violet);}
-.wh-figma{border-top:4px solid var(--mint);}
-.wh-cursor{border-top:4px solid var(--blueD);}
-.workflow-head h3{font-family:'Fraunces',serif;font-size:18px;color:var(--navy);}
-.workflow-steps{display:flex;flex-direction:column;}
-.wf-step{display:flex;gap:14px;align-items:flex-start;padding:14px 22px;border-bottom:1px solid rgba(0,0,0,.05);}
-.wf-step:last-child{border-bottom:none;}
-.wf-tag{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:4px;white-space:nowrap;flex-shrink:0;margin-top:1px;}
-.tag-claude{background:rgba(140,71,228,.1);color:var(--violet);}
-.tag-figma{background:var(--tealL);color:var(--teal);}
-.tag-cursor{background:var(--blueL);color:var(--blueD);}
-.wf-content h4{font-size:15px;font-weight:600;color:var(--navy);margin-bottom:2px;}
-.wf-content p{font-size:14px;color:var(--slate);line-height:1.5;}
-
-/* BEST PRACTICES */
-.section-dark{background:var(--navy);padding:56px max(64px,calc((100% - 1280px) / 2));}
-.section-dark .sec-eyebrow{color:var(--mint);}
-.section-dark .sec-title{color:var(--white);}
-.section-dark .sec-sub{color:rgba(255,255,255,.55);}
-.bp-grid{display:grid;grid-template-columns:repeat(3,1fr);}
-.bp-item{padding:28px 28px 28px 0;border-right:1px solid rgba(255,255,255,.08);}
-.bp-item:nth-child(3n){border-right:none;padding-right:0;}
-.bp-item:nth-child(n+4){border-top:1px solid rgba(255,255,255,.08);padding-top:28px;}
-.bp-item:nth-child(1),.bp-item:nth-child(2),.bp-item:nth-child(3){padding-top:0;}
-.bp-num{font-family:'Roboto Mono',monospace;font-size:13px;color:var(--mint-on-dark);margin-bottom:10px;letter-spacing:1px;}
-.bp-title{font-size:17px;font-weight:700;color:var(--white);margin-bottom:8px;line-height:1.3;}
-.bp-body{font-size:15px;color:rgba(255,255,255,.55);line-height:1.6;}
-
-/* RESOURCES */
-.resources-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-.resource-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:28px 24px;display:flex;flex-direction:column;gap:12px;text-decoration:none;color:inherit;box-shadow:0 2px 8px rgba(0,0,0,.05);transition:box-shadow 0.2s,border-color 0.2s;}
-.resource-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.1);border-color:var(--mint);}
-.rc-tag{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 10px;border-radius:99px;width:fit-content;}
-.rc-skill{background:var(--tealL);color:var(--teal);}
-.rc-guide{background:rgba(140,71,228,.1);color:var(--violet);}
-.rc-transcript{background:rgba(232,163,23,.12);color:#a87000;}
-.resource-card h3{font-family:'Fraunces',serif;font-size:19px;color:var(--navy);line-height:1.25;}
-.resource-card p{font-size:15px;color:var(--slate);line-height:1.55;flex:1;}
-.rc-arrow{font-size:15px;font-weight:600;color:var(--teal);margin-top:4px;}
-
-/* FOOTER */
-.page-footer{background:var(--navy);padding:24px max(64px,calc((100% - 1280px) / 2));display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
-.footer-brand{font-family:'Fraunces',serif;font-size:17px;color:var(--white);}
-.footer-brand span{color:var(--amber);}
-.footer-note{font-size:14px;color:var(--slatel);}
-
-@media (max-width: 900px) {
-  .workflow-grid,.resources-grid{grid-template-columns:1fr;}
-  .bp-grid{grid-template-columns:1fr;}
-  .bp-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.08);padding:24px 0;}
-  .bp-item:last-child{border-bottom:none;}
-}
-@media (max-width: 768px) {
-  .page-header{padding:40px 24px 36px;}
-  .hero-title{font-size:36px;}
-  .section,.section-dark{padding:40px 24px;}
-  .shared-strip{padding:14px 18px;}
-  .page-footer{padding:20px 24px;}
-  .tool-card{flex-direction:column;}
-  .tool-img{width:100%;height:260px;}
-  .tool-body{order:-1;}
-}
-</style>
 </head>
 <body>
+<script src="footer.js"></script>
 <script src="nav.js"></script>
 
 <!-- HEADER -->
 <div class="page-header">
-  <div class="eyebrow">Nimble Gravity · AI Design Tools Workshop</div>
-  <h1 class="hero-title">Design with <em>AI</em> —<br>Three Tools, One Workflow</h1>
-  <p class="hero-sub">Claude Design, Figma Make, and Cursor each approach AI-assisted design differently. This guide covers what they share, where they differ, and how to move between them.</p>
-  <div class="hero-chips">
-    <span class="chip">Claude Design</span>
-    <span class="chip">Figma Make</span>
-    <span class="chip">Cursor + Claude Code</span>
-    <span class="chip">Medpace Clinical Context</span>
+  <div class="partnership">
+    <a href="https://nimblegravity.com/" class="brand-link" target="_blank" rel="noopener noreferrer" aria-label="Nimble Gravity">
+      <svg class="partnership-logo ng-wordmark" aria-hidden="true" viewBox="0 0 114 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="ng-wordmark-top" d="M13.8656 28.174H21.0655V26.986C19.4172 26.8787 18.8448 26.6603 18.8448 25.4033V14.6082C18.8448 10.6879 17.0897 8.74497 13.7206 8.74497C10.6758 8.74497 8.63451 10.4733 7.09305 12.2705L7.23803 8.74497H6.41388L0 10.7224V11.4045L2.14814 12.6653V25.4033V28.174H9.27552V26.986C7.62722 26.8787 7.08923 26.6603 7.08923 25.4033V13.2401C8.23388 12.4468 9.59602 11.7647 11.1032 11.7647C13.072 11.7647 13.8618 12.8071 13.8618 14.8956V25.4033V28.174H13.8656ZM29.6618 3.74401C29.6618 2.19582 28.479 0.900556 26.7239 0.900556C24.9687 0.900556 23.8203 2.19582 23.8203 3.74401C23.8203 5.2922 25.0031 6.58747 26.7239 6.58747C28.4447 6.58747 29.6618 5.25771 29.6618 3.74401ZM24.3239 28.174H31.5238V26.986C29.8412 26.8787 29.265 26.6603 29.265 25.4033V8.74497H28.479L22.172 10.7224V11.4045L24.3201 12.6653V19.2911V28.174H24.3239ZM57.5342 28.174H64.7341V26.986C63.0858 26.8787 62.5134 26.6603 62.5134 25.4033V14.5354C62.5134 10.7224 60.9033 8.74114 57.6067 8.74114C54.6344 8.74114 52.5549 10.4694 51.0516 12.374C50.5861 9.85629 49.0103 8.74114 46.3929 8.74114C43.3824 8.74114 41.4861 10.3621 39.979 12.305L40.124 8.74114H39.2998L32.8859 10.7185V11.4007L35.0341 12.6614V28.1701H42.1271V26.9822C40.4788 26.8749 39.979 26.6564 39.979 25.3995V13.2363C41.1236 12.443 42.2721 11.7609 43.7029 11.7609C45.5649 11.7609 46.2822 12.8032 46.2822 14.8573V25.3995V28.1663H51.2615V13.2707C52.3718 12.443 53.5203 11.7609 54.9511 11.7609C56.813 11.7609 57.5304 12.8032 57.5304 14.8573V28.1701L57.5342 28.174ZM80.4273 19.2527C80.4273 23.6789 78.5996 27.2044 75.5549 27.2044C73.3686 27.2044 72.2964 25.8019 72.2964 23.0657V13.0255C73.1206 12.2705 74.2652 11.7647 75.448 11.7647C78.8171 11.7647 80.4273 14.8228 80.4273 19.2489M85.4447 17.4861C85.4447 11.9448 82.6861 8.74114 78.3173 8.74114C75.4518 8.74114 73.483 10.3238 72.3002 12.1249V0H71.5104L65.169 1.7283V2.48323L67.3172 3.59839V26.0126C69.3585 27.7026 72.4414 28.5304 75.593 28.5304C81.1103 28.5304 85.4447 24.5373 85.4447 17.4861ZM89.0656 28.174H96.2655V26.986C94.6172 26.8787 94.0449 26.6603 94.0449 25.4033V0H93.255L86.9137 1.7283V2.48323L89.0618 3.59839V28.174H89.0656ZM102.214 15.7616C102.5 12.4507 103.79 10.0747 106.155 10.0747C108.521 10.0747 109.379 12.3779 109.379 15.7616H102.214ZM102.141 17.0914H113.821V16.2637C113.821 11.9448 111.314 8.74497 106.514 8.74497C101.714 8.74497 97.6658 12.991 97.6658 19.1454C97.6658 24.6867 101.142 28.538 106.335 28.538C110.455 28.538 113.069 26.0931 114 22.5292L113.428 22.2073C112.138 24.0774 110.524 25.1198 108.09 25.1198C104.579 25.1198 102 22.1345 102.141 17.0952" />
+        <path class="ng-wordmark-bottom" d="M73.1549 57.0147C73.1549 58.5629 74.3377 59.8582 76.0547 59.8582C77.7717 59.8582 78.9926 58.5629 78.9926 57.0147C78.9926 55.4665 77.8098 54.1713 76.0547 54.1713C74.2996 54.1713 73.1549 55.501 73.1549 57.0147ZM12.5721 52.5886C14.3273 52.5886 15.4032 53.1634 15.4032 54.7461C15.4032 57.4439 12.2516 58.6319 8.74135 58.6319C5.23107 58.6319 3.26227 57.122 3.26227 54.7116C3.26227 53.8494 3.47594 53.1289 3.94143 52.5886H12.5759H12.5721ZM5.94457 38.5936C5.94457 35.7884 6.76873 33.8072 8.77569 33.8072C10.7826 33.8072 11.8205 36.2904 11.8205 39.1684C11.8205 42.0463 11.0345 44.0276 9.06185 44.0276C6.94806 44.0276 5.94457 41.5443 5.94457 38.5936ZM4.01011 46.7982C4.01011 46.0433 4.5481 45.2883 5.22726 44.6407C6.33757 45.0354 7.59288 45.2155 8.84437 45.2155C13.3238 45.2155 16.5097 42.8779 16.5097 39.0649C16.5097 37.2638 15.5063 35.7539 14.251 34.9262L16.7577 35.0335H18.2267V32.945L12.1715 33.0906C11.2749 32.8377 10.3095 32.5848 8.98173 32.5848C4.50231 32.5848 1.17136 35.0335 1.17136 39.1684C1.17136 41.7244 2.56784 43.3799 4.46797 44.315C2.81967 45.3573 1.13702 46.7254 1.13702 48.8484C1.13702 50.3238 1.96118 51.5846 3.35765 52.1211C1.6483 52.6614 0 53.6693 0 55.501C0 58.4135 3.25845 60 8.48952 60C14.4379 60 18.9517 57.4822 18.9517 52.9488C18.9517 49.7834 16.8035 48.0207 12.6484 48.0207H5.26541C4.4756 48.0207 4.01011 47.5531 4.01011 46.7982ZM32.6341 37.0837H33.3133V33.1979C33.0271 32.8377 32.4891 32.5848 31.7375 32.5848C29.6237 32.5848 28.5477 33.9873 26.8307 37.9114L26.9757 32.5848H26.1516L19.7377 34.5621V35.2443L21.8858 36.505V52.0138H29.8755V50.8258C27.6549 50.6457 26.8307 50.4311 26.8307 48.9557V39.0266C28.6583 37.191 30.4135 37.0837 32.6341 37.0837ZM44.7407 48.3464C43.7373 49.1013 43.0199 49.496 41.9821 49.496C40.082 49.496 39.2235 48.1663 39.2235 46.2924C39.2235 44.2766 40.1545 43.4489 41.6578 42.8741L44.7407 41.6133V48.3426V48.3464ZM52.2993 49.6761C51.9063 49.8563 51.4026 50.0364 50.8647 50.0364C49.9337 50.0364 49.6818 49.2431 49.6818 48.0207V38.4863C49.6818 34.2747 47.175 32.5848 42.5888 32.5848C38.613 32.5848 35.5301 34.1329 35.5301 37.1182C35.5301 38.3062 36.1406 39.0611 37.1059 39.383L40.0782 38.9883C39.8989 38.195 39.792 37.4784 39.792 36.758C39.792 35.0297 40.4712 33.7344 42.192 33.7344C44.054 33.7344 44.7369 35.2098 44.7369 37.26V40.318L39.3265 42.2954C36.6404 43.3033 34.4198 44.5641 34.4198 47.6566C34.4198 50.5345 36.3542 52.2973 39.2579 52.2973C41.8371 52.2973 43.6991 50.7147 44.8476 49.2048C45.2062 51.1822 46.4959 52.3702 48.4304 52.3702C50.113 52.3702 51.4751 51.688 52.513 50.4617L52.2993 49.6685V49.6761ZM69.2669 35.2864L70.2589 32.945H64.8027V34.1329C66.6647 34.3859 67.237 34.5277 67.237 35.3554C67.237 35.6428 67.1645 35.8574 66.9852 36.3249L62.9713 46.3268L62.4409 45.0967L57.1984 32.9411H51.1127V34.1291C52.4023 34.4893 52.5816 34.7423 52.9403 35.4972L60.7507 52.2629H62.0746L69.1677 35.4972C69.202 35.4205 69.2325 35.3516 69.2631 35.2864M73.6509 52.0138H80.8508V50.8258C79.1682 50.7185 78.5958 50.5039 78.5958 49.2431V32.5848H77.806L71.499 34.5621V35.2443L73.6471 36.505V52.0138H73.6509ZM94.682 49.2776L94.2509 48.63C93.3542 49.3121 92.5682 49.6378 91.5648 49.6378C89.8821 49.6378 89.058 48.7028 89.058 46.507V34.5966H93.7167V32.9411H89.058V28.2621H87.982C86.4405 30.638 84.3267 32.6537 81.8581 33.7689V34.5966H84.0787V46.7944C84.0787 50.8258 86.2269 52.3702 89.1648 52.3702C91.7441 52.3702 93.5336 51.0749 94.682 49.2776ZM111.081 35.3516C111.081 35.639 111.009 35.9264 110.829 36.3594L106.815 47.009L102.515 36.3594C102.508 36.3364 102.504 36.3173 102.496 36.2981L101.142 32.9411H94.9949V34.1291C96.2846 34.4893 96.4982 34.7423 96.8225 35.4972L104.526 52.6959L103.916 54.2441C103.164 56.2215 101.981 56.7618 100.047 56.7618C99.0088 56.7618 98.364 56.6162 97.6085 56.4361V58.2717C97.9672 59.314 99.15 59.9272 100.367 59.9272C102.695 59.9272 103.916 58.3445 105.095 55.4282L112.977 35.4934C112.977 35.4934 112.985 35.478 112.989 35.4704L113.989 32.9411H108.643V34.1291C110.505 34.3437 111.081 34.5238 111.081 35.3516Z" />
+      </svg>
+    </a>
+    <span class="partnership-sep">×</span>
+    <img src="Images/medpace_wordmark.svg" alt="Medpace" class="partnership-logo med-logo">
   </div>
+  <h1 class="hero-title">AI-Powered <em>SDLC</em><br>Playbook</h1>
+  <p class="hero-sub">A craft-by-craft guide to building clinical trial software with AI — from requirements intake through QA. Structure your work once and watch it cascade through every tool in the pipeline.</p>
 </div>
 
-<!-- THE THREE TOOLS -->
+<!-- EXAMPLE FEATURE BANNER -->
+<div class="example-banner">
+  <span class="ex-label">Running example</span>
+  <div class="ex-divider"></div>
+  <div class="ex-text">Every guide in this playbook uses the same feature: the <strong>Patient Enrollment Table for trial ONCO-2024-003.</strong> A requirement captured in Phase 01 feeds the design in Phase 02 and the test cases in Phase 04 — no retranslation needed.</div>
+</div>
+
+<!-- CRAFT CARDS -->
 <div class="section">
-  <div class="sec-eyebrow">Overview</div>
-  <h2 class="sec-title">The Three Tools — What They Share &amp; Where They Differ</h2>
-  <p class="sec-sub">All three tools generate screens from text prompts and support iterative refinement. The difference is in where the output lives and who uses it next.</p>
+  <div class="sec-eyebrow">Playbook</div>
+  <h2 class="sec-title">Choose Your Craft</h2>
+  <p class="sec-sub">Each craft section is a self-contained module. Start at Requirements if you're building something new. Jump into Design or Development if you're picking up mid-process.</p>
 
-  <div class="shared-strip">
-    <span class="shared-label">All Three</span>
-    <div class="shared-divider"></div>
-    <div class="shared-items">
-      <span class="shared-item">Generate from a text prompt</span>
-      <span class="shared-item">Produce interactive prototypes</span>
-      <span class="shared-item">Support iteration</span>
-      <span class="shared-item">Work best with specific, realistic data</span>
+  <div class="craft-grid">
+
+    <!-- Requirements -->
+    <div class="craft-card" style="--ccolor:#8c47e4">
+      <div class="craft-accent"></div>
+      <div class="craft-body">
+        <div class="craft-phase-num">Phase 01</div>
+        <div class="craft-name">Requirements</div>
+        <div class="craft-desc">Capture stakeholder input and structure it so every downstream AI tool — Figma Make, Copilot, Claude — can consume it without guessing.</div>
+        <div class="craft-steps">
+          <a href="pages/requirements/01 AI Multiplier Effect.html" class="craft-step">
+            <span class="cs-num">01</span>
+            <span class="cs-label">The AI Multiplier Effect</span>
+          </a>
+          <a href="pages/requirements/02 Stakeholder Intake.html" class="craft-step">
+            <span class="cs-num">02</span>
+            <span class="cs-label">Stakeholder Intake</span>
+          </a>
+          <a href="pages/requirements/03 AI-Ready Requirements.html" class="craft-step">
+            <span class="cs-num">03</span>
+            <span class="cs-label">AI-Ready Requirements</span>
+          </a>
+        </div>
+      </div>
+      <div class="craft-body-footer">
+        <div class="craft-cta">
+          <a href="pages/requirements/01 AI Multiplier Effect.html">Start Requirements <span>→</span></a>
+        </div>
+      </div>
     </div>
+
+    <!-- Design -->
+    <div class="craft-card" style="--ccolor:#2f6b66">
+      <div class="craft-accent"></div>
+      <div class="craft-body">
+        <div class="craft-phase-num">Phase 02</div>
+        <div class="craft-name">Design</div>
+        <div class="craft-desc">Turn structured requirements into screens using Claude Design, Figma Make, and Cursor — each tool suited to a different output and audience.</div>
+        <div class="craft-steps">
+          <a href="pages/design/01 PRD UX Analysis Skill.html" class="craft-step">
+            <span class="cs-num">01</span>
+            <span class="cs-label">PRD UX Analysis Skill</span>
+          </a>
+          <a href="pages/design/02 Example PRD Interview.html" class="craft-step">
+            <span class="cs-num">02</span>
+            <span class="cs-label">Example PRD Interview</span>
+          </a>
+          <a href="pages/design/03 Figma Make — Starter Kit.html" class="craft-step">
+            <span class="cs-num">03</span>
+            <span class="cs-label">Figma Make — Starter Kit</span>
+          </a>
+        </div>
+      </div>
+      <div class="craft-body-footer">
+        <div class="craft-cta">
+          <a href="pages/design/01 PRD UX Analysis Skill.html">Start Design <span>→</span></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Development (coming soon) -->
+    <div class="craft-card craft-card--soon" style="--ccolor:#2b6880">
+      <div class="craft-accent"></div>
+      <div class="craft-body">
+        <div class="craft-phase-num">Phase 03</div>
+        <div class="craft-name">Development</div>
+        <div class="craft-desc">Generate component code, data models, and API scaffolding from AI-ready requirements using Copilot and Cursor.</div>
+        <div class="craft-steps">
+          <div class="craft-step" style="opacity:.4;pointer-events:none">
+            <span class="cs-num">01</span><span class="cs-label">Component Generation</span>
+          </div>
+          <div class="craft-step" style="opacity:.4;pointer-events:none">
+            <span class="cs-num">02</span><span class="cs-label">Code Review with AI</span>
+          </div>
+          <div class="craft-step" style="opacity:.4;pointer-events:none">
+            <span class="cs-num">03</span><span class="cs-label">ADO &amp; Helix Integration</span>
+          </div>
+        </div>
+      </div>
+      <div class="craft-body-footer">
+        <div class="craft-cta">
+          <span class="craft-soon-badge">In development</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- QA & Testing (coming soon) -->
+    <div class="craft-card craft-card--soon" style="--ccolor:#9a5a00">
+      <div class="craft-accent"></div>
+      <div class="craft-body">
+        <div class="craft-phase-num">Phase 04</div>
+        <div class="craft-name">QA &amp; Testing</div>
+        <div class="craft-desc">Generate test suites, boundary cases, and validation scripts directly from acceptance criteria and compliance notes.</div>
+        <div class="craft-steps">
+          <div class="craft-step" style="opacity:.4;pointer-events:none">
+            <span class="cs-num">01</span><span class="cs-label">Test Case Generation</span>
+          </div>
+          <div class="craft-step" style="opacity:.4;pointer-events:none">
+            <span class="cs-num">02</span><span class="cs-label">21 CFR Part 11 Validation</span>
+          </div>
+          <div class="craft-step" style="opacity:.4;pointer-events:none">
+            <span class="cs-num">03</span><span class="cs-label">Helix ALM Traceability</span>
+          </div>
+        </div>
+      </div>
+      <div class="craft-body-footer">
+        <div class="craft-cta">
+          <span class="craft-soon-badge">In development</span>
+        </div>
+      </div>
+    </div>
+
   </div>
+</div>
 
-  <div class="tools-grid">
-    <div class="tool-card tc-claude">
-      <div class="tool-body">
-        <div class="tool-badge">Conversational-native</div>
-        <div class="tool-name">Claude Design</div>
-        <ul class="tool-attrs">
-          <li>Lives in claude.ai/design</li>
-          <li>Powered by Opus 4.7</li>
-          <li>Refine via conversation + inline edits</li>
-          <li>One-click handoff to Claude Code</li>
-          <li>Exports: URL, HTML, PPTX, Canva</li>
-          <li>Reads your design system automatically</li>
-        </ul>
-        <div class="tool-best">Best for: Rapid exploration, stakeholder prototypes</div>
-      </div>
-      <img src="Images/Claude Design.png" alt="Claude Design interface" class="tool-img"/>
+<!-- THE MULTIPLIER EFFECT -->
+<div class="section" style="border-top:1px solid var(--border);">
+  <div class="sec-eyebrow">Why this works</div>
+  <h2 class="sec-title">One Requirement, Five AI Outputs</h2>
+  <p class="sec-sub">A well-structured requirement cascades through your entire AI toolchain. The 15 minutes you spend structuring it up front saves hours of rework when AI tools need to guess at intent.</p>
+
+  <div class="multiplier-row">
+    <div class="mult-node">
+      <div class="mult-icon">📋</div>
+      <div class="mult-label">Requirement</div>
+      <div class="mult-sub">Structured input</div>
     </div>
-
-    <div class="tool-card tc-figma">
-      <div class="tool-body">
-        <div class="tool-badge">Design-native</div>
-        <div class="tool-name">Figma Make</div>
-        <ul class="tool-attrs">
-          <li>Lives in figma.com/make</li>
-          <li>300 credits per prompt</li>
-          <li>Output copies to Figma canvas</li>
-          <li>Integrates with Figma design system</li>
-          <li>Best for: Screens that live in Figma</li>
-          <li>Real data, click-through interactions</li>
-        </ul>
-        <div class="tool-best">Best for: Team annotation &amp; Figma handoff</div>
-      </div>
-      <img src="Images/Figma Make Start Screen.png" alt="Figma Make interface" class="tool-img"/>
+    <div class="mult-arrow-wrap"><span>→</span></div>
+    <div class="mult-node">
+      <div class="mult-icon">🎨</div>
+      <div class="mult-label">Figma Make</div>
+      <div class="mult-sub">UI mockups</div>
     </div>
-
-    <div class="tool-card tc-cursor">
-      <div class="tool-body">
-        <div class="tool-badge">Code-native</div>
-        <div class="tool-name">Cursor + Claude Code</div>
-        <ul class="tool-attrs">
-          <li>Lives in Cursor IDE</li>
-          <li>Flat subscription — no credit limits</li>
-          <li>Output is Tailwind/Shadcn HTML</li>
-          <li>Reads &amp; writes actual code files</li>
-          <li>Can extract specs from prototypes</li>
-          <li>Generates Storybook stories</li>
-        </ul>
-        <div class="tool-best">Best for: Dev-ready prototypes &amp; docs</div>
-      </div>
-      <img src="Images/Curosr Claude Code.png" alt="Cursor + Claude Code interface" class="tool-img"/>
+    <div class="mult-arrow-wrap"><span>→</span></div>
+    <div class="mult-node">
+      <div class="mult-icon">💻</div>
+      <div class="mult-label">Copilot / Claude</div>
+      <div class="mult-sub">Code generation</div>
+    </div>
+    <div class="mult-arrow-wrap"><span>→</span></div>
+    <div class="mult-node">
+      <div class="mult-icon">🧪</div>
+      <div class="mult-label">AI Testing</div>
+      <div class="mult-sub">Test generation</div>
+    </div>
+    <div class="mult-arrow-wrap"><span>→</span></div>
+    <div class="mult-node">
+      <div class="mult-icon">📊</div>
+      <div class="mult-label">ADO / Helix</div>
+      <div class="mult-sub">Backlog &amp; traceability</div>
     </div>
   </div>
 </div>
 
-<!-- HOW TO WORK WITH EACH TOOL -->
-<div class="section">
-  <div class="sec-eyebrow">Workflow</div>
-  <h2 class="sec-title">How to Work With Each Tool</h2>
-  <p class="sec-sub">Each tool has a natural grain. Work with it rather than against it — use the right verb at each step.</p>
-
-  <div class="workflow-grid">
-    <div class="workflow-col">
-      <div class="workflow-head wh-claude">
-        <h3>Claude Design</h3>
-      </div>
-      <div class="workflow-steps">
-        <div class="wf-step">
-          <div class="wf-tag tag-claude">Start</div>
-          <div class="wf-content">
-            <h4>Describe in natural language</h4>
-            <p>Be specific about user, context, data, and style</p>
-          </div>
-        </div>
-        <div class="wf-step">
-          <div class="wf-tag tag-claude">Refine</div>
-          <div class="wf-content">
-            <h4>Continue the conversation</h4>
-            <p>"Make the risk column more prominent"</p>
-          </div>
-        </div>
-        <div class="wf-step">
-          <div class="wf-tag tag-claude">Edit</div>
-          <div class="wf-content">
-            <h4>Click directly on elements</h4>
-            <p>Inline edits for text, sliders for spacing/colour</p>
-          </div>
-        </div>
-        <div class="wf-step">
-          <div class="wf-tag tag-claude">Branch</div>
-          <div class="wf-content">
-            <h4>Add a second version with dark mode</h4>
-            <p>Explore variations without losing the first</p>
-          </div>
-        </div>
-        <div class="wf-step">
-          <div class="wf-tag tag-claude">Handoff</div>
-          <div class="wf-content">
-            <h4>One click to package for Claude Code</h4>
-            <p>Or export to Canva / PPTX for stakeholders</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="workflow-col">
-      <div class="workflow-head wh-figma">
-        <h3>Figma Make</h3>
-      </div>
-      <div class="workflow-steps">
-        <div class="wf-step">
-          <div class="wf-tag tag-figma">Start</div>
-          <div class="wf-content">
-            <h4>Describe the screen with specifics</h4>
-            <p>Columns, data, style reference products</p>
-          </div>
-        </div>
-        <div class="wf-step">
-          <div class="wf-tag tag-figma">Refine</div>
-          <div class="wf-content">
-            <h4>New prompt each time</h4>
-            <p>Describe what to change — costs 300 credits per prompt</p>
-          </div>
-        </div>
-        <div class="wf-step">
-          <div class="wf-tag tag-figma">Copy</div>
-          <div class="wf-content">
-            <h4>Click 'Copy to Figma'</h4>
-            <p>Prototype lands on your canvas, ready for annotation</p>
-          </div>
-        </div>
-        <div class="wf-step">
-          <div class="wf-tag tag-figma">Annotate</div>
-          <div class="wf-content">
-            <h4>Switch to Figma proper</h4>
-            <p>Add comments, apply your design system, hand off to dev</p>
-          </div>
-        </div>
-        <div class="wf-step">
-          <div class="wf-tag tag-figma">Embed</div>
-          <div class="wf-content">
-            <h4>Embed Make prototypes inside Figma files</h4>
-            <p>Also FigJam and Slides</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="workflow-col">
-      <div class="workflow-head wh-cursor">
-        <h3>Cursor + Claude Code</h3>
-      </div>
-      <div class="workflow-steps">
-        <div class="wf-step">
-          <div class="wf-tag tag-cursor">Start</div>
-          <div class="wf-content">
-            <h4>Open Cursor, create a file</h4>
-            <p>Cmd+L to open chat, paste your prompt</p>
-          </div>
-        </div>
-        <div class="wf-step">
-          <div class="wf-tag tag-cursor">Refine</div>
-          <div class="wf-content">
-            <h4>Chat in the same panel</h4>
-            <p>"The filter toggle isn't working — fix it"</p>
-          </div>
-        </div>
-        <div class="wf-step">
-          <div class="wf-tag tag-cursor">@Attach</div>
-          <div class="wf-content">
-            <h4>Type @filename to attach any file</h4>
-            <p>PRD, screenshot — for context</p>
-          </div>
-        </div>
-        <div class="wf-step">
-          <div class="wf-tag tag-cursor">Read</div>
-          <div class="wf-content">
-            <h4>Ask Cursor to read a prototype</h4>
-            <p>Extract design decisions (Evolved Spec workflow)</p>
-          </div>
-        </div>
-        <div class="wf-step">
-          <div class="wf-tag tag-cursor">Ship</div>
-          <div class="wf-content">
-            <h4>Output is Tailwind/Shadcn code</h4>
-            <p>Kelly takes it straight to a PR — no retranslation</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- BEST PRACTICES -->
+<!-- PRINCIPLES -->
 <div class="section-dark">
   <div class="sec-eyebrow">Principles</div>
-  <h2 class="sec-title">Best Practices for UX &amp; UI Design</h2>
-  <p class="sec-sub">These apply across all three tools. The model is capable — your judgment is the constraint.</p>
+  <h2 class="sec-title" style="color:var(--white)">What Makes AI Work Across the SDLC</h2>
+  <p class="sec-sub">These apply at every craft. The tools are capable — the quality of your input is the constraint.</p>
 
   <div class="bp-grid">
     <div class="bp-item">
-      <div class="bp-num">01</div>
+      <div class="bp-num">01 <span class="bp-craft" style="background:rgba(140,71,228,.2);color:#c4b5fd">Requirements</span></div>
+      <div class="bp-title">Context is the key input</div>
+      <p class="bp-body">Your tools are powerful — Claude, Copilot, Figma Make. The gap isn't capability, it's the quality of what you feed them. Structure once, consume everywhere.</p>
+    </div>
+    <div class="bp-item">
+      <div class="bp-num">02 <span class="bp-craft" style="background:rgba(140,71,228,.2);color:#c4b5fd">Requirements</span></div>
+      <div class="bp-title">Structure early, not late</div>
+      <p class="bp-body">Requirements don't get structured until migration into Helix near the end of development — by that point, AI tools can't help. Capture structure at the point of the stakeholder call.</p>
+    </div>
+    <div class="bp-item">
+      <div class="bp-num">03 <span class="bp-craft" style="background:rgba(79,153,144,.2);color:#6ee7df">Design</span></div>
       <div class="bp-title">Specificity beats brevity</div>
-      <p class="bp-body">Name the user, the moment, the data. 'A CRA monitoring 6 oncology sites reviewing overdue visits' gets a better screen than 'a monitoring dashboard'.</p>
+      <p class="bp-body">Name the user, the moment, the data. "A CRA monitoring 6 oncology sites reviewing overdue visits" gets a better screen than "a monitoring dashboard" every time.</p>
     </div>
     <div class="bp-item">
-      <div class="bp-num">02</div>
-      <div class="bp-title">Real data changes everything</div>
-      <p class="bp-body">Stakeholders give vague feedback on Lorem Ipsum. They give specific, actionable feedback on CDR-004 — Protocol Deviation, 38 days overdue.</p>
+      <div class="bp-num">04 <span class="bp-craft" style="background:rgba(79,153,144,.2);color:#6ee7df">Design</span></div>
+      <div class="bp-title">Real data changes stakeholder feedback</div>
+      <p class="bp-body">Stakeholders give vague feedback on Lorem Ipsum. They give specific, actionable feedback on CDR-004 — Protocol Deviation, 38 days overdue, Site 06.</p>
     </div>
     <div class="bp-item">
-      <div class="bp-num">03</div>
-      <div class="bp-title">Iterate, don't restart</div>
-      <p class="bp-body">First prompt establishes structure. Second refines style. Third locks in interactions. A 3-prompt sequence beats one exhaustive prompt every time.</p>
+      <div class="bp-num">05 <span class="bp-craft" style="background:rgba(43,104,128,.2);color:#7dd3e8">Development</span></div>
+      <div class="bp-title">Behavioral over aspirational</div>
+      <p class="bp-body">If a requirement describes a quality ("user-friendly") without observable behavior, AI can't generate code from it. Describe what happens — what loads, validates, submits.</p>
     </div>
     <div class="bp-item">
-      <div class="bp-num">04</div>
-      <div class="bp-title">Name the design language</div>
-      <p class="bp-body">Similar to Salesforce or Jira — dense, functional, not consumer. It closes the gap between what you imagine and what generates. Reference products are a superpower.</p>
+      <div class="bp-num">06 <span class="bp-craft" style="background:rgba(232,163,23,.15);color:#e8a317">QA</span></div>
+      <div class="bp-title">Edge cases only exist if written down</div>
+      <p class="bp-body">AI tools generating tests rely entirely on what you've written. No edge cases in your acceptance criteria means no edge case tests — the gap becomes a compliance risk in 21 CFR Part 11 contexts.</p>
     </div>
-    <div class="bp-item">
-      <div class="bp-num">05</div>
-      <div class="bp-title">Your judgment is the product</div>
-      <p class="bp-body">AI generates options. You decide which are right. Your job shifts from pixel-pushing to evaluation and direction — a higher-order skill, not a lesser one.</p>
-    </div>
-    <div class="bp-item">
-      <div class="bp-num">06</div>
-      <div class="bp-title">Prototype to discover, not confirm</div>
-      <p class="bp-body">You can now afford to be wrong. Explore 5 directions in the time it used to take to build 1. The first direction is rarely the best one.</p>
-    </div>
-  </div>
-</div>
-
-<!-- WORKSHOP RESOURCES -->
-<div class="section">
-  <div class="sec-eyebrow">Workshop Resources</div>
-  <h2 class="sec-title">Skills &amp; Practice Materials</h2>
-  <p class="sec-sub">Hands-on guides and reference materials for each part of the workshop.</p>
-
-  <div class="resources-grid">
-    <a href="pages/01 PRD UX Analysis Skill.html" class="resource-card">
-      <div class="rc-tag rc-skill">Skill Reference</div>
-      <h3>PRD UX Analysis Skill</h3>
-      <p>A reusable Claude prompt that encodes senior UX thinking. Paste any PRD and get a structured analysis of gaps, ambiguities, and design questions in under 60 seconds.</p>
-      <div class="rc-arrow">Open skill guide →</div>
-    </a>
-
-    <a href="pages/03 Figma Make — Starter Kit.html" class="resource-card">
-      <div class="rc-tag rc-guide">Tool Guide</div>
-      <h3>Figma Make — Starter Kit</h3>
-      <p>Step-by-step guide to building screens in Figma Make. Includes prompting modes, a Medpace clinical screen example, and what to avoid when spending credits.</p>
-      <div class="rc-arrow">Open guide →</div>
-    </a>
-
-    <a href="pages/02 Example PRD Interview.html" class="resource-card">
-      <div class="rc-tag rc-transcript">Practice Material</div>
-      <h3>Example PRD Interview</h3>
-      <p>A discovery interview transcript for the Site Coordinator Hub — a clinical trial tool. Contains 9 intentional gaps so you can practice the UX Analysis Skill on real-feeling input.</p>
-      <div class="rc-arrow">View transcript →</div>
-    </a>
   </div>
 </div>
 
 <!-- FOOTER -->
 <div class="page-footer">
-  <div class="footer-brand">Nimble <span>Gravity</span></div>
-  <div class="footer-note">AI Design Tools Workshop · Medpace</div>
+  <div class="footer-logos">
+    <a href="https://nimblegravity.com/" class="brand-link" target="_blank" rel="noopener noreferrer" aria-label="Nimble Gravity">
+      <svg class="footer-logo ng-wordmark" aria-hidden="true" viewBox="0 0 114 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="ng-wordmark-top" d="M13.8656 28.174H21.0655V26.986C19.4172 26.8787 18.8448 26.6603 18.8448 25.4033V14.6082C18.8448 10.6879 17.0897 8.74497 13.7206 8.74497C10.6758 8.74497 8.63451 10.4733 7.09305 12.2705L7.23803 8.74497H6.41388L0 10.7224V11.4045L2.14814 12.6653V25.4033V28.174H9.27552V26.986C7.62722 26.8787 7.08923 26.6603 7.08923 25.4033V13.2401C8.23388 12.4468 9.59602 11.7647 11.1032 11.7647C13.072 11.7647 13.8618 12.8071 13.8618 14.8956V25.4033V28.174H13.8656ZM29.6618 3.74401C29.6618 2.19582 28.479 0.900556 26.7239 0.900556C24.9687 0.900556 23.8203 2.19582 23.8203 3.74401C23.8203 5.2922 25.0031 6.58747 26.7239 6.58747C28.4447 6.58747 29.6618 5.25771 29.6618 3.74401ZM24.3239 28.174H31.5238V26.986C29.8412 26.8787 29.265 26.6603 29.265 25.4033V8.74497H28.479L22.172 10.7224V11.4045L24.3201 12.6653V19.2911V28.174H24.3239ZM57.5342 28.174H64.7341V26.986C63.0858 26.8787 62.5134 26.6603 62.5134 25.4033V14.5354C62.5134 10.7224 60.9033 8.74114 57.6067 8.74114C54.6344 8.74114 52.5549 10.4694 51.0516 12.374C50.5861 9.85629 49.0103 8.74114 46.3929 8.74114C43.3824 8.74114 41.4861 10.3621 39.979 12.305L40.124 8.74114H39.2998L32.8859 10.7185V11.4007L35.0341 12.6614V28.1701H42.1271V26.9822C40.4788 26.8749 39.979 26.6564 39.979 25.3995V13.2363C41.1236 12.443 42.2721 11.7609 43.7029 11.7609C45.5649 11.7609 46.2822 12.8032 46.2822 14.8573V25.3995V28.1663H51.2615V13.2707C52.3718 12.443 53.5203 11.7609 54.9511 11.7609C56.813 11.7609 57.5304 12.8032 57.5304 14.8573V28.1701L57.5342 28.174ZM80.4273 19.2527C80.4273 23.6789 78.5996 27.2044 75.5549 27.2044C73.3686 27.2044 72.2964 25.8019 72.2964 23.0657V13.0255C73.1206 12.2705 74.2652 11.7647 75.448 11.7647C78.8171 11.7647 80.4273 14.8228 80.4273 19.2489M85.4447 17.4861C85.4447 11.9448 82.6861 8.74114 78.3173 8.74114C75.4518 8.74114 73.483 10.3238 72.3002 12.1249V0H71.5104L65.169 1.7283V2.48323L67.3172 3.59839V26.0126C69.3585 27.7026 72.4414 28.5304 75.593 28.5304C81.1103 28.5304 85.4447 24.5373 85.4447 17.4861ZM89.0656 28.174H96.2655V26.986C94.6172 26.8787 94.0449 26.6603 94.0449 25.4033V0H93.255L86.9137 1.7283V2.48323L89.0618 3.59839V28.174H89.0656ZM102.214 15.7616C102.5 12.4507 103.79 10.0747 106.155 10.0747C108.521 10.0747 109.379 12.3779 109.379 15.7616H102.214ZM102.141 17.0914H113.821V16.2637C113.821 11.9448 111.314 8.74497 106.514 8.74497C101.714 8.74497 97.6658 12.991 97.6658 19.1454C97.6658 24.6867 101.142 28.538 106.335 28.538C110.455 28.538 113.069 26.0931 114 22.5292L113.428 22.2073C112.138 24.0774 110.524 25.1198 108.09 25.1198C104.579 25.1198 102 22.1345 102.141 17.0952" />
+        <path class="ng-wordmark-bottom" d="M73.1549 57.0147C73.1549 58.5629 74.3377 59.8582 76.0547 59.8582C77.7717 59.8582 78.9926 58.5629 78.9926 57.0147C78.9926 55.4665 77.8098 54.1713 76.0547 54.1713C74.2996 54.1713 73.1549 55.501 73.1549 57.0147ZM12.5721 52.5886C14.3273 52.5886 15.4032 53.1634 15.4032 54.7461C15.4032 57.4439 12.2516 58.6319 8.74135 58.6319C5.23107 58.6319 3.26227 57.122 3.26227 54.7116C3.26227 53.8494 3.47594 53.1289 3.94143 52.5886H12.5759H12.5721ZM5.94457 38.5936C5.94457 35.7884 6.76873 33.8072 8.77569 33.8072C10.7826 33.8072 11.8205 36.2904 11.8205 39.1684C11.8205 42.0463 11.0345 44.0276 9.06185 44.0276C6.94806 44.0276 5.94457 41.5443 5.94457 38.5936ZM4.01011 46.7982C4.01011 46.0433 4.5481 45.2883 5.22726 44.6407C6.33757 45.0354 7.59288 45.2155 8.84437 45.2155C13.3238 45.2155 16.5097 42.8779 16.5097 39.0649C16.5097 37.2638 15.5063 35.7539 14.251 34.9262L16.7577 35.0335H18.2267V32.945L12.1715 33.0906C11.2749 32.8377 10.3095 32.5848 8.98173 32.5848C4.50231 32.5848 1.17136 35.0335 1.17136 39.1684C1.17136 41.7244 2.56784 43.3799 4.46797 44.315C2.81967 45.3573 1.13702 46.7254 1.13702 48.8484C1.13702 50.3238 1.96118 51.5846 3.35765 52.1211C1.6483 52.6614 0 53.6693 0 55.501C0 58.4135 3.25845 60 8.48952 60C14.4379 60 18.9517 57.4822 18.9517 52.9488C18.9517 49.7834 16.8035 48.0207 12.6484 48.0207H5.26541C4.4756 48.0207 4.01011 47.5531 4.01011 46.7982ZM32.6341 37.0837H33.3133V33.1979C33.0271 32.8377 32.4891 32.5848 31.7375 32.5848C29.6237 32.5848 28.5477 33.9873 26.8307 37.9114L26.9757 32.5848H26.1516L19.7377 34.5621V35.2443L21.8858 36.505V52.0138H29.8755V50.8258C27.6549 50.6457 26.8307 50.4311 26.8307 48.9557V39.0266C28.6583 37.191 30.4135 37.0837 32.6341 37.0837ZM44.7407 48.3464C43.7373 49.1013 43.0199 49.496 41.9821 49.496C40.082 49.496 39.2235 48.1663 39.2235 46.2924C39.2235 44.2766 40.1545 43.4489 41.6578 42.8741L44.7407 41.6133V48.3426V48.3464ZM52.2993 49.6761C51.9063 49.8563 51.4026 50.0364 50.8647 50.0364C49.9337 50.0364 49.6818 49.2431 49.6818 48.0207V38.4863C49.6818 34.2747 47.175 32.5848 42.5888 32.5848C38.613 32.5848 35.5301 34.1329 35.5301 37.1182C35.5301 38.3062 36.1406 39.0611 37.1059 39.383L40.0782 38.9883C39.8989 38.195 39.792 37.4784 39.792 36.758C39.792 35.0297 40.4712 33.7344 42.192 33.7344C44.054 33.7344 44.7369 35.2098 44.7369 37.26V40.318L39.3265 42.2954C36.6404 43.3033 34.4198 44.5641 34.4198 47.6566C34.4198 50.5345 36.3542 52.2973 39.2579 52.2973C41.8371 52.2973 43.6991 50.7147 44.8476 49.2048C45.2062 51.1822 46.4959 52.3702 48.4304 52.3702C50.113 52.3702 51.4751 51.688 52.513 50.4617L52.2993 49.6685V49.6761ZM69.2669 35.2864L70.2589 32.945H64.8027V34.1329C66.6647 34.3859 67.237 34.5277 67.237 35.3554C67.237 35.6428 67.1645 35.8574 66.9852 36.3249L62.9713 46.3268L62.4409 45.0967L57.1984 32.9411H51.1127V34.1291C52.4023 34.4893 52.5816 34.7423 52.9403 35.4972L60.7507 52.2629H62.0746L69.1677 35.4972C69.202 35.4205 69.2325 35.3516 69.2631 35.2864M73.6509 52.0138H80.8508V50.8258C79.1682 50.7185 78.5958 50.5039 78.5958 49.2431V32.5848H77.806L71.499 34.5621V35.2443L73.6471 36.505V52.0138H73.6509ZM94.682 49.2776L94.2509 48.63C93.3542 49.3121 92.5682 49.6378 91.5648 49.6378C89.8821 49.6378 89.058 48.7028 89.058 46.507V34.5966H93.7167V32.9411H89.058V28.2621H87.982C86.4405 30.638 84.3267 32.6537 81.8581 33.7689V34.5966H84.0787V46.7944C84.0787 50.8258 86.2269 52.3702 89.1648 52.3702C91.7441 52.3702 93.5336 51.0749 94.682 49.2776ZM111.081 35.3516C111.081 35.639 111.009 35.9264 110.829 36.3594L106.815 47.009L102.515 36.3594C102.508 36.3364 102.504 36.3173 102.496 36.2981L101.142 32.9411H94.9949V34.1291C96.2846 34.4893 96.4982 34.7423 96.8225 35.4972L104.526 52.6959L103.916 54.2441C103.164 56.2215 101.981 56.7618 100.047 56.7618C99.0088 56.7618 98.364 56.6162 97.6085 56.4361V58.2717C97.9672 59.314 99.15 59.9272 100.367 59.9272C102.695 59.9272 103.916 58.3445 105.095 55.4282L112.977 35.4934C112.977 35.4934 112.985 35.478 112.989 35.4704L113.989 32.9411H108.643V34.1291C110.505 34.3437 111.081 34.5238 111.081 35.3516Z" />
+      </svg>
+    </a>
+    <span class="footer-sep">×</span>
+    <img src="Images/medpace_wordmark.svg" alt="Medpace" class="footer-logo med-logo">
+  </div>
+  <div class="footer-note">AI-Powered SDLC Playbook</div>
 </div>
 
-<script>
-(function() {
-  var cols = document.querySelectorAll('.workflow-col');
-  cols.forEach(function(col) { col.classList.add('anim-ready'); });
-  var grid = document.querySelector('.workflow-grid');
-  if (!grid || !window.IntersectionObserver) return;
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        cols.forEach(function(col, i) {
-          setTimeout(function() { col.classList.add('anim-visible'); }, i * 180);
-        });
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15, rootMargin: '0px 0px -180px 0px' });
-  observer.observe(grid);
-})();
-</script>
 </body>
 </html>

@@ -2,192 +2,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Figma Make — Starter Kit</title>
-<link rel="stylesheet" href="../styles/shared.css"/>
-<style>
-  :root {
-    /* Page-local aliases — values resolve from shared.css tokens */
-    --bg:           var(--off);
-    --bg-warm:      #eeecf2;
-    --dark:         var(--navy);
-    --dark2:        var(--navy2);
-    --text:         var(--navy);
-    --text-mid:     var(--slate);
-    --text-muted:   var(--slatel);
-    --accent:       var(--mint);
-    --accent-light: var(--tealL);
-    --accent-border:rgba(64, 140, 132, .2);
-    --mono-bg:      var(--code);
-    --mono-text:    var(--codeF);
-    --mono-accent:  var(--amber);
-    --green:        var(--teal);
-    --green-bg:     rgba(47, 107, 102, .08);
-    --border-dark:  rgba(255, 255, 255, .12);
-    --radius: 8px;
-    --max: 1100px;
-  }
-  html { scroll-behavior: smooth; }
-  body { font-size: 15px; }
-
-  /* HEADER */
-  header { background: var(--dark); color: #ffffff; padding: 0 max(40px,calc((100% - var(--max)) / 2)); display: flex; align-items: center; justify-content: space-between; height: 52px; position: sticky; top: 0; z-index: 200; border-bottom: 1px solid var(--border-dark); }
-  .header-left { display: flex; align-items: center; gap: 14px; font-size: 0.78rem; color: var(--text-muted); }
-  .header-left strong { color: #CDD6F4; font-weight: 500; }
-  .header-left .sep { color: rgba(255,255,255,.2); }
-  .header-right { font-family: 'Roboto Mono', monospace; font-size: 0.63rem; color: var(--text-mid); letter-spacing: 0.08em; text-transform: uppercase; }
-
-  /* PROGRESS */
-  .progress-strip { height: 2px; background: var(--border); position: sticky; top: 52px; z-index: 199; }
-  .progress-fill { height: 100%; background: var(--accent); width: 0%; transition: width 0.4s ease; }
-
-  /* HERO */
-  .hero { background: var(--dark); color: #ffffff; padding: 80px max(40px,calc((100% - var(--max)) / 2)) 72px; border-bottom: 1px solid var(--border-dark); }
-  .hero-inner { max-width: 100%; }
-  .eyebrow { font-family: 'Roboto Mono', monospace; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mint-on-dark); margin-bottom: 28px; display: flex; align-items: center; gap: 10px; }
-  .eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--mint-on-dark); }
-  h1 { font-family: 'Fraunces', serif; font-size: 3.6rem; font-weight: 700; line-height: 1.08; margin-bottom: 28px; letter-spacing: -0.01em; }
-  h1 em { font-style: italic; color: var(--text-muted); }
-  .hero-desc { font-size: 1rem; color: var(--text-muted); line-height: 1.8; max-width: 500px; margin-bottom: 40px; font-weight: 300; }
-  .compat-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-  .tag { display: inline-flex; align-items: center; gap: 7px; background: rgba(255,255,255,.03); border: 1px solid var(--border-dark); border-radius: 3px; padding: 5px 12px; font-size: 0.73rem; color: var(--text-muted); font-family: 'Roboto Mono', monospace; letter-spacing: 0.02em; }
-  .tag .dot-g { width: 5px; height: 5px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
-
-  /* SECTIONS */
-  .section { border-bottom: 1px solid var(--border); padding: 72px max(40px,calc((100% - var(--max)) / 2)); }
-  .section:last-of-type { border-bottom: none; }
-  .section-inner { max-width: 100%; }
-  .section-label { font-family: 'Roboto Mono', monospace; font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
-  .section-label::before { content: ''; display: block; width: 14px; height: 1px; background: var(--text-muted); }
-  .section h2 { font-family: 'Fraunces', serif; font-size: 2.1rem; font-weight: 700; line-height: 1.15; margin-bottom: 8px; letter-spacing: -0.01em; }
-  .section h2 em { font-style: italic; color: var(--text-muted); }
-  .section-sub { font-size: 0.87rem; color: var(--text-muted); font-style: italic; margin-bottom: 36px; }
-  .section-body { font-size: 0.92rem; color: var(--text-mid); line-height: 1.8; margin-bottom: 36px; }
-
-  /* NUMBERED ITEMS */
-  .numbered-items { margin-bottom: 40px; }
-  .numbered-item { display: flex; gap: 28px; padding: 24px 0; border-top: 1px solid var(--border); }
-  .numbered-item:last-child { border-bottom: 1px solid var(--border); }
-  .item-num { font-family: 'Fraunces', serif; font-size: 1.7rem; font-weight: 700; color: var(--border); line-height: 1; width: 28px; flex-shrink: 0; padding-top: 2px; }
-  .item-content h3 { font-size: 0.88rem; font-weight: 500; margin-bottom: 5px; color: var(--text); }
-  .item-content p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.65; }
-
-  /* PROMPT BLOCK */
-  .prompt-wrap { margin-bottom: 32px; }
-  .prompt-toggle { display: flex; }
-  .toggle-btn { background: none; border: 1px solid var(--border); padding: 7px 16px; font-family: 'Roboto Mono', monospace; font-size: 0.63rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); cursor: pointer; transition: all 0.15s; }
-  .toggle-btn:first-child { border-radius: 4px 0 0 0; border-right: none; }
-  .toggle-btn:last-child { border-radius: 0 4px 0 0; }
-  .toggle-btn.active { background: var(--mono-bg); color: var(--mono-accent); border-color: var(--mono-bg); }
-  .prompt-block { background: var(--mono-bg); border-radius: 0 4px 4px 4px; overflow: hidden; }
-  .prompt-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 20px; border-bottom: 1px solid rgba(255,255,255,0.04); }
-  .prompt-label-txt { font-family: 'Roboto Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,.3); display: flex; align-items: center; gap: 8px; }
-  .prompt-label-txt::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); display: block; }
-  .copy-btn { display: flex; align-items: center; gap: 6px; background: transparent; border: 1px solid rgba(255,255,255,.15); border-radius: 3px; padding: 5px 12px; font-family: 'Roboto Mono', monospace; font-size: 0.6rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); cursor: pointer; transition: all 0.15s; }
-  .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
-  .copy-btn.copied { border-color: var(--green); color: var(--green); }
-  .prompt-text { padding: 24px; font-family: 'Roboto Mono', monospace; font-size: 0.77rem; line-height: 1.9; color: var(--mono-text); white-space: pre-wrap; display: none; }
-  .prompt-text.active { display: block; }
-  .prompt-text .hi { color: var(--mono-accent); }
-  .prompt-text .ph { color: rgba(255,255,255,.25); background: rgba(255,255,255,0.04); padding: 0 4px; border-radius: 2px; font-style: italic; }
-
-  /* INSIGHT */
-  .insight { padding: 20px 24px; background: var(--accent-light); border-left: 2px solid var(--accent); border-radius: 0 4px 4px 0; margin-bottom: 24px; }
-  .insight-eyebrow { font-family: 'Roboto Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
-  .insight p { font-size: 0.84rem; color: var(--text-mid); line-height: 1.68; }
-  .insight p strong { color: var(--text); font-weight: 500; }
-
-  /* TIPS */
-  .tips { display: flex; flex-direction: column; gap: 9px; }
-  .tip { display: flex; gap: 12px; font-size: 0.82rem; color: var(--text-muted); line-height: 1.55; }
-  .tip-arrow { color: var(--accent); flex-shrink: 0; font-weight: 500; }
-  .tip strong { color: var(--text-mid); font-weight: 500; }
-
-  /* STEP NAV */
-  .step-nav-strip { display: flex; justify-content: space-between; align-items: center; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
-  .step-nav-strip a { font-size: 0.82rem; color: var(--text-muted); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.15s; }
-  .step-nav-strip a:hover { color: var(--accent); }
-  .next-link { font-weight: 500; background: var(--dark) !important; color: #ffffff !important; padding: 9px 18px; border-radius: 4px; }
-  .next-link:hover { background: var(--accent) !important; }
-
-  /* NOTICE BOX */
-  .notice { background: var(--bg-warm); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; font-size: 0.82rem; color: var(--text-muted); display: flex; gap: 10px; align-items: flex-start; }
-  .notice-dot { color: var(--accent); flex-shrink: 0; }
-  .notice strong { color: var(--text); font-weight: 500; }
-
-  /* NAV DOTS */
-  .nav-dots { position: fixed; right: 24px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 8px; z-index: 100; }
-  .nav-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--border); cursor: pointer; transition: all 0.2s; border: none; padding: 0; }
-  .nav-dot.active { background: var(--accent); transform: scale(1.5); }
-  .nav-dot:hover { background: var(--text-muted); }
-
-  /* FOOTER */
-  footer { background: var(--dark); padding: 40px max(40px,calc((100% - var(--max)) / 2)); display: flex; justify-content: space-between; align-items: center; font-family: 'Roboto Mono', monospace; font-size: 0.65rem; letter-spacing: 0.06em; color: var(--text-mid); }
-
-  /* META ROW (hero) */
-  .meta-row { display: flex; flex-wrap: wrap; gap: 0; border-top: 1px solid rgba(255,255,255,.1); padding-top: 24px; margin-top: 32px; }
-  .meta-item { padding-right: 32px; border-right: 1px solid rgba(255,255,255,.1); margin-right: 32px; padding-bottom: 4px; }
-  .meta-item:last-child { border-right: none; margin-right: 0; }
-  .meta-label { font-family: 'Roboto Mono', monospace; font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 5px; }
-  .meta-val { font-size: 13px; color: rgba(255,255,255,.55); line-height: 1.4; }
-
-  /* SETUP CARDS */
-  .setup-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px; }
-  .setup-card { background: white; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
-  .setup-top { height: 4px; }
-  .setup-cbody { padding: 22px 24px; }
-  .setup-badge { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 3px 9px; border-radius: 3px; display: inline-block; margin-bottom: 12px; }
-  .setup-card h3 { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 8px; line-height: 1.4; }
-  .setup-card p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.65; }
-  .setup-note { margin-top: 14px; background: var(--bg); border: 1px solid var(--border); padding: 10px 14px; border-radius: 4px; font-size: 0.78rem; color: var(--text); line-height: 1.55; }
-  .setup-note strong { color: var(--accent); }
-
-  /* MODES GRID */
-  .modes-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
-  .mode-card { background: white; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
-  .mode-top { height: 3px; }
-  .mode-cbody { padding: 16px 18px; }
-  .mode-name { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
-  .mode-desc { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.45; }
-  .mode-for { font-family: 'Roboto Mono', monospace; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 5px; }
-  .mode-examples { font-size: 0.78rem; color: var(--text-mid); line-height: 1.5; font-style: italic; }
-
-  /* AVOID PAIRS */
-  .pairs { display: flex; flex-direction: column; gap: 20px; }
-  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .pair-card { background: white; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
-  .pair-top { height: 4px; }
-  .pair-card.bad .pair-top { background: #c43b31; }
-  .pair-card.good .pair-top { background: var(--accent); }
-  .pair-cbody { padding: 16px 18px; }
-  .pair-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px; }
-  .pair-card.bad .pair-label { color: #c43b31; }
-  .pair-card.good .pair-label { color: var(--accent); }
-  .pair-example { font-family: 'Roboto Mono', monospace; font-size: 11px; padding: 10px 12px; border-radius: 4px; margin-bottom: 8px; line-height: 1.6; }
-  .pair-card.bad .pair-example { background: rgba(196,59,49,.07); color: #c43b31; }
-  .pair-card.good .pair-example { background: var(--accent-light); color: var(--green); }
-  .pair-why { font-size: 0.78rem; color: var(--text-muted); line-height: 1.55; }
-
-  /* PRO TIP */
-  .pro-tip { background: var(--dark); border-radius: 8px; padding: 28px 32px; margin-top: 40px; }
-  .pt-label { font-family: 'Roboto Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--mono-accent); margin-bottom: 12px; }
-  .pt-quote { font-family: 'Fraunces', serif; font-size: 1.05rem; color: rgba(255,255,255,.65); font-style: italic; line-height: 1.75; margin-bottom: 18px; }
-  .pt-body { padding-top: 18px; border-top: 1px solid rgba(255,255,255,.08); font-size: 0.83rem; color: rgba(255,255,255,.4); line-height: 1.7; }
-  .pt-body strong { color: rgba(255,255,255,.7); display: block; margin-bottom: 8px; }
-  .pt-ex { font-family: 'Roboto Mono', monospace; font-size: 11px; background: rgba(255,255,255,.06); color: var(--accent); padding: 1px 7px; border-radius: 3px; }
-
-  @media (max-width: 680px) {
-    h1 { font-size: 2.4rem; }
-    .section, .hero { padding: 48px 24px; }
-    header { padding: 0 20px; }
-    .nav-dots { display: none; }
-    footer { padding: 28px 24px; flex-direction: column; gap: 8px; text-align: center; }
-    .setup-grid { grid-template-columns: 1fr; }
-    .modes-grid { grid-template-columns: repeat(2,1fr); }
-    .pair { grid-template-columns: 1fr; }
-  }
-</style>
+<link rel="stylesheet" href="../../styles/shared.css"/>
 </head>
 <body>
-<script src="../nav.js"></script>
+<script src="../../footer.js"></script>
+<script src="../../nav.js"></script>
 
 <header>
   <div class="header-left">
@@ -199,18 +18,6 @@
 </header>
 
 <div class="progress-strip"><div class="progress-fill" id="prog" style="width: 15.075298%;"></div></div>
-
-<div class="nav-dots" id="navDots">
-  <button class="nav-dot" onclick="scrollTo(0)" title="Intro"></button>
-  <button class="nav-dot" onclick="scrollTo(1)" title="Overview"></button>
-  <button class="nav-dot" onclick="scrollTo(2)" title="Before You Prompt"></button>
-  <button class="nav-dot" onclick="scrollTo(3)" title="Problem Framing"></button>
-  <button class="nav-dot" onclick="scrollTo(4)" title="User Personas"></button>
-  <button class="nav-dot" onclick="scrollTo(5)" title="Brand Brief"></button>
-  <button class="nav-dot" onclick="scrollTo(6)" title="Build"></button>
-  <button class="nav-dot" onclick="scrollTo(7)" title="Iterate"></button>
-  <button class="nav-dot" onclick="scrollTo(8)" title="What to Avoid"></button>
-</div>
 
 <!-- HERO -->
 <section class="hero" id="sec-0">
@@ -307,7 +114,7 @@
           </div>
         </div>
         <div style="padding:12px 14px;">
-          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:7px;">Data tables &amp; dashboards</div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:7px;">Data tables &amp; dashboards</div>
           <div style="font-size:0.75rem;color:var(--text);line-height:1.6;font-family:'Roboto Mono',monospace;background:var(--accent-light);padding:7px 9px;border-radius:3px;">"...8-column patient table, risk flags colour-coded red/amber/green by clinical threshold, sticky header, 'show flagged only' toggle..."</div>
         </div>
       </div>
@@ -325,7 +132,7 @@
           <div style="display:flex;justify-content:flex-end;gap:8px;"><div style="width:56px;height:22px;background:rgba(0,0,0,.07);border-radius:3px;"></div><div style="width:72px;height:22px;background:var(--accent);border-radius:3px;"></div></div>
         </div>
         <div style="padding:12px 14px;">
-          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:7px;">Forms &amp; structured input</div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:7px;">Forms &amp; structured input</div>
           <div style="font-size:0.75rem;color:var(--text);line-height:1.6;font-family:'Roboto Mono',monospace;background:var(--accent-light);padding:7px 9px;border-radius:3px;">"...flag-review modal, protocol deviation path vs. all other types, required fields, audit-trail confirmation copy from microcopy doc..."</div>
         </div>
       </div>
@@ -348,7 +155,7 @@
           </div>
         </div>
         <div style="padding:12px 14px;">
-          <div style="font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:7px;">Mobile &amp; constrained views</div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-muted);margin-bottom:7px;">Mobile &amp; constrained views</div>
           <div style="font-size:0.75rem;color:var(--text);line-height:1.6;font-family:'Roboto Mono',monospace;background:var(--accent-light);padding:7px 9px;border-radius:3px;">"...390px viewport, CRA pre-visit summary, tap targets ≥44px, single primary action per screen..."</div>
         </div>
       </div>
@@ -946,13 +753,6 @@ Tech: <span class="ph">[React + Tailwind / HTML + CSS]</span>. Single file.</div
 </footer>
 
 <script>
-  const sectionIds = ['sec-0','sec-1','sec-prep','sec-2','sec-3','sec-4','sec-7','sec-8','sec-avoid'];
-  const dots = document.querySelectorAll('.nav-dot');
-
-  function scrollTo(i) {
-    document.getElementById(sectionIds[i]).scrollIntoView({ behavior: 'smooth' });
-  }
-
   function switchTab(btn, showId, hideId) {
     const wrap = btn.closest('.prompt-wrap');
     wrap.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
@@ -976,12 +776,6 @@ Tech: <span class="ph">[React + Tailwind / HTML + CSS]</span>. Single file.</div
     const scrolled = window.scrollY;
     const total = document.body.scrollHeight - window.innerHeight;
     document.getElementById('prog').style.width = (scrolled / total * 100) + '%';
-    let cur = 0;
-    sectionIds.forEach((id, i) => {
-      const el = document.getElementById(id);
-      if (el && el.getBoundingClientRect().top <= window.innerHeight * 0.45) cur = i;
-    });
-    dots.forEach((d, i) => d.classList.toggle('active', i === cur));
   });
 </script>
 
