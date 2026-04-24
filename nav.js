@@ -399,4 +399,54 @@
 
   injectNextStep();
 
+  // ── Tip-trick scroll reveal ───────────────────────────────────────────────
+  (function initTipReveal() {
+    if (!window.IntersectionObserver) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    function revealCard(card) {
+      card.classList.add('tt-visible');
+    }
+
+    function setup() {
+      var cards = document.querySelectorAll('.tip-trick');
+      if (!cards.length) return;
+
+      var vh = window.innerHeight;
+      // Bail out if layout isn't ready — leave cards visible
+      if (!vh) return;
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            revealCard(e.target);
+            observer.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -20px 0px' });
+
+      var toAnimate = [];
+      cards.forEach(function (card) {
+        // Only animate cards that start below the fold
+        if (card.getBoundingClientRect().top > vh - 40) {
+          card.classList.add('tt-anim');
+          observer.observe(card);
+          toAnimate.push(card);
+        }
+      });
+
+      // Safety net: if a card hasn't revealed after 1.5s, force it visible
+      if (toAnimate.length) {
+        setTimeout(function () {
+          toAnimate.forEach(function (card) {
+            if (!card.classList.contains('tt-visible')) revealCard(card);
+          });
+        }, 1500);
+      }
+    }
+
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setup);
+    else setup();
+  })();
+
 })();

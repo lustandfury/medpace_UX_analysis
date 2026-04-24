@@ -190,6 +190,46 @@
       </div>
     </div>
 
+    <div class="code-wrap" style="margin: 8px 0 40px;">
+      <div class="code-topbar">
+        <span class="cb-dot" style="background: #ff5f57;"></span>
+        <span class="cb-dot" style="background: #ffbd2e;"></span>
+        <span class="cb-dot" style="background: #28c840;"></span>
+        <span class="code-label">timeEntry.test.js — AI-generated</span>
+      </div>
+      <div class="code-body">
+        <pre><span class="comment">// [REQ-HT-012] Time Entry Validation Tests</span>
+<span class="violet">describe</span>(<span class="amber">'validateTimeEntry'</span>, () => {
+
+  <span class="green">it</span>(<span class="amber">'accepts valid 7.5h entry'</span>, () => {
+    <span class="violet">expect</span>(() => validate({ projectCode: <span class="amber">'A'</span>, hours: <span class="dim">7.5</span> }))
+      .not.toThrow();
+  });
+
+  <span class="green">it</span>(<span class="amber">'rejects negative hours'</span>, () => {
+    <span class="violet">expect</span>(() => validate({ projectCode: <span class="amber">'A'</span>, hours: <span class="dim">-1</span> }))
+      .toThrow(<span class="amber">'Hours cannot be negative'</span>);
+  });
+
+  <span class="green">it</span>(<span class="amber">'rejects daily total &gt; 24h'</span>, () => {
+    <span class="violet">expect</span>(() => validate({ projectCode: <span class="amber">'A'</span>, hours: <span class="dim">25</span> }))
+      .toThrow(<span class="amber">'Daily total cannot exceed 24'</span>);
+  });
+
+  <span class="green">it</span>(<span class="amber">'rejects null project code'</span>, () => {
+    <span class="violet">expect</span>(() => validate({ projectCode: <span class="dim">null</span>, hours: <span class="dim">8</span> }))
+      .toThrow(<span class="amber">'Project code required'</span>);
+  });
+
+  <span class="green">it</span>(<span class="amber">'allows exactly 24h on one project'</span>, () => {
+    <span class="violet">expect</span>(() => validate({ projectCode: <span class="amber">'A'</span>, hours: <span class="dim">24</span> }))
+      .not.toThrow();
+  });
+
+});</pre>
+      </div>
+    </div>
+
     <div class="dev-band">
       <p><strong>Page takeaway:</strong> the workshop treats test generation as structured authoring, not magic. If the prompt contains feature behavior, test scope, edge cases, and requirement tags, the AI can produce artifacts that are meaningful in both engineering review and audit review.</p>
     </div>

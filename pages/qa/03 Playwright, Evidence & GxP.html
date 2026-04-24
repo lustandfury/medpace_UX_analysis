@@ -5,6 +5,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Playwright, Evidence &amp; GxP</title>
 <link rel="stylesheet" href="../../styles/shared.css"/>
+<style>
+/* ── Mock Playwright report ── */
+.pw-report { background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 40px 0; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+.pw-report-header { background: var(--navy); padding: 13px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.pw-report-title { font-size: 13px; font-weight: 600; color: var(--white); font-family: 'Roboto Mono', monospace; }
+.pw-report-badge { font-size: 11px; background: rgba(255,255,255,.1); color: rgba(255,255,255,.5); padding: 2px 10px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; }
+.pw-summary { padding: 13px 20px; background: var(--okBg); border-bottom: 1px solid #a7f3d0; display: flex; align-items: center; gap: 10px; }
+.pw-summary-check { color: var(--okG); font-weight: 700; font-size: 15px; }
+.pw-summary-text { font-size: 13.5px; font-weight: 600; color: var(--okG); }
+.pw-rows { }
+.pw-row { display: flex; align-items: center; gap: 12px; padding: 10px 20px; border-bottom: 1px solid var(--border); }
+.pw-row:last-child { border-bottom: none; }
+.pw-row-check { color: #10b981; font-weight: 700; flex-shrink: 0; font-size: 14px; }
+.pw-row-name { flex: 1; color: var(--navy); font-family: 'Roboto Mono', monospace; font-size: 12.5px; line-height: 1.4; }
+.pw-row-name .req-tag { color: var(--teal); font-weight: 600; }
+.pw-row-time { font-size: 12px; color: var(--slatel); white-space: nowrap; }
+.pw-report-footer { padding: 11px 20px; background: var(--off); border-top: 1px solid var(--border); font-size: 12.5px; color: var(--slatel); }
+
+/* ── GxP compliance table ── */
+.sv-overflow { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.gxp-table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.55; }
+.gxp-table th { padding: 12px 18px; font-weight: 600; text-align: left; color: var(--white); }
+.gxp-table td { padding: 12px 18px; vertical-align: top; border-bottom: 1px solid var(--border); }
+.gxp-table tbody tr:nth-child(even) { background: var(--off); }
+.gxp-label { font-weight: 600; color: var(--navy); white-space: nowrap; font-size: 13px; }
+.gxp-label small { display: block; font-weight: 400; font-size: 11px; color: var(--slatel); margin-top: 2px; white-space: normal; }
+</style>
 </head>
 <body>
 <script src="../../footer.js"></script>
@@ -155,6 +182,25 @@
       </div>
     </div>
 
+    <div class="pw-report">
+      <div class="pw-report-header">
+        <span class="pw-report-title">Playwright Test Report · Hours Tracking · Build #218</span>
+        <span class="pw-report-badge">playwright</span>
+      </div>
+      <div class="pw-summary">
+        <span class="pw-summary-check">✓</span>
+        <span class="pw-summary-text">8 passed · 0 failed · Duration: 42s · Browsers: Chromium, Firefox</span>
+      </div>
+      <div class="pw-rows">
+        <div class="pw-row"><span class="pw-row-check">✓</span><span class="pw-row-name"><span class="req-tag">[REQ-HT-012]</span> consultant can log 7.5h to project A</span><span class="pw-row-time">3.2s</span></div>
+        <div class="pw-row"><span class="pw-row-check">✓</span><span class="pw-row-name"><span class="req-tag">[REQ-HT-012]</span> rejects negative hours</span><span class="pw-row-time">1.8s</span></div>
+        <div class="pw-row"><span class="pw-row-check">✓</span><span class="pw-row-name"><span class="req-tag">[REQ-HT-013]</span> daily total cannot exceed 24h</span><span class="pw-row-time">2.1s</span></div>
+        <div class="pw-row"><span class="pw-row-check">✓</span><span class="pw-row-name"><span class="req-tag">[REQ-HT-014]</span> approval workflow — manager can approve</span><span class="pw-row-time">4.5s</span></div>
+        <div class="pw-row"><span class="pw-row-check">✓</span><span class="pw-row-name"><span class="req-tag">[REQ-HT-014]</span> approval workflow — shows pending state</span><span class="pw-row-time">3.8s</span></div>
+      </div>
+      <div class="pw-report-footer">📎 Artifacts: playwright-report.zip (HTML, screenshots, traces)</div>
+    </div>
+
     <div class="dev-grid-3">
       <div class="dev-card">
         <div class="dev-kicker">Report Artifact</div>
@@ -209,7 +255,42 @@
       </div>
     </div>
 
-    <div class="callout light">
+    <div class="section-label" style="margin: 44px 0 16px;">Compliance Impact</div>
+    <div class="sv-overflow">
+      <table class="gxp-table">
+        <thead>
+          <tr>
+            <th style="background: var(--navy);">Standard</th>
+            <th style="background: #991b1b;">Before (Manual)</th>
+            <th style="background: var(--teal);">After (Automated)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="gxp-label">GL-IT-02-S25 §4.3<small>Test Evidence</small></td>
+            <td>Screenshots and manual test logs, assembled by hand</td>
+            <td>GitHub Actions produces a signed, timestamped test artifact on every run</td>
+          </tr>
+          <tr>
+            <td class="gxp-label">GL-IT-09-S28 §5.1<small>Req. Traceability</small></td>
+            <td>Spreadsheet maps requirements to test cases — updated manually</td>
+            <td>REQ tags embedded in test names; traceability report generated automatically</td>
+          </tr>
+          <tr>
+            <td class="gxp-label">GAMP 5 Cat 4/5<small>Validation Coverage</small></td>
+            <td>Test scripts written after code; coverage unknown until audit</td>
+            <td>Coverage threshold enforced as a PR gate; no merge below 90%</td>
+          </tr>
+          <tr>
+            <td class="gxp-label">SOx IT Controls<small>Change Control</small></td>
+            <td>Test results attached to change tickets manually, sometimes post-facto</td>
+            <td>Test results are a mandatory PR artifact — change cannot close without them</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout light" style="margin-top: 32px;">
       <div class="callout-label">Section takeaway</div>
       <div class="callout-body"><strong>Automated testing is presented here as GxP-friendly by construction.</strong> The combination of AI-generated tests, PR gates, Playwright evidence, and requirement-tagged outputs is meant to reduce both engineering friction and audit friction at the same time.</div>
     </div>

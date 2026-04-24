@@ -5,6 +5,47 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Models, Prompts &amp; Context</title>
 <link rel="stylesheet" href="../../styles/shared.css"/>
+<style>
+/* ── Comparison / model tables ── */
+.sv-overflow { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.sv-table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.55; }
+.sv-table th { padding: 12px 18px; font-weight: 600; text-align: left; color: var(--white); }
+.sv-table td { padding: 11px 18px; vertical-align: top; }
+.sv-table tbody tr { border-bottom: 1px solid var(--border); }
+.sv-table tbody tr:nth-child(even) { background: var(--off); }
+.sv-label { font-weight: 600; color: var(--navy); white-space: nowrap; font-size: 13px; }
+/* dark variant (sec-2) */
+.sv-table--dark tbody tr { border-bottom-color: rgba(255,255,255,.1); }
+.sv-table--dark tbody tr:nth-child(even) { background: rgba(255,255,255,.04); }
+.sv-table--dark td { color: rgba(255,255,255,.8); }
+.sv-table--dark .sv-label { color: var(--white); }
+.model-ref-tables { display: flex; flex-direction: column; gap: 28px; margin-top: 44px; }
+.model-ref-label { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 10px; }
+.model-ref-label--teal { color: var(--mint-on-dark); }
+.model-ref-label--muted { color: rgba(255,255,255,.4); }
+.model-insight-bar { margin-top: 20px; padding: 14px 18px; background: rgba(79,153,144,.15); border-left: 3px solid var(--mint-on-dark); border-radius: 0 6px 6px 0; font-size: 13.5px; color: var(--slatel); line-height: 1.6; }
+.model-insight-bar strong { color: var(--mint-on-dark); }
+
+/* ── Prompt anatomy (bad vs good) ── */
+.prompt-anatomy { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
+@media (max-width: 768px) { .prompt-anatomy { grid-template-columns: 1fr; } }
+.pa-panel { border-radius: 10px; overflow: hidden; border: 1px solid #dedede; background: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,.07); }
+.pa-header { display: flex; align-items: center; gap: 10px; padding: 13px 18px; font-weight: 700; font-size: 14px; }
+.pa-header--weak  { background: #fde8e8; color: #991b1b; border-bottom: 2px solid #fca5a5; }
+.pa-header--strong { background: #d1fae5; color: #065f46; border-bottom: 2px solid #6ee7b7; }
+.pa-big-code { font-family: 'Roboto Mono', monospace; font-size: 22px; padding: 20px 18px; color: #210f36; background: #fff0f0; border-bottom: 1px solid #fca5a5; }
+.pa-why-label { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #dc2626; padding: 14px 18px 6px; }
+.pa-why-list { padding: 0 18px 18px 36px; }
+.pa-why-list li { font-size: 13.5px; color: #5d5c6a; margin-bottom: 5px; }
+.pa-code-dark { background: #1e1e2e; padding: 22px 20px; }
+.pa-code-dark pre { font-family: 'Roboto Mono', monospace; font-size: 13px; line-height: 1.85; color: #cdd6f4; white-space: pre-wrap; }
+.pa-tag { display: inline-block; padding: 1px 6px; border-radius: 3px; font-weight: 700; font-size: 11px; letter-spacing: .03em; margin-right: 5px; vertical-align: baseline; font-family: 'Roboto Mono', monospace; }
+.pa-tag--amber  { background: rgba(232,163,23,.28); color: #e8a317; }
+.pa-tag--teal   { background: rgba(79,153,144,.28); color: #4f9990; }
+.pa-tag--violet { background: rgba(196,181,253,.2); color: #c4b5fd; }
+.pa-tag--slate  { background: rgba(255,255,255,.12); color: #aaa8ba; }
+.pa-tag--blue   { background: rgba(125,211,232,.18); color: #7dd3e8; }
+</style>
 </head>
 <body>
 <script src="../../footer.js"></script>
@@ -61,6 +102,31 @@
       </div>
     </div>
 
+    <div style="margin-top: 48px;">
+      <div class="section-label" style="margin-bottom: 16px;">Side-by-Side</div>
+      <div class="sv-overflow">
+        <table class="sv-table">
+          <thead>
+            <tr>
+              <th style="background: var(--navy); width: 130px;"></th>
+              <th style="background: var(--teal);">GitHub Copilot</th>
+              <th style="background: var(--blueD);">Claude Code</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="sv-label">Lives in</td><td>VS Code, JetBrains, Eclipse, Xcode</td><td>Terminal (CLI) + IDE extensions</td></tr>
+            <tr><td class="sv-label">Interaction</td><td>Ask, Edit, Agent modes + Chat UI</td><td>Conversational prompts + planning</td></tr>
+            <tr><td class="sv-label">Scope</td><td>File → multi-file → full repo (agent)</td><td>Multi-file, full codebase from start</td></tr>
+            <tr><td class="sv-label">Models</td><td>GPT-5.4, Claude Sonnet 4.6, Gemini</td><td>Sonnet 4.6 (default) / Opus 4.6</td></tr>
+            <tr><td class="sv-label">Runs code?</td><td>Yes — agent mode runs terminal</td><td>Yes — shell, tests, git, MCP tools</td></tr>
+            <tr><td class="sv-label">Plans ahead?</td><td>Yes — Plan mode (review before code)</td><td>Yes — explicit planning mode</td></tr>
+            <tr><td class="sv-label">Context</td><td>Model-dependent (128K–1M)</td><td>1M tokens (Opus 4.6 / Sonnet 4.6)</td></tr>
+            <tr><td class="sv-label">Pricing</td><td>$10–$39/mo subscription</td><td>Usage-based (API tokens)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -110,6 +176,52 @@
         <p>The deck’s economic point is blunt: save Opus for the sessions where extra reasoning actually pays for itself.</p>
       </div>
     </div>
+
+    <div class="model-ref-tables">
+      <div>
+        <div class="model-ref-label model-ref-label--teal">Anthropic Claude (Claude Code)</div>
+        <div class="sv-overflow">
+          <table class="sv-table sv-table--dark">
+            <thead>
+              <tr>
+                <th style="background: var(--teal);">Model</th>
+                <th style="background: var(--teal);">Context</th>
+                <th style="background: var(--teal);">Max Output</th>
+                <th style="background: var(--teal);">Pricing (in/out)</th>
+                <th style="background: var(--teal);">Best For</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="sv-label">Claude Opus 4.6</td><td>1M tokens</td><td>128K output</td><td>$15 / $75 per MTok</td><td>Frontier reasoning, agent teams, complex refactors</td></tr>
+              <tr><td class="sv-label">Claude Sonnet 4.6</td><td>1M tokens</td><td>64K output</td><td>$3 / $15 per MTok</td><td>Default in Claude Code. 98% of Opus coding perf.</td></tr>
+              <tr><td class="sv-label">Claude Haiku 4.5</td><td>200K tokens</td><td>8K output</td><td>$0.80 / $4 per MTok</td><td>Fast subagents, exploration, lightweight tasks</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <div class="model-ref-label model-ref-label--muted">GitHub Copilot (multi-model)</div>
+        <div class="sv-overflow">
+          <table class="sv-table sv-table--dark">
+            <thead>
+              <tr>
+                <th style="background: var(--navy2);">Model</th>
+                <th style="background: var(--navy2);">Context</th>
+                <th style="background: var(--navy2);">Pricing</th>
+                <th style="background: var(--navy2);">Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="sv-label">GPT-5.4</td><td>272K tokens</td><td>$10 / $30 per MTok</td><td>Default for premium requests. Computer use, tool search.</td></tr>
+              <tr><td class="sv-label">Claude Sonnet 4.6</td><td>1M tokens</td><td>$3 / $15 per MTok</td><td>Available in Copilot Pro+. Strong agentic coding.</td></tr>
+              <tr><td class="sv-label">Gemini 2.5 Pro</td><td>1M tokens</td><td>Varies</td><td>Alternative for large-context tasks.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="model-insight-bar"><strong>Key insight:</strong> Sonnet 4.6 scores 79.6% on SWE-bench (vs Opus 80.8%) at 1/5 the cost. Use Sonnet as your daily driver; reserve Opus for deep reasoning, agent teams, and complex refactors.</div>
+    </div>
+
   </div>
 </section>
 
@@ -151,12 +263,35 @@
       </div>
     </div>
 
-    <div class="insight">
-      <div class="insight-eyebrow">Prompt takeaway</div>
+    <div class=”insight”>
+      <div class=”insight-eyebrow”>Prompt takeaway</div>
       <p>The workshop’s “bad vs good” example is making a narrow point: better prompting is mostly better scoping. A strong coding prompt describes the codebase, the goal, the boundaries, and the pattern to imitate before the agent writes anything.</p>
     </div>
 
-    <div class="tip-trick">
+    <div class=”prompt-anatomy”>
+      <div class=”pa-panel”>
+        <div class=”pa-header pa-header--weak”><span>✗</span> Weak prompt</div>
+        <div class=”pa-big-code”>Fix the bug.</div>
+        <div class=”pa-why-label”>Why it fails</div>
+        <ul class=”pa-why-list”>
+          <li>No context — which bug?</li>
+          <li>No scope — what files?</li>
+          <li>No role or pattern constraints</li>
+        </ul>
+      </div>
+      <div class=”pa-panel”>
+        <div class=”pa-header pa-header--strong”><span>✓</span> Strong CRISP prompt</div>
+        <div class=”pa-code-dark”>
+          <pre><span class=”pa-tag pa-tag--amber”>[Context]</span> TypeScript/Express API, Node 22, vitest.
+<span class=”pa-tag pa-tag--teal”>[Role]</span> Act as a senior backend engineer.
+<span class=”pa-tag pa-tag--violet”>[Intent]</span> Fix the 401 error in src/auth/middleware.ts.
+<span class=”pa-tag pa-tag--slate”>[Scope]</span> Only middleware.ts. Don’t touch test files.
+<span class=”pa-tag pa-tag--blue”>[Pattern]</span> Use the same try/catch style as utils/errors.ts.</pre>
+        </div>
+      </div>
+    </div>
+
+    <div class=”tip-trick”>
       <div class="tip-trick-icon" aria-hidden="true">✦</div>
       <div class="tip-trick-copy">
         <div class="tip-trick-label">Tips &amp; Tricks</div>

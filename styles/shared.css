@@ -1590,6 +1590,17 @@ section.section.dark .section-sub, .section.dark .section-sub { color: var(--sla
 .tip-trick--dark .tip-trick-label { color: #ffe2a6; }
 .tip-trick--dark p { color: var(--slatel); }
 .tip-trick--dark strong { color: var(--white); }
+
+/* Scroll-reveal animation — applied only to below-fold cards by nav.js */
+@media (prefers-reduced-motion: no-preference) {
+  .tip-trick.tt-anim {
+    transition: opacity 0.5s ease-out 0.15s, transform 0.55s cubic-bezier(0.2, 0, 0, 1) 0.15s;
+  }
+  .tip-trick.tt-anim:not(.tt-visible) {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+}
 .gap-list { margin-top: 16px; display: flex; flex-direction: column; gap: 8px; }
 .gap-item { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; color: var(--slatel); }
 .gap-item.dark { color: rgba(255,255,255,.6); }
