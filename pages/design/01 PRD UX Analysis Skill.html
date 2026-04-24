@@ -75,6 +75,14 @@
         <div class="skill-prop-body">Modify the prompt as the team learns. Add a compliance section, tune the output format, encode more of your specific domain expertise over time.</div>
       </div>
     </div>
+
+    <div class="tip-trick">
+      <div class="tip-trick-icon" aria-hidden="true">✦</div>
+      <div class="tip-trick-copy">
+        <div class="tip-trick-label">Tips &amp; Tricks</div>
+        <p><strong>Version shared skills like code.</strong> Keep one strong sample input, one weak sample input, and the output shape you expect. When you revise the skill, rerun those checks before the team adopts the new version.</p>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -398,25 +406,25 @@ and close with constraints as // comments. Make it ready to copy and paste.</spa
 
   <div class="var-stack">
     <div class="var-card">
-      <div class="var-tag" style="background:var(--tealL);color:var(--teal);">User Research</div>
+      <div class="var-tag var-tag--research">User Research</div>
       <div class="var-title">Interview synthesis → requirements</div>
       <div class="var-body">Replace the PRD with a stakeholder interview transcript. Prepend this modifier before the skill prompt:</div>
       <div class="var-prompt">The following is a stakeholder interview transcript, not a PRD. Extract implied requirements, then run the UX Analysis on what you extracted. Flag where requirements are inferred vs. explicitly stated.</div>
     </div>
     <div class="var-card">
-      <div class="var-tag" style="background:var(--violetL);color:var(--navy);">Design Review</div>
+      <div class="var-tag var-tag--review">Design Review</div>
       <div class="var-title">Prototype analysis → evolved spec</div>
       <div class="var-body">Feed a working prototype HTML file to Cursor and prepend this modifier:</div>
       <div class="var-prompt">The following is a working prototype HTML file, not a PRD. Analyse it as a UX artefact: what design decisions were made, which should be locked in, which should be revisited, and what requirements appear to be missing from the original spec.</div>
     </div>
     <div class="var-card">
-      <div class="var-tag" style="background:var(--blueL);color:var(--blueD);">Clinical / Regulated</div>
+      <div class="var-tag var-tag--regulated">Clinical / Regulated</div>
       <div class="var-title">Add 21 CFR Part 11 compliance lens</div>
       <div class="var-body">For clinical monitoring features, add a seventh section after Section 6:</div>
       <div class="var-prompt">7. REGULATORY DESIGN IMPLICATIONS: For each requirement, identify design decisions driven by 21 CFR Part 11, ICH E6 GCP, or HIPAA compliance. Flag where compliance requirements create UX constraints, and where those constraints conflict with usability best practices.</div>
     </div>
     <div class="var-card">
-      <div class="var-tag" style="background:var(--okBg);color:var(--okG);">Feasibility</div>
+      <div class="var-tag var-tag--feasibility">Feasibility</div>
       <div class="var-title">Early feasibility study screen analysis</div>
       <div class="var-body">For Brittany's feasibility study work, replace Section 6 with this:</div>
       <div class="var-prompt">6. PARTICIPANT BURDEN ASSESSMENT: For each data collection requirement, assess the cognitive and time burden on study participants. Flag where requirements create friction that could affect data quality, completion rates, or participant dropout.</div>

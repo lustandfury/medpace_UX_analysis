@@ -29,11 +29,14 @@ Images/             — PNG screenshots referenced by index.html tool cards
 initiative-context.md — Domain and project context (read this before writing content)
 ```
 
-**Every page** follows this structure: `<link>` to shared.css → `<style>` block for page-specific CSS → `<script src="nav.js">` as first element of `<body>` → page-header div → section divs → page-footer div → optional inline `<script>`.
+**Every page** follows this structure: `<link>` to shared.css → `<style>` block for page-specific CSS → `<script src="nav.js">` as first element of `<body>` → one primary intro pattern (`hero` or `page-header`) → section divs → page-footer div → optional inline `<script>`.
 
-**nav.js** detects whether the page is in `/pages/` and adjusts root-relative links accordingly. It loads the page list by first trying a local directory listing, then falling back to the GitHub API at `github.com/lustandfury/medpace_UX_analysis`.
+**nav.js** detects whether the page is in `/pages/` and adjusts root-relative links accordingly. It loads the page list by first trying a local directory listing, then falling back to the GitHub API at `github.com/Nimble-Gravity/medpace-AI-powered-SDLC`.
 
 **shared.css** provides the shared visual system: Google Fonts imports, CSS custom properties, base resets, and a growing set of cross-page components/layout patterns used by multiple pages. Before creating a new reusable page pattern, check `DESIGN-SYSTEM.md`.
+
+Do not add a second standalone header bar beneath the global nav when a page already has a hero or page-header. Orientation details belong inside the primary intro pattern, not in an extra top strip. Do not add top-of-page reading progress strips as a default page pattern.
+When adding badges, chips, tags, or small craft labels, reuse the shared badge language in `styles/shared.css`. New variants should normally be modifier classes that only change color, not one-off HTML inline styles or page-specific typography/padding.
 
 ## CSS Conventions
 

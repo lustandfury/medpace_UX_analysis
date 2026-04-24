@@ -8,17 +8,6 @@
 <script src="../../footer.js"></script>
 <script src="../../nav.js"></script>
 
-<header>
-  <div class="header-left">
-    <strong>Product</strong>
-    <span class="sep">·</span>
-    <span>AI-Ready Requirements</span>
-  </div>
-  <div class="header-right">Phase 01 of 04 · 3 Principles · 7 Fields · Prompt Library</div>
-</header>
-
-<div class="progress-strip"><div class="progress-fill" id="prog"></div></div>
-
 <!-- HERO -->
 <section class="hero" id="sec-0">
   <div class="hero-inner">
@@ -119,6 +108,14 @@
 
     <div class="callout">
       <strong>Most of this you already know</strong> — it's just not written down. And once it is, AI tools can do remarkable things with it. The template is not about adding overhead. It's about making implicit knowledge explicit in a form that travels further than your memory.
+    </div>
+
+    <div class="tip-trick tip-trick--dark">
+      <div class="tip-trick-icon" aria-hidden="true">✦</div>
+      <div class="tip-trick-copy">
+        <div class="tip-trick-label">Tips &amp; Tricks</div>
+        <p><strong>If a story contains multiple “and” clauses, split it before you hand it to AI tooling.</strong> One behavior per requirement produces cleaner code generation, cleaner test coverage, and cleaner traceability.</p>
+      </div>
     </div>
 
     <div class="step-nav-strip" style="border-top-color:rgba(255,255,255,.1);">
@@ -487,11 +484,5 @@ than guessing at the intent.</pre>
       setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = orig; }, 2200);
     });
   }
-
-  window.addEventListener('scroll', () => {
-    const scrolled = window.scrollY;
-    const total = document.body.scrollHeight - window.innerHeight;
-    document.getElementById('prog').style.width = (scrolled / total * 100) + '%';
-  });
 </script>
 </body></html>
